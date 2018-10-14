@@ -102,6 +102,7 @@ div.menu {
 	bottom : 0px;
 	font-size : 1.4rem;
 	background-color: #D6D6D6;
+	overflow-x : auto;
 }
 div.menu a {
 	text-decoration : none;
@@ -109,7 +110,7 @@ div.menu a {
 #menu td {
 	height : 50px;
 	padding-top : 0px;
-	padding-bottom : 100px;
+	padding-bottom : 0px;
 	vertical-align : center;
 	line-height : 100%;
 }
@@ -227,6 +228,11 @@ DIV.max-breedte {
 	background-color : #F9F9F9;
 }
 </style>
+<script>
+function toonOpKleinScherm(tekst) {
+	if (screen.width < 600) { document.writeln(tekst); }
+}
+</script>
 </head>
 
 <body>
@@ -1243,6 +1249,9 @@ vrije slag verdediging
 <div class="witruimte"></div>
 
 <div class="menu">
+<script>
+	toonOpKleinScherm("<div style=\"width:800px;\">");
+</script>
 <table id="menu"><tr><td>
 <a href="#index">INDEX</a>
 <a href="#1" title="Speelveld">1</a>
@@ -1260,6 +1269,9 @@ vrije slag verdediging
 <a href="#13" title="Uitvoering van straffen">13</a>
 <a href="#14" title="Persoonlijke straffen">14</a>
 </td></tr></table>
+<script>
+	toonOpKleinScherm("</div>"); 
+</script>
 </div>
 
 </body>
