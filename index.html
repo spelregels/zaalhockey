@@ -164,19 +164,22 @@ DIV.begrippen A:HOVER {
    naar gelang de breedte van het scherm. Standaard kleur kan overschreven 
    worden met stijlen verderop */
 DIV.tegel {
-	width : 20.3vw;
-	max-width : 6em;
+	width : 22.7vw;
+	max-width : 7em;
+	height : 75px;
 	float : left;
 	background-color : #F9F9F9;
+	text-align : center;
+	margin-top : 5px;
+	margin-right : 5px;
 }
 /* tegelvullende tabel in bovenstaande DIV tbv verticale centrering tekst */
 DIV.tegel TABLE {
 	height : 100%;
 }
-/* geen padding want die heeft de DIV al via de cel-stijl */
 DIV.tegel TD {
-	padding : 0px;
 	vertical-align : middle;
+	padding : 5px;
 }
 DIV.tegel:HOVER {
 	background-color : #99EEFF;
@@ -185,6 +188,9 @@ DIV.tegel:HOVER {
 DIV.tegel A {
 	text-decoration : none;
 	font-weight : normal;
+}
+DIV.tegel A:HOVER {
+	color : #9F2900;
 }
 /* stijl die de tegel aan het begin van een nieuwe regel plaatst */
 DIV.index-onderwerp {
@@ -202,13 +208,13 @@ DIV.index-onderwerp {
    en er verschijnt een horizontale scrollbar. Het gaat fout door de 
    rechter cel die over twee rijen samengevoegd is. */
    
-.cel, .cel-r, DIV.tegel {
+.cel, .cel-r {
 	text-align : center;
-	height : 4rem;
+	height : 65px;
 	border-top : solid 5px white;
 	padding : 5px;
 }
-.cel-r, DIV.tegel {
+.cel-r {
 	border-right : solid 5px #FFFFFF;
 }
 
@@ -837,7 +843,7 @@ Bepalingen voor het nemen van een vrije push, beginpush en voor hervatting van h
 <div class="opmerking">Indien een speler binnen 3 meter afstand van de bal is, maar het spel niet beïnvloedt, behoeft het nemen van de vrije push niet te worden opgehouden.</div>
 </li><li>Bij een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt, moeten alle spelers, behalve de speler die de vrije push neemt, op ten minste 3 meter afstand van de bal zijn.
 </li><li><a id="13.2d"></a>De bal moet worden <a href="#push">gepusht</a>.
-</li><li><a id="13.2e"></a>Een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt mag niet de cirkel in worden gespeeld, voordat de bal minimaal drie meter is verplaatst of is geraakt door een speler van de verdedigende partij. <a id="vrijepushbalk"></a>De bal mag ook via de balk de cirkel in worden gespeeld, mits de bal eerst drie meter heeft gerold voordat de balk wordt geraakt.
+</li><li><a id="13.2e"></a>Een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt mag niet de cirkel in worden gespeeld, voordat de bal minimaal drie meter is verplaatst of is geraakt door een speler van de verdedigende partij. <a id="vrijepushbalk"></a>De bal mag ook <span>via de balk</span> de cirkel in worden gespeeld, mits de bal eerst drie meter heeft gerold voordat de balk wordt geraakt.
 <div class="opmerking">Als de speler die de vrije push neemt ook degene is die verder speelt (speler van de verdedigende partij heeft de bal nog niet geraakt):
 <ul><li>mag deze speler de bal zo vaak raken als hij wil, maar
 </li><li>de bal moet minimaal drie meter verplaatst worden, voordat
@@ -1082,6 +1088,7 @@ E&eacute;n van de spelers van een team die geen beschermende keeperuitrusting dr
 <div class="tegel"><table><tr><td onClick="location.href='#12'"><a href="#12">straffen</a></td></tr></table></div>
 <div class="tegel"><table><tr><td onClick="location.href='#13'"><a href="#13">uit&shy;voering straffen</a></td></tr></table></div>
 <div class="tegel"><table><tr><td onClick="location.href='#14'"><a href="#14">persoon&shy;lijke straffen</a></td></tr></table></div>
+<div class="tegel"><table><tr><td onClick="location.href='#begrippenlijst'"><a href="#begrippenlijst">termen en begrip&shy;pen</a></td></tr></table></div>
 
 <div class="rand"></div>
 	
@@ -1133,7 +1140,7 @@ E&eacute;n van de spelers van een team die geen beschermende keeperuitrusting dr
 <div class="tegel"><table><tr><td onClick="location.href='#13.6'"><a href="#13.6">tijdens straf&shy;corner</a></td></tr></table></div>
 <div class="tegel"><table><tr><td onClick="location.href='#9.14'"><a href="#9.16">stick wisselen</a></td></tr></table></div>
 
-<div class="rand"></div>
+<div class="witruimte"></div>
 
 <table><thead><tr><th>straf voor verdediger bij overtreding</th></tr></thead></table>
 <div class="max-breedte">
