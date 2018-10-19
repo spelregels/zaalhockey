@@ -166,11 +166,18 @@ TD.linksuitlijnen {
 	text-align : left;
 }
 
-/* STIJLEN VOOR INDEX ====================================== */
+/* STIJLEN VOOR TEGELS (INDEX EN INHOUD) =================================== */
+/* STRUCTUUR:
+   Een tegel is een DIV.
+   Om alle tegels heen zit een DIV met stijl 'tegels', die ervoor zorgt dat
+   alle DIV's daarbinnen het gedrag en uiterlijk van een tegel krijgen.
+   Elke tegel heeft boven en links een rand. Een negatieve marge op de 
+   omsluitende DIV zorgt ervoor dat er op de meest linker tegels toch geen
+   rand zichtbaar is */
 
-/* Tegel dmv floating DIV zodat tegels over regels verdeeld kunnen worden
-   naar gelang de breedte van het scherm. Standaard kleur kan overschreven 
-   worden met stijlen verderop */
+DIV.tegels {
+	margin-left : -5px;
+}
 DIV.tegels DIV {
 	width : calc(25% - 5px);
 	max-width : 7em;
@@ -179,7 +186,7 @@ DIV.tegels DIV {
 	background-color : #F9F9F9;
 	text-align : center;
 	margin-top : 5px;
-	margin-right : 5px;
+	margin-left : 5px;
 }
 /* tegelvullende tabel in bovenstaande DIV tbv verticale centrering tekst */
 DIV.tegels DIV TABLE {
@@ -192,6 +199,7 @@ DIV.tegels DIV TD {
 DIV.tegels DIV:HOVER {
 	background-color : #99EEFF;
 }
+
 /* op de tegel hyperlinks niet onderstrepen en niet vet */
 DIV.tegels DIV A {
 	text-decoration : none;
