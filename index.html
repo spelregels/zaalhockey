@@ -145,18 +145,25 @@ DIV.begrippen A:HOVER {
 	color : inherit;
 }
 
-/* STIJLEN VOOR HULPTABEL SLAGEN =================================== */
+/* STIJLEN VOOR SPELREGELTABELLEN =================================== */
 
-/* kolommen gelijke breedte geven */
-#slagen TD {
-	width : 16%;
+TABLE.spelregeltabel {
+	table-layout : fixed;
+	max-width : 750px;
 }
+.spelregeltabel TD {
+	text-align : center;
+	height : 65px;
+	border-top : solid 5px white;
+	border-right : solid 5px #FFFFFF;
+	padding : 5px;
+}
+.spelregeltabel TR TD:last-child {
+	border-right : none;
 
-/* STIJLEN VOOR HULPTABEL STRAFFEN =================================== */
-
-/* kolommen gelijke breedte geven */
-#straffen TD {
-	width : 20%;
+}
+TD.linksuitlijnen {
+	text-align : left;
 }
 
 /* STIJLEN VOOR INDEX ====================================== */
@@ -198,32 +205,7 @@ DIV.index-onderwerp {
 	clear : left;
 }
 	
-/* STIJLEN VOOR ALLE HULPTABELLEN =================================== */
-
-/* aan de buitenkant van een tabel moeten er geen randen zijn, daarom
-   hebben cellen alleen boven en rechts een rand (cel-r).
-   Aan 1 kant is dan een cel nodig met alleen boven een rand (cel). */
-   
-/* NB: in de straffen-voor-verdediger tabel werkt gaat het niet goed als
-   de linker randen wit zijn in plaats van rechts. De tabel wordt te breed
-   en er verschijnt een horizontale scrollbar. Het gaat fout door de 
-   rechter cel die over twee rijen samengevoegd is. */
-   
-.cel, .cel-r {
-	text-align : center;
-	height : 65px;
-	border-top : solid 5px white;
-	padding : 5px;
-}
-.cel-r {
-	border-right : solid 5px #FFFFFF;
-}
-
-/* STIJLEN VOOR ALLE HULPTABELLEN =================================== */
-
-DIV.max-breedte {
-	max-width : 750px;
-}
+/* KLEUREN VOOR TABELLEN, INDEX, INHOUD =================================== */
 
 .rood {
 	background-color : #FF0000;
@@ -1144,107 +1126,100 @@ E&eacute;n van de spelers van een team die geen beschermende keeperuitrusting dr
 <div class="witruimte"></div>
 
 <table><thead><tr><th>straf voor verdediger bij overtreding</th></tr></thead></table>
-<div class="max-breedte">
-<table id="straffen">
-<tr><td class="cel-r" rowspan="2">
-</td><td class="grijs cel-r" rowspan="2">geen opzet
-</td><td class="grijs cel-r" colspan="2">opzet
-</td><td class="grijs cel" rowspan="2">doel&shy;punt voor&shy;komen
+<table class="spelregeltabel">
+<tr><td rowspan="2">
+</td><td class="grijs" rowspan="2">geen opzet
+</td><td class="grijs" colspan="2">opzet
+</td><td class="grijs" rowspan="2">doel&shy;punt voor&shy;komen
 </td></tr>
 
-<tr><td class="grijs cel-r">tegen speler <i>zonder</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
-</td><td class="grijs cel">tegen speler <i>met</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
+<tr><td class="grijs">tegen speler <i>zonder</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
+</td><td class="grijs">tegen speler <i>met</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
 </td></tr>
 
-<tr><td class="grijs cel-r"><a href="#cirkel">cirkel</a>
-</td><td class="geel cel-r"><a href="#12.3a">straf&shy;cor&shy;ner</a>
-</td><td class="geel cel-r"><a href="#12.3b">straf&shy;cor&shy;ner</a>
-</td><td class="rood cel-r"><a href="#12.4b">straf&shy;bal</a>
-</td><td class="rood cel"><a href="#12.4a">straf&shy;bal</a>
+<tr><td class="grijs"><a href="#cirkel">cirkel</a>
+</td><td class="geel"><a href="#12.3a">straf&shy;cor&shy;ner</a>
+</td><td class="geel"><a href="#12.3b">straf&shy;cor&shy;ner</a>
+</td><td class="rood"><a href="#12.4b">straf&shy;bal</a>
+</td><td class="rood"><a href="#12.4a">straf&shy;bal</a>
 </td></tr>
 
-<tr><td class="grijs cel-r">eigen helft
-</td><td class="groen cel-r"><a href="#12.2b">vrije push</a>
-</td><td colspan="2" class="geel cel-r"><a href="#12.3c">straf&shy;corner</a>
+<tr><td class="grijs">eigen helft
+</td><td class="groen"><a href="#12.2b">vrije push</a>
+</td><td colspan="2" class="geel"><a href="#12.3c">straf&shy;corner</a>
 </td><td>
 </td></tr>
 
-<tr><td class="grijs cel-r">rest
-</td><td colspan="3" class="groen cel-r"><a href="#12.2a">vrije slag</a>
+<tr><td class="grijs">rest
+</td><td colspan="3" class="groen"><a href="#12.2a">vrije slag</a>
 </td><td>
 </td></tr>
 </table>
-</div>
 
 <div class="rand"></div>
 
 <a id="strafcornertabel"></a>
 <table><thead><tr><th>straf bij overtreding tijdens strafcorner</th></tr></thead></table>
-<div class="max-breedte">
-<table>
-<tr><td class="grijs cel">
+<table class="spelregeltabel">
+<tr><td class="grijs">
 opnieuw nemen
-</td><td>
+</td><td class="linksuitlijnen">
 <ul><li><a href="#13.7a">aangever niet met &eacute;&eacute;n voet buiten het veld</a>
 </li><li><a href="#13.7c2">verdediger te vroeg over middenlijn</a>
 </li></ul>
 </td>
-<tr><td class="grijs cel">
+<tr><td class="grijs">
 speler achter middenlijn +<br />
 opnieuw nemen
-</td><td>
+</td><td class="linksuitlijnen">
 <ul><li><a href="#13.7b">schijnbeweging aangever</a>
 </li><li>te vroeg in cirkel: <a href="#13.7c">verdediger</a>, <a href="#13.7d">doelverdediger</a> of <a href="#13.7e">aanvaller</a>
 </li></ul>
 </td></tr>
-<tr><td class="grijs cel">
+<tr><td class="grijs">
 vrije push verdediging
-</td><td>
+</td><td class="linksuitlijnen">
 <a href="#13.7f">andere overtreding</a> aanvaller
 </td></tr>
 </table>
-</div>
 
 <div class="rand"></div>
 
 <a id="slagentoegestaan"></a>
 <table><thead><tr><th>slagen toegestaan</th></tr></thead></table>
-<div class="max-breedte">
-<table id="slagen">
-<tr><td class="cel-r">
-</td><td class="grijs cel-r"><a href="#push">push</a>
-</td><td class="grijs cel-r"><a href="#slag">slag</a>
-</td><td class="grijs cel-r"><a href="#flick">flick</a>
-</td><td class="grijs cel-r"><a href="#scoop">scoop</a>
-</td><td class="grijs cel">sleep
+<table class="spelregeltabel">
+<tr><td>
+</td><td class="grijs"><a href="#push">push</a>
+</td><td class="grijs"><a href="#slag">slag</a>
+</td><td class="grijs"><a href="#flick">flick</a>
+</td><td class="grijs"><a href="#scoop">scoop</a>
+</td><td class="grijs">sleep
 </td></tr>
 
-<tr><td class="grijs cel-r"><a href="#13.2d">vrije slag</a>
-</td><td class="geel cel-r"><a href="#13.2d">niet hoog</a>
-</td><td class="rood cel-r"><a href="#9.5">nee</a>
-</td><td class="rood cel-r"><a href="#13.2d">nee</a>
-</td><td class="rood cel-r"><a href="#13.2d">nee</a>
-</td><td class="grijs cel">?
+<tr><td class="grijs"><a href="#13.2d">vrije slag</a>
+</td><td class="geel"><a href="#13.2d">niet hoog</a>
+</td><td class="rood"><a href="#9.5">nee</a>
+</td><td class="rood"><a href="#13.2d">nee</a>
+</td><td class="rood"><a href="#13.2d">nee</a>
+</td><td class="grijs">?
 </td></tr>
 
-<tr><td class="grijs cel-r"><a href="#13.3b">aan&shy;ge&shy;ven<br />straf&shy;cor&shy;ner</a>
-</td><td class="geel cel-r"><a href="#13.3b">niet hoog</a>
-</td><td class="rood cel-r"><a href="#9.5">nee</a>
-</td><td class="rood cel-r"><a href="#13.3b">nee</a>
-</td><td class="rood cel-r"><a href="#13.3b">nee</a>
-</td><td class="grijs cel">?
+<tr><td class="grijs"><a href="#13.3b">aan&shy;ge&shy;ven<br />straf&shy;cor&shy;ner</a>
+</td><td class="geel"><a href="#13.3b">niet hoog</a>
+</td><td class="rood"><a href="#9.5">nee</a>
+</td><td class="rood"><a href="#13.3b">nee</a>
+</td><td class="rood"><a href="#13.3b">nee</a>
+</td><td class="grijs">?
 </td></tr>
 
-<tr><td class="grijs cel-r"><a href="#13.8j">straf&shy;bal</a>
-</td><td class="groen cel-r">ja
-</td><td class="rood cel-r"><a href="#9.5">nee</a>
-</td><td class="groen cel-r">ja
-</td><td class="groen cel-r">ja
-</td><td class="rood cel"><a href="#strafbalslepen">nee</a>
+<tr><td class="grijs"><a href="#13.8j">straf&shy;bal</a>
+</td><td class="groen">ja
+</td><td class="rood"><a href="#9.5">nee</a>
+</td><td class="groen">ja
+</td><td class="groen">ja
+</td><td class="rood"><a href="#strafbalslepen">nee</a>
 </td></tr>
-
 </table>
-</div>
 
 <div class="witruimte"></div>
 
