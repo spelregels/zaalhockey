@@ -160,10 +160,10 @@ TABLE.spelregeltabel {
 }
 .spelregeltabel TR TD:last-child {
 	border-right : none;
-
 }
-TD.linksuitlijnen {
-	text-align : left;
+.spelregeltabel TD.normaal {
+	text-align : initial;
+	background-color : initial;
 }
 
 /* STIJLEN VOOR TEGELS (INDEX EN INHOUD) =================================== */
@@ -215,17 +215,17 @@ DIV.tegels DIV.index-onderwerp {
 	
 /* KLEUREN VOOR TABELLEN, INDEX, INHOUD =================================== */
 
-.rood {
+.spelregeltabel TD.rood {
 	background-color : #FF0000;
 	color : #FFFFFF;
 }
-.geel, DIV.tegels DIV.index-onderwerp {
+.spelregeltabel TD.geel, DIV.tegels DIV.index-onderwerp {
 	background-color : #FFBB00;
 }
-.groen {
+.spelregeltabel TD.groen {
 	background-color : #00FF00;
 }
-.grijs, DIV.tegels DIV.index-link-hoofd {
+.spelregeltabel TD, DIV.tegels DIV.index-link-hoofd {
 	background-color : #EEEEEE;
 }
 </style>
@@ -1139,30 +1139,30 @@ E&eacute;n van de spelers van een team die geen beschermende keeperuitrusting dr
 
 <table><thead><tr><th>straf voor verdediger bij overtreding</th></tr></thead></table>
 <table class="spelregeltabel">
-<tr><td rowspan="2">
-</td><td class="grijs" rowspan="2">geen opzet
-</td><td class="grijs" colspan="2">opzet
-</td><td class="grijs" rowspan="2">doel&shy;punt voor&shy;komen
+<tr><td rowspan="2" class="normaal">
+</td><td rowspan="2">geen opzet
+</td><td colspan="2">opzet
+</td><td rowspan="2">doel&shy;punt voor&shy;komen
 </td></tr>
 
-<tr><td class="grijs">tegen speler <i>zonder</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
-</td><td class="grijs">tegen speler <i>met</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
+<tr><td>tegen speler <i>zonder</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
+</td><td>tegen speler <i>met</i> bal&shy;bezit of moge&shy;lijk&shy;heid bal te spelen
 </td></tr>
 
-<tr><td class="grijs"><a href="#cirkel">cirkel</a>
+<tr><td><a href="#cirkel">cirkel</a>
 </td><td class="geel"><a href="#12.3a">straf&shy;cor&shy;ner</a>
 </td><td class="geel"><a href="#12.3b">straf&shy;cor&shy;ner</a>
 </td><td class="rood"><a href="#12.4b">straf&shy;bal</a>
 </td><td class="rood"><a href="#12.4a">straf&shy;bal</a>
 </td></tr>
 
-<tr><td class="grijs">eigen helft
+<tr><td>eigen helft
 </td><td class="groen"><a href="#12.2b">vrije push</a>
 </td><td colspan="2" class="geel"><a href="#12.3c">straf&shy;corner</a>
 </td><td>
 </td></tr>
 
-<tr><td class="grijs">rest
+<tr><td>rest
 </td><td colspan="3" class="groen"><a href="#12.2a">vrije slag</a>
 </td><td>
 </td></tr>
@@ -1173,24 +1173,24 @@ E&eacute;n van de spelers van een team die geen beschermende keeperuitrusting dr
 <a id="strafcornertabel"></a>
 <table><thead><tr><th>straf bij overtreding tijdens strafcorner</th></tr></thead></table>
 <table class="spelregeltabel">
-<tr><td class="grijs">
+<tr><td>
 opnieuw nemen
-</td><td class="linksuitlijnen">
+</td><td class="normaal">
 <ul><li><a href="#13.7a">aangever niet met &eacute;&eacute;n voet buiten het veld</a>
 </li><li><a href="#13.7c2">verdediger te vroeg over middenlijn</a>
 </li></ul>
 </td>
-<tr><td class="grijs">
+<tr><td>
 speler achter middenlijn +<br />
 opnieuw nemen
-</td><td class="linksuitlijnen">
+</td><td class="normaal">
 <ul><li><a href="#13.7b">schijnbeweging aangever</a>
 </li><li>te vroeg in cirkel: <a href="#13.7c">verdediger</a>, <a href="#13.7d">doelverdediger</a> of <a href="#13.7e">aanvaller</a>
 </li></ul>
 </td></tr>
-<tr><td class="grijs">
+<tr><td>
 vrije push verdediging
-</td><td class="linksuitlijnen">
+</td><td class="normaal">
 <a href="#13.7f">andere overtreding</a> aanvaller
 </td></tr>
 </table>
@@ -1200,31 +1200,31 @@ vrije push verdediging
 <a id="slagentoegestaan"></a>
 <table><thead><tr><th>slagen toegestaan</th></tr></thead></table>
 <table class="spelregeltabel">
-<tr><td>
-</td><td class="grijs"><a href="#push">push</a>
-</td><td class="grijs"><a href="#slag">slag</a>
-</td><td class="grijs"><a href="#flick">flick</a>
-</td><td class="grijs"><a href="#scoop">scoop</a>
-</td><td class="grijs">sleep
+<tr><td class="normaal">
+</td><td><a href="#push">push</a>
+</td><td><a href="#slag">slag</a>
+</td><td><a href="#flick">flick</a>
+</td><td><a href="#scoop">scoop</a>
+</td><td>sleep
 </td></tr>
 
-<tr><td class="grijs"><a href="#13.2d">vrije slag</a>
+<tr><td><a href="#13.2d">vrije slag</a>
 </td><td class="geel"><a href="#13.2d">niet hoog</a>
 </td><td class="rood"><a href="#9.5">nee</a>
 </td><td class="rood"><a href="#13.2d">nee</a>
 </td><td class="rood"><a href="#13.2d">nee</a>
-</td><td class="grijs">?
+</td><td>?
 </td></tr>
 
-<tr><td class="grijs"><a href="#13.3b">aan&shy;ge&shy;ven<br />straf&shy;cor&shy;ner</a>
+<tr><td><a href="#13.3b">aan&shy;ge&shy;ven<br />straf&shy;cor&shy;ner</a>
 </td><td class="geel"><a href="#13.3b">niet hoog</a>
 </td><td class="rood"><a href="#9.5">nee</a>
 </td><td class="rood"><a href="#13.3b">nee</a>
 </td><td class="rood"><a href="#13.3b">nee</a>
-</td><td class="grijs">?
+</td><td>?
 </td></tr>
 
-<tr><td class="grijs"><a href="#13.8j">straf&shy;bal</a>
+<tr><td><a href="#13.8j">straf&shy;bal</a>
 </td><td class="groen">ja
 </td><td class="rood"><a href="#9.5">nee</a>
 </td><td class="groen">ja
