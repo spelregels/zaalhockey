@@ -48,7 +48,7 @@ A {
 	font-weight : bold;
 	color : inherit;
 }
-A:HOVER, DIV.tegel:HOVER { 
+A:HOVER, DIV.tegels DIV:HOVER { 
 	color : #EF790C;
 }
 OL { 
@@ -197,8 +197,11 @@ DIV.tegels DIV TD {
 	vertical-align : middle;
 	padding : 5px;
 }
+/* !important is nodig omdat als een tegel een stijl meekrijgt (voor het 
+   veranderen van de tegel-kleur) onderstaande anders geen effect meer zou
+   hebben, ook niet als op dit niveau geen hover kleur wordt ingesteld */
 DIV.tegels DIV:HOVER {
-	background-color : #99EEFF;
+	background-color : #99EEFF !important;
 }
 
 /* op de tegel hyperlinks niet onderstrepen en niet vet */
@@ -207,7 +210,7 @@ DIV.tegels DIV A {
 	font-weight : normal;
 }
 DIV.tegels DIV A:HOVER {
-	color : #9F2900;
+	color : darkblue;
 }
 /* stijl die de tegel aan het begin van een nieuwe regel plaatst */
 DIV.tegels DIV.index-onderwerp {
