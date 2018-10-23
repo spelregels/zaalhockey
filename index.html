@@ -158,45 +158,39 @@ TABLE.gelijke-kolommen {
    Een tegel is een DIV.
    Om alle tegels heen zit een DIV met stijl 'tegels', die ervoor zorgt dat
    alle DIV's daarbinnen het gedrag en uiterlijk van een tegel krijgen.
-   Elke tegel heeft boven en links een rand. Een negatieve marge op de 
-   omsluitende DIV zorgt ervoor dat er op de meest linker tegels toch geen
-   rand zichtbaar is */
+   Elke tegel heeft boven en links een marge. Een negatieve marge op de 
+   omsluitende DIV zorgt ervoor dat er op de meest linker tegels de linker
+   marge wegvalt en de tegel dus uiterst links komt */
 
 DIV.tegels {
 	margin-left : -5px;
 }
 DIV.tegels DIV {
+	display : table;
 	width : calc(25% - 5px);
 	max-width : 7em;
 	height : 75px;
 	float : left;
 	background-color : #F9F9F9;
-	text-align : center;
 	margin-top : 5px;
 	margin-left : 5px;
 }
 /* tegelvullende tabel in bovenstaande DIV tbv verticale centrering tekst */
-DIV.tegels DIV TABLE {
-	height : 100%;
-}
-DIV.tegels DIV TD {
+DIV.tegels DIV A {
+	display : table-cell;
+	height : 65px;
+	width : 100%;
+	text-align : center;
 	vertical-align : middle;
 	padding : 5px;
+	text-decoration : none;
+	font-weight : normal;
 }
 /* !important is nodig omdat als een tegel een stijl meekrijgt (voor het 
    veranderen van de tegel-kleur) onderstaande anders geen effect meer zou
    hebben, ook niet als op dit niveau geen hover kleur wordt ingesteld */
 DIV.tegels DIV:HOVER {
 	background-color : #99EEFF !important;
-}
-
-/* op de tegel hyperlinks niet onderstrepen en niet vet */
-DIV.tegels DIV A {
-	text-decoration : none;
-	font-weight : normal;
-}
-DIV.tegels DIV A:HOVER {
-	color : darkblue;
 }
 /* stijl die de tegel aan het begin van een nieuwe regel plaatst */
 DIV.tegels DIV.index-onderwerp {
@@ -228,21 +222,21 @@ DIV.tegels DIV.index-onderwerp {
 <thead><tr><th>INHOUD</th></tr></thead>
 </table>
 <div class="tegels">
-<div><table><tr><td onClick="location.href='#1'"><a href="#1">speelveld</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#2'"><a href="#2">samen&shy;stelling teams</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#3'"><a href="#3">aan&shy;voerders</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#4'"><a href="#4">kleding en uit&shy;rusting</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#5'"><a href="#5">wedstrijd en resultaat</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#6'"><a href="#6">begin en her&shy;vatting</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#7'"><a href="#7">bal buiten speelveld</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#8'"><a href="#8">scoren van doel&shy;punten</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9'"><a href="#9">alle spelers</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#10'"><a href="#10">doel&shy;verde&shy;digers</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#11'"><a href="#11">scheids&shy;rechters</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#12'"><a href="#12">straffen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13'"><a href="#13">uit&shy;voering straffen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#14'"><a href="#14">persoon&shy;lijke straffen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#begrippenlijst'"><a href="#begrippenlijst">termen en begrip&shy;pen</a></td></tr></table></div>
+<div><a href="#1">speelveld</a></div>
+<div><a href="#2">samen&shy;stelling teams</a></div>
+<div><a href="#3">aan&shy;voerders</a></div>
+<div><a href="#4">kleding en uit&shy;rusting</a></div>
+<div><a href="#5">wedstrijd en resultaat</a></div>
+<div><a href="#6">begin en her&shy;vatting</a></div>
+<div><a href="#7">bal buiten speelveld</a></div>
+<div><a href="#8">scoren van doel&shy;punten</a></div>
+<div><a href="#9">alle spelers</a></div>
+<div><a href="#10">doel&shy;verde&shy;digers</a></div>
+<div><a href="#11">scheids&shy;rechters</a></div>
+<div><a href="#12">straffen</a></div>
+<div><a href="#13">uit&shy;voering straffen</a></div>
+<div><a href="#14">persoon&shy;lijke straffen</a></div>
+<div><a href="#begrippenlijst">termen en begrip&shy;pen</a></div>
 </div>
 
 <div class="rand"></div>
@@ -1080,49 +1074,50 @@ E&eacute;n van de spelers van een team die geen beschermende keeperuitrusting dr
 <thead><tr><th>INDEX</th></tr></thead>
 </table>
 <div class="tegels">
-<div class="index-onderwerp"><table><tr><td onClick="location.href='#13.2'"><a href="#13.2">vrije push</a></td></tr></table></div>
-<div class="index-link-hoofd"><table><tr><td onClick="location.href='#12.2'"><a href="#12.2">toe&shy;kennen</a></td></tr></table></div>
-<div class="index-link-hoofd"><table><tr><td onClick="location.href='#vrijepushbalk'"><a href="#vrijepushbalk">via balk</a></td></tr></table></div>
+<div class="index-onderwerp"><a href="#13.2">vrije push</a></div>
+<div class="index-link-hoofd"><a href="#12.2">toe&shy;kennen</a></div>
+<div class="index-link-hoofd"><a href="#vrijepushbalk">via balk</a></div>
 
-<div class="index-onderwerp"><table><tr><td onClick="location.href='#13.3'"><a href="#13.3">straf&shy;corner</a></td></tr></table></div>
-<div class="index-link-hoofd"><table><tr><td onClick="location.href='#12.3'"><a href="#12.3">toe&shy;kennen</a></td></tr></table></div>
-<div class="index-link-hoofd"><table><tr><td><a href="#13.7">straffen</a><br /><br /><i><a href="#strafcornertabel">tabel</a></i></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#2.3strafcorner'"><a href="#2.3strafcorner">niet wisselen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.6'"><a href="#13.6">wel wisselen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.16'"><a href="#9.16">stick wisselen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#4.2strafcorner'"><a href="#4.2strafcorner">masker</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.17strafcorner'"><a href="#9.17strafcorner">los object</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.5'"><a href="#13.5">einde</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.6'"><a href="#13.6">einde uitspeel&shy;straf&shy;corner</a></td></tr></table></div>
+<div class="index-onderwerp"><a href="#13.3">straf&shy;corner</a></div>
+<div class="index-link-hoofd"><a href="#12.3">toe&shy;kennen</a></div>
+<div class="index-link-hoofd"><a href="#13.7">straffen</a></div>
+<div><a href="#strafcornertabel">tabel</a></div>
+<div><a href="#2.3strafcorner">niet wisselen</a></div>
+<div><a href="#13.6">wel wisselen</a></div>
+<div><a href="#9.16">stick wisselen</a></div>
+<div><a href="#4.2strafcorner">masker</a></div>
+<div><a href="#9.17strafcorner">los object</a></div>
+<div><a href="#13.5">einde</a></div>
+<div><a href="#13.6">einde uitspeel&shy;straf&shy;corner</a></div>
 
-<div class="index-onderwerp"><table><tr><td onClick="location.href='#13.8'"><a href="#13.8">straf&shy;bal</a></td></tr></table></div>
-<div class="index-link-hoofd"><table><tr><td onClick="location.href='#12.4'"><a href="#12.4">toe&shy;kennen</a></td></tr></table></div>
-<div class="index-link-hoofd"><table><tr><td onClick="location.href='#13.10'"><a href="#13.10">straffen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.16'"><a href="#9.16">stick wisselen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.9'"><a href="#13.9">einde</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#6.6'"><a href="#6.6">hervatten</a></td></tr></table></div>
+<div class="index-onderwerp"><a href="#13.8">straf&shy;bal</a></div>
+<div class="index-link-hoofd"><a href="#12.4">toe&shy;kennen</a></div>
+<div class="index-link-hoofd"><a href="#13.10">straffen</a></div>
+<div><a href="#9.16">stick wisselen</a></div>
+<div><a href="#13.9">einde</a></div>
+<div><a href="#6.6">hervatten</a></div>
 
-<div class="index-onderwerp"><table><tr><td onClick="location.href='#9.9'"><a href="#9.9">hoge bal</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.3b'"><a href="#13.3b">bij nemen straf&shy;corner</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.8j'"><a href="#13.8j">bij strafbal</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.10'"><a href="#9.10">stoppen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.7'"><a href="#9.7">stoppen schot op doel</a></td></tr></table></div>
+<div class="index-onderwerp"><a href="#9.9">hoge bal</a></div>
+<div><a href="#13.3b">bij nemen straf&shy;corner</a></div>
+<div><a href="#13.8j">bij strafbal</a></div>
+<div><a href="#9.10">stoppen</a></div>
+<div><a href="#9.7">stoppen schot op doel</a></div>
 
-<div class="index-onderwerp"><table><tr><td>zaal specifiek</td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.12'"><a href="#9.12">liggend spelen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#10.6'"><a href="#10.6">liggend spelen keeper</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.19'"><a href="#9.19">bal klemmen</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#5.2'"><a href="#5.2">time-out</a></td></tr></table></div>
+<div class="index-onderwerp"><a>zaal specifiek</a></div>
+<div><a href="#9.12">liggend spelen</a></div>
+<div><a href="#10.6">liggend spelen keeper</a></div>
+<div><a href="#9.19">bal klemmen</a></div>
+<div><a href="#5.2">time-out</a></div>
 
-<div class="index-onderwerp"><table><tr><td onClick="location.href='#slagentoegestaan'"><a href="#slagentoegestaan">slagen toe&shy;gestaan</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.2d'"><a href="#13.2d">bij vrije slag</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.3b'"><a href="#13.3b">bij nemen straf&shy;corner</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.8j'"><a href="#13.8j">bij straf&shy;bal</a></td></tr></table></div>
+<div class="index-onderwerp"><a href="#slagentoegestaan">slagen toe&shy;gestaan</a></div>
+<div><a href="#13.2d">bij vrije slag</a></div>
+<div><a href="#13.3b">bij nemen straf&shy;corner</a></div>
+<div><a href="#13.8j">bij straf&shy;bal</a></div>
 
-<div class="index-onderwerp"><table><tr><td onClick="location.href='#wisselen'"><a href="#wisselen">wissel&shy;en</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#2.3strafcorner'"><a href="#2.3strafcorner">tijdens straf&shy;corner</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#13.6'"><a href="#13.6">tijdens straf&shy;corner</a></td></tr></table></div>
-<div><table><tr><td onClick="location.href='#9.14'"><a href="#9.16">stick wisselen</a></td></tr></table></div>
+<div class="index-onderwerp"><a href="#wisselen">wissel&shy;en</a></div>
+<div><a href="#2.3strafcorner">tijdens straf&shy;corner</a></div>
+<div><a href="#13.6">tijdens straf&shy;corner</a></div>
+<div><a href="#9.16">stick wisselen</a></div>
 </div>
 
 <div class="witruimte"></div>
