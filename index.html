@@ -35,7 +35,7 @@ TR {
 	border-collapse	:collapse;
 }
 TD { 
-	padding : 10px;
+	padding : 0px;
 	border : none; 
 	border-collapse	:collapse;
 }
@@ -73,6 +73,9 @@ TABLE.spelregels {
 	font-weight : bold;
 	background-color : #EF790C;
 }
+.spelregels TD {
+	padding : 10px;
+}
 .opmerking { 
 	font-style : italic; 
 	font-size : 90%;
@@ -105,6 +108,9 @@ SPAN {
 }
 #menu A:hover {
 	background-color : black;
+}
+A.actief {
+	background-color : #BBBBBB;
 }
 
 /* STIJL VOOR WITRUIMTE TUSSEN HULPTABELLEN/INDEX ETC =================================== */
@@ -217,13 +223,56 @@ DIV.tegels DIV.index-onderwerp {
 	background-color : #EEEEEE;
 }
 </style>
+<script>
+// script om actieve link(s) uit menu mbv stijl als actief te markeren
+
+// bij scrollen markering instellen
+window.onscroll = function() {markeren();};
+
+// voor alle tabellen in de 'viewport' de link daar naartoe vanuit het menu, voorzien van stijl 'actief'
+function markeren() {
+  var x = document.getElementsByTagName("TABLE");
+  var i;
+  for (i = 0; i < x.length; i++) {
+    if (elementInViewport(x[i])) {
+		document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief')  }
+	else { 
+		document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief') }
+  }
+}
+
+// bepalen of element zichtbaar is in 'viewport'; de definitie van 'zichtbaar' wordt bepaald door de
+// condities op top en (top + height) aan het einde van de functie
+function elementInViewport(el) {
+  var top = el.offsetTop;
+  var left = el.offsetLeft;
+  var width = el.offsetWidth;
+  var height = el.offsetHeight;
+
+  while(el.offsetParent) {
+    el = el.offsetParent;
+    top += el.offsetTop;
+    left += el.offsetLeft;
+  }
+
+  return (
+    top <= window.pageYOffset+(window.innerHeight/2) &&
+    (top + height) > window.pageYOffset + 30
+  );
+}
+
+// als document geladen dan initieel actieve links markeren
+document.addEventListener('DOMContentLoaded', function() {
+   markeren();
+});
+</script>
 </head>
 
 <body>
 
 <table id="inhoud">
 <thead><tr><th>INHOUD</th></tr></thead>
-</table>
+<tr><td>
 <div class="tegels">
 <div><a href="#1">speelveld</a></div>
 <div><a href="#2">samen&shy;stelling teams</a></div>
@@ -241,6 +290,8 @@ DIV.tegels DIV.index-onderwerp {
 <div><a href="#14">persoon&shy;lijke straffen</a></div>
 <div><a href="#begrippenlijst">termen en begrip&shy;pen</a></div>
 </div>
+</td></tr>
+</table>
 
 <div class="rand"></div>
 	
@@ -1007,7 +1058,7 @@ Eén van de spelers van een team die geen beschermende keeperuitrusting draagt, 
 
 <table id="index">
 <thead><tr><th>INDEX</th></tr></thead>
-</table>
+<tr><td>
 <div class="tegels">
 <div class="index-onderwerp"><a>zaal specifiek</a></div>
 <div><a href="#9.12">liggend spelen</a></div>
@@ -1054,6 +1105,8 @@ Eén van de spelers van een team die geen beschermende keeperuitrusting draagt, 
 <div><a href="#13.6">tijdens straf&shy;corner</a></div>
 <div><a href="#9.16">stick wisselen</a></div>
 </div>
+</td></tr>
+</table>
 
 <div class="witruimte"></div>
 
