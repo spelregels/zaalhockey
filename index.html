@@ -67,6 +67,16 @@ LI {
 TABLE.spelregels {
 	margin-bottom : 5px;
 }
+/* TH's in de THEAD sticky maken. Sticky toewijzen op THEAD zelf werkt niet in Chrome
+   Klasse wordt in javascript toegewezen aan alle tabellen met 'spelregels'
+   klasse. Indien er geen ondersteuning is voor Javascript, dan zorgt dit
+   ervoor dat de headers ook niet sticky zijn, wat gewenst is omdat de 
+   navigatie via links in het document dan niet goed gaat. */
+.sticky-tabelkop THEAD TH {
+	position : -webkit-sticky;
+	position : sticky;
+	top : 0px;
+}
 .spelregels TH { 
 	text-align : left;
 	vertical-align : top;
@@ -224,6 +234,53 @@ DIV.tegels DIV.index-onderwerp {
 }
 </style>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+	// Alle tabellen met klasse 'spelregels' tevens voorzien van klasse
+	// 'sticky-tabelkop', om de tabelkoppen sticky te maken.
+	var x = document.getElementsByClassName("spelregels");
+	var i;
+	for (i = 0; i < x.length; ++i) {
+		x[i].classList.add('sticky-tabelkop');
+	}
+
+	// Het normale gedrag op alle anchors met een url met # erin uitzetten:
+	// het springen binnen het document moet volledig via javascript verlopen omdat
+	// het standaard gedrag bij sticky tabel headers niet goed is. De target
+	// van de anchor wordt dan namelijk helemaal bovenaan het scherm gezet, 
+	// met de sticky tabelkop eroverheen. Het javascript houdt rekening met de
+	// hoogte van de header, en plaatst de target verder naar beneden.
+	var x = document.querySelectorAll('a[href*=\'#\']');
+	var i;
+	for (i = 0; i < x.length; ++i) {
+		x[i].onclick = function() {navigatie(this); return false;};
+	}
+
+});
+
+// Navigatie naar target van anchor, met de anchor als parameter.
+function navigatie(el) { 
+	// Ophalen van de id van de target van de anchor
+	if(el.tagName=='A') var doel = el.href.match(/#(.+)/);
+	
+	if (doel != null) {
+		// Verwijzing naar target element ophalen obv id
+		var x = document.getElementById(doel[1]);
+		history.pushState('','');
+		// Scrollen naar het target element
+		x.scrollIntoView();
+		// Controleren of target element in de spelregels staat
+		var y = x.closest(".spelregels");
+		// Zo ja dan de target onder de sticky tabelheader vandaan
+		// scrollen (behalve als het doelelement de tabel zelf is)
+		if ((y != null) && (y != x)) { 
+			var z = y.tHead.clientHeight; 
+			window.scrollBy(0, -z);
+			}
+	}
+}
+
+</script>
+<script>
 // script om actieve link(s) uit menu mbv stijl als actief te markeren
 
 // bij scrollen markering instellen
@@ -231,37 +288,39 @@ window.onscroll = function() {markeren();};
 
 // voor alle tabellen in de 'viewport' de link daar naartoe vanuit het menu, voorzien van stijl 'actief'
 function markeren() {
-  var x = document.getElementsByTagName("TABLE");
-  var i;
-  for (i = 0; i < x.length; i++) {
-	var elcl = document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0];
-	if (typeof(elcl) != 'undefined') {
-		if (elementInViewport(x[i])) {
-			document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief')  }
-		else { 
-			document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief') }
+	var x = document.getElementsByTagName("TABLE");
+	var i;
+	for (i = 0; i < x.length; i++) {
+		var elcl = document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0];
+		if (typeof(elcl) != 'undefined') {
+			if (elementInViewport(x[i])) {
+				document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief')
+			}
+			else { 
+				document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief')
+			}
+		}
 	}
-  }
 }
 
 // bepalen of element zichtbaar is in 'viewport'; de definitie van 'zichtbaar' wordt bepaald door de
 // condities op top en (top + height) aan het einde van de functie
 function elementInViewport(el) {
-  var top = el.offsetTop;
-  var left = el.offsetLeft;
-  var width = el.offsetWidth;
-  var height = el.offsetHeight;
+	var top = el.offsetTop;
+	var left = el.offsetLeft;
+	var width = el.offsetWidth;
+	var height = el.offsetHeight;
 
-  while(el.offsetParent) {
-    el = el.offsetParent;
-    top += el.offsetTop;
-    left += el.offsetLeft;
-  }
+	while(el.offsetParent) {
+		el = el.offsetParent;
+		top += el.offsetTop;
+		left += el.offsetLeft;
+	}
 
-  return (
-    top <= window.pageYOffset+(window.innerHeight/2) &&
-    (top + height) > window.pageYOffset + 30
-  );
+	return (
+		top <= window.pageYOffset+(window.innerHeight*3/4) &&
+		(top + height) > window.pageYOffset + 60
+	);
 }
 
 // als document geladen dan initieel actieve links markeren
