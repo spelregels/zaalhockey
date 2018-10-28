@@ -234,10 +234,13 @@ function markeren() {
   var x = document.getElementsByTagName("TABLE");
   var i;
   for (i = 0; i < x.length; i++) {
-    if (elementInViewport(x[i])) {
-		document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief')  }
-	else { 
-		document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief') }
+	var elcl = document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0];
+	if (typeof(elcl) != 'undefined') {
+		if (elementInViewport(x[i])) {
+			document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief')  }
+		else { 
+			document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief') }
+	}
   }
 }
 
@@ -535,7 +538,7 @@ Voor aanvang van de wedstrijd wordt getost:
 De richting waarin teams spelen wordt omgekeerd in de tweede helft van de wedstrijd.
 </td></tr>
 
-<tr><th>6.3</th><td>
+<tr><th id="6.3">6.3</th><td>
 Een beginpush wordt genomen:
 <ol><li>om de wedstrijd te laten beginnen door een speler van het team dat de toss heeft gewonnen en voor deze optie heeft gekozen; anders door een speler van de tegenpartij;
 </li><li>om het spel na de pauze opnieuw te beginnen door een speler van het team dat niet de beginpush heeft genomen waarmee de wedstrijd is begonnen;
@@ -775,7 +778,7 @@ Scheidsrechters fluiten om:
 </li><li>een <a href="#12">straf</a> op te leggen;
 </li><li>het <a href="#13.8g">begin</a> en het <a href="#13.9">einde van een strafbal</a> aan te geven ;
 </li><li>een <a href="#8.1">doelpunt</a> aan te geven;
-</li><li>het spel te <a href="#beginpush">hervatten nadat een doelpunt</a> is gescoord;
+</li><li>het spel te <a href="#6.3">hervatten nadat een doelpunt</a> is gescoord;
 </li><li>de wedstrijd te <a href="#6.6">hervatten na het nemen van een strafbal</a> als er geen doelpunt is gescoord;
 </li><li>de wedstrijd te <a href="#5.2a">onderbreken</a> en te <a href="#5.2e">hervatten</a> voor een <a href="#5.2">time-out</a>;
 </li><li>de wedstrijd om enige andere reden te onderbreken en daarna weer te hervatten;
