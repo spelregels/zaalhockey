@@ -138,17 +138,6 @@ DIV.rand {
 	clear : both;
 }
 
-/* STIJL VOOR BEGRIPPENLIIJST =================================== */
-
-DIV.begrippen {
-	padding-left : 10px;
-	padding-right : 10px;
-}
-DIV.begrippen A:HOVER {
-	text-decoration : none;
-	color : inherit;
-}
-
 /* STIJLEN VOOR SPELREGELTABELLEN =================================== */
 
 TABLE.spelregeltabel {
@@ -1092,9 +1081,12 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 
 <div class="witruimte"></div>
 
-<div id="begrippenlijst" class="begrippen">
-<h1>Termen en begrippen</h1>
-<p><span id="speler">Speler</span> Eén van de leden van een team.</p>
+<table id="begrippenlijst" class="spelregels">
+<thead>
+<tr><th>Termen en begrippen</th></tr>
+</thead>
+<tr><td>
+<span id="speler">Speler</span> Eén van de leden van een team.
 <p><span id="team">Team</span> Een team bestaat uit maximaal twaalf personen, waarvan ten hoogste zes spelers in het veld en de overige als wisselspelers op hun teambank.</p>
 <p><span id="veldspeler">Veldspeler</span> Eén van de spelers in het veld anders dan de doelverdediger.</p>
 <p><span id="doelverdediger">Doelverdediger</span> Eén van de spelers van elk team op het veld die een volledig beschermende uitrusting draagt die minimaal bestaat uit hoofdbescherming, legguards en klompen en die ook keepershandschoenen en andere beschermende uitrusting mag dragen.</p>
@@ -1117,7 +1109,8 @@ Eén van de spelers van een team die geen beschermende keeperuitrusting draagt, 
 <p><span id="speelafstand">Speelafstand</span> De afstand waarbinnen een speler in staat is de bal te bereiken om deze te kunnen spelen.</p>
 <p><span id="tackle">Tackle</span> Een actie waarmee men probeert een tegenstander de bal te ontnemen.</p>
 <p><span id="overtreding">Overtreding</span> Een actie begaan jegens een tegenstander, die indruist tegen de regels en die door een scheidsrechter kan worden bestraft.</p>
-</div>
+</td></tr>
+</table>
 
 <div class="witruimte"></div>
 
@@ -1287,6 +1280,7 @@ vrije push verdediging
 <a href="#12" title="Straffen">12</a>
 <a href="#13" title="Uitvoering van straffen">13</a>
 <a href="#14" title="Persoonlijke straffen">14</a>
+<a href="#begrippenlijst" title="Termen en begrippen">TERMEN</a>
 <a href="#index">INDEX</a>
 </div>
 
