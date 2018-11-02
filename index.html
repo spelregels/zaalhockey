@@ -75,18 +75,18 @@ TABLE.spelregels {
    klasse. Indien er geen ondersteuning is voor Javascript, dan zorgt dit
    ervoor dat de headers ook niet sticky zijn, wat gewenst is omdat de 
    navigatie via links in het document dan niet goed gaat. */
-.sticky-tabelkop THEAD TH, #index THEAD TH {
+TABLE.sticky-tabelkop THEAD TH, #index THEAD TH {
 	position : -webkit-sticky;
 	position : sticky;
 	top : 0px;
 }
-.spelregels TH { 
+TABLE.spelregels TH { 
 	text-align : left;
 	vertical-align : top;
 	font-weight : bold;
 	background-color : #EF790C;
 }
-.spelregels TD {
+TABLE.spelregels TD {
 	padding : 10px;
 }
 .opmerking { 
@@ -95,7 +95,7 @@ TABLE.spelregels {
 	padding-top : 5px;
 	color : #777777;
 }
-SPAN {
+TABLE.spelregels SPAN {
 	font-weight : bold;
 }
 
@@ -148,26 +148,28 @@ DIV.rand {
 TABLE.spelregeltabel {
 	max-width : 750px;
 }
+/* matrix: tabel met kolommen met vaste breedte, cel linksboven geen
+   achtergrondkleur, tekst in rij- en kolomkoppen nooit vetgedrukt */
 TABLE.matrix-tabel {
 	table-layout : fixed;
 }
-/* links in kolom- en rijkoppen niet dik om hier niet teveel nadruk op te leggen */
-.matrix-tabel TR:first-child TD A, .matrix-tabel TR TD:first-child A {
+/* hyperlinks in kolom- en rijkoppen niet dik om hier niet teveel nadruk op te leggen */
+TABLE.matrix-tabel TR:first-child TD A, TABLE.matrix-tabel TR TD:first-child A {
 	font-weight : normal;
 }
-.spelregeltabel TD {
+TABLE.matrix-tabel TR:first-child TD:first-child, TABLE.spelregeltabel TD.normaal {
+	text-align : initial;
+	background-color : initial;
+}
+TABLE.spelregeltabel TD {
 	text-align : center;
 	height : 65px;
 	border-top : solid 2px white;
 	border-right : solid 2px #FFFFFF;
 	padding : 8px;
 }
-.spelregeltabel TR TD:last-child {
+TABLE.spelregeltabel TR TD:last-child {
 	border-right : none;
-}
-.spelregeltabel TD.normaal {
-	text-align : initial;
-	background-color : initial;
 }
 
 /* STIJLEN VOOR TEGELS (INDEX EN INHOUD) =================================== */
@@ -216,16 +218,16 @@ DIV.tegels DIV.index-onderwerp {
 	
 /* KLEUREN VOOR TABELLEN, INDEX, INHOUD =================================== */
 
-.spelregeltabel TD.rood {
+TABLE.spelregeltabel TD.rood {
 	background-color : #FFAAAA;
 }
-.spelregeltabel TD.geel  {
+TABLE.spelregeltabel TD.geel  {
 	background-color : #FFDDAA;
 }
-.spelregeltabel TD.groen {
+TABLE.spelregeltabel TD.groen {
 	background-color : #AAFFAA;
 }
-.spelregeltabel TD, DIV.tegels DIV.index-link-hoofd {
+TABLE.spelregeltabel TD, DIV.tegels DIV.index-link-hoofd {
 	background-color : #E9E9E9;
 }
 DIV.tegels DIV.index-onderwerp {
@@ -1181,7 +1183,7 @@ Eén van de spelers van een team die geen beschermende keeperuitrusting draagt, 
 
 <table><thead><tr><th>straf voor verdediger bij overtreding</th></tr></thead></table>
 <table class="spelregeltabel matrix-tabel">
-<tr><td rowspan="2" class="normaal">
+<tr><td rowspan="2">
 </td><td rowspan="2">geen opzet
 </td><td colspan="2">opzet
 </td><td rowspan="2">doel&shy;punt voor&shy;komen
@@ -1240,7 +1242,7 @@ vrije push verdediging
 
 <table id="slagentoegestaan"><thead><tr><th>slagen toegestaan</th></tr></thead></table>
 <table class="spelregeltabel matrix-tabel">
-<tr><td class="normaal">
+<tr><td>
 </td><td><a href="#push">push</a>
 </td><td><a href="#slag">slag</a>
 </td><td><a href="#flick">flick</a>
