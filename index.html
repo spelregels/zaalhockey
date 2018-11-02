@@ -248,13 +248,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		x[i].classList.add('sticky-tabelkop');
 	}
 
-	// Het normale gedrag op alle anchors met een url met # erin uitzetten:
+	// Het normale gedrag op alle anchors met een href beginnend met # uitzetten:
 	// het springen binnen het document moet volledig via javascript verlopen omdat
 	// het standaard gedrag bij sticky tabel headers niet goed is. De target
 	// van de anchor wordt dan namelijk helemaal bovenaan het scherm gezet, 
 	// met de sticky tabelkop eroverheen. Het javascript houdt rekening met de
 	// hoogte van de header, en plaatst de target verder naar beneden.
-	var x = document.querySelectorAll('a[href*=\'#\']');
+	var x = document.querySelectorAll('a[href^="#"]');
 	var i;
 	for (i = 0; i < x.length; ++i) {
 		x[i].onclick = function() {navigatie(this); return false;};
