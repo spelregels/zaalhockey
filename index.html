@@ -312,19 +312,16 @@ function markeren() {
 // condities op top en (top + height) aan het einde van de functie
 function elementInViewport(el) {
 	var top = el.offsetTop;
-	var left = el.offsetLeft;
-	var width = el.offsetWidth;
 	var height = el.offsetHeight;
 
 	while(el.offsetParent) {
 		el = el.offsetParent;
 		top += el.offsetTop;
-		left += el.offsetLeft;
 	}
 
 	return (
-		top <= window.pageYOffset+(window.innerHeight*3/4) &&
-		(top + height) > window.pageYOffset + 60
+		top <= window.pageYOffset+(window.innerHeight*4/5) &&
+		(top + height) > window.pageYOffset + 80
 	);
 }
 
