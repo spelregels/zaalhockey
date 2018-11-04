@@ -332,6 +332,15 @@ document.addEventListener('DOMContentLoaded', function() {
    markeren();
 });
 </script>
+<script>
+// script om op kleine schermen de tekst in het menu te verkorten
+document.addEventListener('DOMContentLoaded', function() {
+	if (screen.width <= 700) {
+		document.getElementById('menu-inhoud').innerHTML = 'I';
+		document.getElementById('menu-termen').innerHTML = 'T';
+	}
+});
+</script>
 </head>
 
 <body>
@@ -1279,7 +1288,7 @@ vrije push verdediging
 <div class="witruimte"></div>
 
 <div id="menu">
-<a href="#inhoud">INHOUD</a>
+<a href="#inhoud" id="menu-inhoud">INHOUD</a>
 <a href="#1" title="Speelveld">1</a>
 <a href="#2" title="Samenstelling van teams">2</a>
 <a href="#3" title="Aanvoerders">3</a>
@@ -1294,7 +1303,7 @@ vrije push verdediging
 <a href="#12" title="Straffen">12</a>
 <a href="#13" title="Uitvoering van straffen">13</a>
 <a href="#14" title="Persoonlijke straffen">14</a>
-<a href="#begrippenlijst" title="Termen en begrippen">TERMEN</a>
+<a href="#begrippenlijst" id="menu-termen">TERMEN</a>
 <a href="#index">INDEX</a>
 </div>
 
