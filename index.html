@@ -337,7 +337,11 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
 	if (screen.width <= 700) {
 		document.getElementById('menu-inhoud').innerHTML = '&#8679;';
-		document.getElementById('menu-termen').innerHTML = '?';
+		// padding bottom op 0 omdat anders het menu hoger wordt door het symbool
+		document.getElementById('menu-inhoud').style.paddingBottom = '0px';
+		document.getElementById('menu-termen').innerHTML = '&#x2754;';
+		document.getElementById('menu-termen').style.paddingLeft = '0px';
+		document.getElementById('menu-termen').style.paddingRight = '0px';
 	}
 });
 </script>
