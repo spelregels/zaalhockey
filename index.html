@@ -336,13 +336,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // script om op kleine schermen de tekst in het menu te verkorten
 document.addEventListener('DOMContentLoaded', function() {
 	if (screen.width <= 700) {
-		document.getElementById('menu-inhoud').innerHTML = '&#8679;';
-		// padding bottom op 0 omdat anders het menu hoger wordt door het symbool
-		document.getElementById('menu-inhoud').style.paddingBottom = '0px';
-		document.getElementById('menu-termen').innerHTML = '&#x2754;';
-		// het vraagteken-symbool zelf bevat al genoeg padding
-		document.getElementById('menu-termen').style.paddingLeft = '0px';
-		document.getElementById('menu-termen').style.paddingRight = '0px';
+		document.getElementById('menu-inhoud').innerHTML = '&#x2B06;';
+		document.getElementById('menu-termen').innerHTML = '?';
 	}
 });
 </script>
