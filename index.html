@@ -340,6 +340,8 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
 	if (screen.width <= 700) {
 		document.getElementById('menu-inhoud').innerHTML = '↑';
+		document.getElementById('menu-inhoud').style.paddingTop = '0px';
+		document.getElementById('menu-inhoud').style.paddingBottom = '0px';
 		document.getElementById('menu-termen').innerHTML = '?';
 	}
 });
