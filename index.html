@@ -114,7 +114,7 @@ TABLE.spelregels SPAN {
 #menu A {
 	display : table-cell;
 	text-decoration : none;
-	padding : 12px 5px 4px 5px;
+	padding : 12px 4.5px 4px 4.5px;
 	border-bottom : 8px solid rgba(0,0,0,0);
 }
 #menu A:first-child {
@@ -336,8 +336,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // script om op kleine schermen de tekst in het menu te verkorten
 document.addEventListener('DOMContentLoaded', function() {
 	if (screen.width <= 700) {
-		document.getElementById('menu-inhoud').innerHTML = 'I';
-		document.getElementById('menu-termen').innerHTML = 'T';
+		document.getElementById('menu-inhoud').innerHTML = '&#8679;';
+		document.getElementById('menu-termen').innerHTML = '?';
 	}
 });
 </script>
