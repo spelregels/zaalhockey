@@ -64,6 +64,10 @@ UL {
 LI { 
 	padding-top : 5px;
 }
+.knipper {
+	transition : background-color 1s;
+	background-color : #FFE99C !important;
+}	
 
 /* STIJLEN VOOR SPELREGELS =================================== */
 
@@ -219,7 +223,6 @@ DIV.tegels DIV:HOVER {
 DIV.tegels DIV.index-onderwerp {
 	clear : left;
 }
-	
 /* KLEUREN VOOR TABELLEN, INDEX, INHOUD =================================== */
 
 TABLE.spelregeltabel TD.rood {
@@ -268,6 +271,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+// Ontvangt een HTML element als input, en geeft in specifieke
+// gevallen het bovenliggende element terug
+function teKleurenObject(x) {
+	if ((x.tagName == 'TH') || (x.tagName == 'SPAN')) {
+		o = x.parentElement; 
+	}
+	else {
+		o = x
+	};
+	return o;
+}
+
+// Tijdelijke verandering van achtergrondkleur
+function knipper(x) {
+	if ((x.scrollHeight < window.innerHeight * 0.70) && (x.id != 'inhoud')) {
+		x.classList.add('knipper');
+		setTimeout(function() {
+			x.classList.remove('knipper');
+		}, 2000);
+	}
+}
+
 // Navigatie naar target van anchor, met de anchor als parameter.
 function navigatie(el) { 
 	// Ophalen van de id van de target van de anchor
@@ -287,6 +312,10 @@ function navigatie(el) {
 			var z = y.tHead.clientHeight; 
 			window.scrollBy(0, -z);
 			}
+		
+		// Target even highlighten om duidelijker te maken dat dit 
+		// de tekst is waarnaar gesprongen is.
+		knipper(teKleurenObject(x));
 	}
 }
 
@@ -1115,30 +1144,29 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <thead>
 <tr><th>Termen en begrippen</th></tr>
 </thead>
-<tr><td>
-<span id="speler">Speler</span> Eén van de leden van een team.
-<p><span id="team">Team</span> Een team bestaat uit maximaal twaalf personen, waarvan ten hoogste zes spelers in het veld en de overige als wisselspelers op hun teambank.</p>
-<p><span id="veldspeler">Veldspeler</span> Eén van de spelers in het veld anders dan de doelverdediger.</p>
-<p><span id="doelverdediger">Doelverdediger</span> Eén van de spelers van elk team op het veld die een volledig beschermende uitrusting draagt die minimaal bestaat uit hoofdbescherming, legguards en klompen en die ook keepershandschoenen en andere beschermende uitrusting mag dragen.</p>
-<p><span id="veldspelerdoelverdediger">Veldspeler met de rechten van een doelverdediger (‘vliegende keep’)</span>
-Eén van de spelers van een team die geen beschermende keeperuitrusting draagt, maar wel de rechten heeft van een doelverdediger. Deze speler draagt een shirt in een afwijkende kleur van dat van zijn medespelers en van de tegenstander.</p>
-<p><span id="aanvaller">Aanval / Aanvaller</span> Het team dat een goal probeert te scoren, dan wel een speler van dat team.</p>
-<p><span id="verdediging">Verdediging / Verdediger</span> Het team dat probeert te voorkomen dat een goal wordt gescoord, dan wel een speler van dat team.</p>
-<p><span id="achterlijn">Achterlijn</span> De korte grenslijn (18 - 22 meter) van het speelveld.</p>
-<p><span id="doellijn">Doellijn</span> De achterlijn tussen de twee doelpalen.</p>
-<p><span id="middenlijn">Middenlijn</span> De lijn over de gehele breedte van het veld die het speelveld door midden deelt. De middenlijn behoort tot beide speelhelften.</p>
-<p><span id="zijbalken">Zijbalken</span> Op de lange grenslijn (36 - 44 meter) van het speelveld geplaatste balken.</p>
-<p><span id="cirkel">Cirkel</span> Het gebied aan elke kant van het veld, dat wordt begrensd door de lijnen van de twee kwartcirkels, met de binnenste hoekpunten aan de voorzijde van de doelpalen als middelpunt, en de verbindingslijnen tussen de kwartcirkels; de lijnen zijn onderdeel van de cirkel.</p>
-<p><span id="spelenvandebal">Spelen van de bal: veldspeler</span> Stoppen, laten afkaatsen of in beweging brengen van de bal met de stick.</p>
-<p><span id="push">Push</span> Verplaatsen van de bal over de grond met een duwende beweging van de stick, nadat de stick eerst dicht bij de bal is geplaatst. Wanneer een push wordt uitgevoerd, zijn zowel de bal als de haak van de stick in contact met de grond.</p>
-<p><span id="flick">Flick</span> Zodanig pushen van de bal dat deze van de grond afkomt.</p>
-<p><span id="scoop">Scoop</span> Omhoog brengen van de bal van de grond door de haak van de stick onder de bal te plaatsen en vervolgens een optillende beweging te maken.</p>
+<tr><td><span id="speler">Speler</span> Eén van de leden van een team.
+</td></tr><tr><td><span id="team">Team</span> Een team bestaat uit maximaal twaalf personen, waarvan ten hoogste zes spelers in het veld en de overige als wisselspelers op hun teambank.
+</td></tr><tr><td><span id="veldspeler">Veldspeler</span> Eén van de spelers in het veld anders dan de doelverdediger.
+</td></tr><tr><td><span id="doelverdediger">Doelverdediger</span> Eén van de spelers van elk team op het veld die een volledig beschermende uitrusting draagt die minimaal bestaat uit hoofdbescherming, legguards en klompen en die ook keepershandschoenen en andere beschermende uitrusting mag dragen.
+</td></tr><tr><td><span id="veldspelerdoelverdediger">Veldspeler met de rechten van een doelverdediger (‘vliegende keep’)</span>
+Eén van de spelers van een team die geen beschermende keeperuitrusting draagt, maar wel de rechten heeft van een doelverdediger. Deze speler draagt een shirt in een afwijkende kleur van dat van zijn medespelers en van de tegenstander.
+</td></tr><tr><td><span id="aanvaller">Aanval / Aanvaller</span> Het team dat een goal probeert te scoren, dan wel een speler van dat team.
+</td></tr><tr><td><span id="verdediging">Verdediging / Verdediger</span> Het team dat probeert te voorkomen dat een goal wordt gescoord, dan wel een speler van dat team.
+</td></tr><tr><td><span id="achterlijn">Achterlijn</span> De korte grenslijn (18 - 22 meter) van het speelveld.
+</td></tr><tr><td><span id="doellijn">Doellijn</span> De achterlijn tussen de twee doelpalen.
+</td></tr><tr><td><span id="middenlijn">Middenlijn</span> De lijn over de gehele breedte van het veld die het speelveld door midden deelt. De middenlijn behoort tot beide speelhelften.
+</td></tr><tr><td><span id="zijbalken">Zijbalken</span> Op de lange grenslijn (36 - 44 meter) van het speelveld geplaatste balken.
+</td></tr><tr><td><span id="cirkel">Cirkel</span> Het gebied aan elke kant van het veld, dat wordt begrensd door de lijnen van de twee kwartcirkels, met de binnenste hoekpunten aan de voorzijde van de doelpalen als middelpunt, en de verbindingslijnen tussen de kwartcirkels; de lijnen zijn onderdeel van de cirkel.
+</td></tr><tr><td><span id="spelenvandebal">Spelen van de bal: veldspeler</span> Stoppen, laten afkaatsen of in beweging brengen van de bal met de stick.
+</td></tr><tr><td><span id="push">Push</span> Verplaatsen van de bal over de grond met een duwende beweging van de stick, nadat de stick eerst dicht bij de bal is geplaatst. Wanneer een push wordt uitgevoerd, zijn zowel de bal als de haak van de stick in contact met de grond.
+</td></tr><tr><td><span id="flick">Flick</span> Zodanig pushen van de bal dat deze van de grond afkomt.
+</td></tr><tr><td><span id="scoop">Scoop</span> Omhoog brengen van de bal van de grond door de haak van de stick onder de bal te plaatsen en vervolgens een optillende beweging te maken.
 <span id="slag">Slag (niet toegestaan bij zaalhockey)</span> Spelen van de bal door middel van een zwaaiende beweging van de stick naar de bal.
 <div class="opmerking">Het spelen van de bal met een “slapshot” of een “flats” (een langer durende schuif- of veegbeweging met de stick voor die in contact komt met de bal) wordt aangemerkt als een slag en is daarom niet toegestaan.</div>
-<p><span id="schotopdoel">Schot op doel</span> De actie van een aanvaller die probeert te scoren door de bal van binnen de cirkel in de richting van het doel te spelen. Indien de intentie van de speler duidelijk was dat hij een doelpunt wilde maken door de bal in de richting van het doel te spelen, is er ook als de bal het doel mist sprake van een ‘schot op doel’.</p>
-<p><span id="speelafstand">Speelafstand</span> De afstand waarbinnen een speler in staat is de bal te bereiken om deze te kunnen spelen.</p>
-<p><span id="tackle">Tackle</span> Een actie waarmee men probeert een tegenstander de bal te ontnemen.</p>
-<p><span id="overtreding">Overtreding</span> Een actie begaan jegens een tegenstander, die indruist tegen de regels en die door een scheidsrechter kan worden bestraft.</p>
+</td></tr><tr><td><span id="schotopdoel">Schot op doel</span> De actie van een aanvaller die probeert te scoren door de bal van binnen de cirkel in de richting van het doel te spelen. Indien de intentie van de speler duidelijk was dat hij een doelpunt wilde maken door de bal in de richting van het doel te spelen, is er ook als de bal het doel mist sprake van een ‘schot op doel’.
+</td></tr><tr><td><span id="speelafstand">Speelafstand</span> De afstand waarbinnen een speler in staat is de bal te bereiken om deze te kunnen spelen.
+</td></tr><tr><td><span id="tackle">Tackle</span> Een actie waarmee men probeert een tegenstander de bal te ontnemen.
+</td></tr><tr><td><span id="overtreding">Overtreding</span> Een actie begaan jegens een tegenstander, die indruist tegen de regels en die door een scheidsrechter kan worden bestraft.
 </td></tr>
 </table>
 
