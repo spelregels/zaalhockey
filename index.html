@@ -208,7 +208,7 @@ DIV.tegels DIV {
 	background-color : #F9F9F9;
 }
 /* tegelvullende tabel in bovenstaande DIV tbv verticale centrering tekst */
-DIV.tegels DIV A {
+DIV.tegels DIV A, DIV.tegels DIV SPAN {
 	display : table-cell;
 	height : 65px;
 	width : 100%;
@@ -218,13 +218,8 @@ DIV.tegels DIV A {
 	text-decoration : none;
 	font-weight : normal;
 }
-/* Het *-teken is nodig omdat als een tegel een class meekrijgt voor het 
-   veranderen van de tegel-kleur, desbetreffende class onderstaande zou overrulen
-   omdat eerstgenoemde class (voor tegelkleurverandering) meer specifiek is */
-DIV.tegels DIV:HOVER * {
-	background-color : #EF790C;
-}
 DIV.tegels DIV A:HOVER {
+	background-color : #EF790C;
 	color : white;
 }
 /* stijl die de tegel aan het begin van een nieuwe regel plaatst */
@@ -1172,7 +1167,7 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <thead><tr><th>INDEX</th></tr></thead>
 <tr><td>
 <div class="tegels">
-<div class="index-onderwerp"><a>zaal specifiek</a></div>
+<div class="index-onderwerp"><span>zaal specifiek</span></div>
 <div><a href="#9.12">liggend spelen</a></div>
 <div><a href="#10.6">liggend spelen keeper</a></div>
 <div><a href="#9.19">bal klemmen</a></div>
