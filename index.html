@@ -186,17 +186,15 @@ TABLE.spelregeltabel TR TD:last-child {
 }
 
 /* STIJLEN VOOR TEGELS (INDEX EN INHOUD) =================================== */
-/* STRUCTUUR:
-   Een tegel is een DIV.
-   Om alle tegels heen zit een DIV met stijl 'tegels', die ervoor zorgt dat
+/* Om alle tegels heen zit een DIV met stijl 'tegels', die ervoor zorgt dat
    alle DIV's daarbinnen het gedrag en uiterlijk van een tegel krijgen.
    Elke tegel heeft boven en links een marge. Een negatieve marge op de 
    omsluitende DIV zorgt ervoor dat er op de meest linker tegels de linker
    marge wegvalt en de tegel dus uiterst links komt */
-
 DIV.tegels {
 	margin-left : -2px;
 }
+/* tegel */
 DIV.tegels DIV {
 	display : table;
 	margin-top : 2px;
@@ -207,8 +205,8 @@ DIV.tegels DIV {
 	float : left;
 	background-color : #F9F9F9;
 }
-/* tegelvullende tabel in bovenstaande DIV tbv verticale centrering tekst */
-DIV.tegels DIV A, DIV.tegels DIV SPAN {
+/* tegelvullende tabelcel in tegel tbv verticale centrering tekst */
+DIV.tegels DIV * {
 	display : table-cell;
 	height : 65px;
 	width : 100%;
@@ -224,7 +222,11 @@ DIV.tegels DIV A:HOVER {
 }
 /* stijl die de tegel aan het begin van een nieuwe regel plaatst */
 DIV.tegels DIV.index-onderwerp {
+	background-color : #FFBB00;
 	clear : left;
+}
+DIV.tegels DIV.index-onderwerp * {
+	font-weight : bold;
 }
 /* KLEUREN VOOR TABELLEN, INDEX, INHOUD =================================== */
 
@@ -239,9 +241,6 @@ TABLE.spelregeltabel TD.groen {
 }
 TABLE.spelregeltabel TD {
 	background-color : #E9E9E9;
-}
-DIV.tegels DIV.index-onderwerp {
-	background-color : #FFBB00;
 }
 
 /* KLEUREN IN INDEX EN HULPTABELLEN ======================================= */
