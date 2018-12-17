@@ -275,12 +275,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Tijdelijke verandering van achtergrondkleur
+// Alleen indien target niet het grootste deel van het scherm vult
+// Hoe kleiner de target, hoe langer deze gehighlight moet worden
 function knipper(x) {
+	var elems = document.querySelectorAll(".knipper");
+	[].forEach.call(elems, function(el) {
+		el.classList.remove("knipper");
+	});
 	if ((x.scrollHeight < window.innerHeight * 0.70) && (x.id != 'inhoud')) {
 		x.classList.add('knipper');
 		setTimeout(function() {
 			x.classList.remove('knipper');
-		}, 2000);
+		}, (0.7 - x.scrollHeight/window.innerHeight) * 12000);
 	}
 }
 
