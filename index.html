@@ -293,13 +293,25 @@ function knipper(x) {
 	}
 }
 
+// Absolute positie element op pagina bepalen
+function topOf(el) {
+	// Dit levert de positie van het element binnen een e.v.t. bovenliggend element.
+	var top = el.offsetTop;
+	// Positie van bovenliggend element t.o.v. rest erbij optellen (recursief).
+	while(el.offsetParent) {
+		el = el.offsetParent;
+		top += el.offsetTop;
+	}
+	return(top);
+}
+
 // Navigatie naar target van anchor, met de anchor als parameter.
 function navigatie(el) { 
-	// Ophalen van de id van de target van de anchor
+	// Ophalen van de id van de target van de anchor.
 	if(el.tagName=='A') var doel = el.href.match(/#(.+)/);
 	
 	if (doel != null) {
-		// Verwijzing naar doelelement ophalen obv id
+		// Verwijzing naar doelelement ophalen obv id.
 		var doel = document.getElementById(doel[1]);
 
 		// In alle gevallen is het doelelement het element dat gehighlight moet worden.
@@ -309,25 +321,41 @@ function navigatie(el) {
 		// Als het doelelement het custom attribute 'data-scrolltoid' heeft, dan geeft
 		// dat de id van het element waarnaar gescrolld moet worden.
 		// Ontbreekt zo'n custom attribute, dan moet gewoon naar het doelelement gescrolld worden.
-		
 		var scrollnaar = doel.getAttribute('data-scrolltoid');
 		if (scrollnaar != null) { scrollnaar = document.getElementById(scrollnaar); }
 		if (scrollnaar == null) { scrollnaar = doel; }
+
+		// Controleren of scrollbestemming in een spelregeltabel staat.
+		var y = scrollnaar.closest(".spelregels");
+		// Zo ja dan hoogte van sticky tabelheader bepalen.
+		var headerHoogte = 0;
+		if (y != null) { 
+			var headerHoogte = y.tHead.clientHeight; 
+		}
+
+		// Bij afwijkende scrollbestemming: indien het doelelement buiten beeld zou raken,
+		// scroll dan toch gewoon naar het doel i.p.v. de afwijkende scrollbestemming.
+		// Uitgevoerde controle: als afstand vanaf bovenkant scrollbestemming tot onderkant doelelement
+		// groter is dan de hoogte van het browserscherm minus header en 60 extra pixels (ivm menu),
+		// dan komt het doelelement dus niet meer helemaal in beeld.
+		if ((scrollnaar != doel ) && (topOf(doel) + doel.offsetHeight - topOf(scrollnaar) > window.innerHeight - headerHoogte - 60)) {
+			scrollnaar = doel;
+		}
 		
+		// Mogelijk maken om met back knop terug te bladeren.
 		history.pushState('','');
 		// Scrollen naar juiste scrollbestemming, zie toelichting hierboven.
 		scrollnaar.scrollIntoView();
-		// Controleren of scrollbestemming in de spelregels staat
-		var y = scrollnaar.closest(".spelregels");
-		// Zo ja dan het scrollbestemming onder de sticky tabelheader vandaan
-		// scrollen, behalve als de scrollbestemming de tabel zelf is (dan gaat het al goed).
-		if ((y != null) && (y != scrollnaar)) { 
-			var z = y.tHead.clientHeight; 
-			window.scrollBy(0, -z);
-			}
+		// Indien de bestemming in tabel met sticky header staat, dan moet de scrollpositie
+		// aangepast worden; de standaard scrollfunctie plaatst het doelelement helemaal bovenaan de pagina
+		// en zet de sticky header eroverheen.
+		// Als de bestemming (het begin van) de tabel zelf is dan hoeft de scrollpositie niet gecorrigeerd
+		// te worden, dit gaat wel goed.
+		if ((headerHoogte > 0) && (y != scrollnaar)) {
+			window.scrollBy(0, -headerHoogte);
+		}
 		
-		// Doelelement highlighten om duidelijker te maken dat dit 
-		// de tekst is waarnaar gesprongen is.
+		// Doelelement highlighten om duidelijker te maken dat dit de tekst is waarnaar gesprongen is.
 		knipper(doel);
 	}
 }
@@ -491,7 +519,7 @@ Elk team moet tijdens de wedstrijd steeds een <a href="#doelverdediger">doelverd
 
 <tr id="wisselen"><th>2.3</th><td>
 Elk team mag wisselen met de spelers die niet in het veld staan.
-<ol><li id="2.3strafcorner">Wisselen van spelers mag op ieder gewenst moment, met uitzondering van de periode tussen het toekennen en het voltooien van een strafcorner; in die periode mag uitsluitend een geblesseerde of een uit het veld gezonden doelverdediger van de verdedigende partij worden vervangen.
+<ol><li id="2.3strafcorner" data-scrolltoid="wisselen">Wisselen van spelers mag op ieder gewenst moment, met uitzondering van de periode tussen het toekennen en het voltooien van een strafcorner; in die periode mag uitsluitend een geblesseerde of een uit het veld gezonden doelverdediger van de verdedigende partij worden vervangen.
 <div class="opmerking">Indien als gevolg van de strafcorner opnieuw een strafcorner wordt toegekend, geldt de regel ongewijzigd tot het einde van dergelijke direct opvolgende strafcorners.</div>
 <div class="opmerking">Een geblesseerde of uit het veld gestuurde <a href="#veldspelerdoelverdediger">veldspeler met de rechten van een doelverdediger</a>, mag tussen het toekennen en het voltooien van een strafcorner alleen vervangen worden door een andere veldspeler met de rechten van een doelverdediger.</div>
 </li><li>Er is geen beperking aan het aantal spelers dat op hetzelfde moment mag worden gewisseld, of aan het aantal malen dat een speler mag worden gewisseld, behalve dat een team maximaal tweemaal per wedstrijd een volledig uitgeruste doelverdediger die het veld verlaat mag vervangen door een vliegende keep.
@@ -573,12 +601,12 @@ Veldspelers van een team moeten een uniform tenue dragen.
 <div class="opmerking">KNHB: spelers uitkomende in wedstrijden in de standaardklassen, de interdistrictcompetities en de hoogste competitieklassen A/B-jeugd, dienen een duidelijk rugnummer te dragen. In een team mag niet tweemaal hetzelfde rugnummer worden gebruikt.</div>
 </td></tr>
 
-<tr><th>4.2</th><td>
+<tr id="4.2"><th>4.2</th><td>
 Spelers mogen niets dragen dat gevaarlijk kan zijn voor andere spelers.
 <div class="opmerking">Het is veldspelers toegestaan beschermende handschoenen te dragen, mits deze de natuurlijke grootte van de hand niet aanmerkelijk vergroten. Handschoenen die worden gebruikt tijdens het normale spel en/of tijdens het verdedigen van de strafcorner mogen een maximale afmeting hebben van lengte 290 mm x breedte 180 mm x hoogte 110 mm.</div>
 <div class="opmerking">Veldspelers en doelverdedigers die zonder beenbeschermers (legguards) spelen dienen scheen- en enkelbeschermers te gebruiken; veldspelers dienen een mondbeschermer te gebruiken.</div>
 <div class="opmerking">KNHB: spelers kunnen uitsluitend om medische redenen ontheffing aanvragen bij de KNHB. Spelers dienen op verzoek van de scheidsrechters de schriftelijke ontheffing van de KNHB te tonen.</div>
-<div class="opmerking" id="4.2strafcorner">Het is veldspelers toegestaan om bij het verdedigen van een strafcorner een glad masker te dragen dat transparant, wit, of enkel van kleur is en dat aansluit bij de vormen van het gezicht, <span class="nadruk">zolang de strafcorner duurt en zolang de verdediger zich in zijn eigen cirkel bevindt</span>.</div>
+<div class="opmerking" id="4.2strafcorner" data-scrolltoid="4.2">Het is veldspelers toegestaan om bij het verdedigen van een strafcorner een glad masker te dragen dat transparant, wit, of enkel van kleur is en dat aansluit bij de vormen van het gezicht, <span class="nadruk">zolang de strafcorner duurt en zolang de verdediger zich in zijn eigen cirkel bevindt</span>.</div>
 <div class="opmerking">Het is veldspelers toegestaan om tijdens het verdedigen van een strafcorner kniebescherming te dragen, mits deze onder de sokken wordt gedragen of dezelfde kleur heeft als de sokken.</div>
 <div class="opmerking">KNHB-experiment: het is veldspelers toegestaan om, alleen om medische redenen die door de KNHB zijn goedgekeurd, een glad en bij voorkeur transparant, wit of egaal donker masker te dragen dat aansluit op de vormen van het gezicht, of zachte hoofdbescherming of oogbescherming in de vorm van een beschermende bril (met zacht materiaal over het frame). Spelers dienen op verzoek van de scheids- rechters de schriftelijke toestemming van de KNHB voor het dragen van dit masker te tonen.</div>
 <div class="opmerking">Het is veldspelers niet toegestaan om in andere omstandigheden hoofdbescherming (masker, helm of andere bescherming) te dragen.</div>
@@ -819,7 +847,7 @@ Spelers mogen hun stick niet ruilen tussen toekennen en voltooien van een strafc
 
 <tr id="9.17"><th>9.17</th><td>
 Spelers mogen geen voorwerpen of uitrustingsstukken op het veld, naar de bal of naar een speler, scheidsrechter of andere persoon gooien.
-<div class="opmerking" id="9.17strafcorner">Indien na een strafcorner de bal weggegooide uitrustingsstukken raakt zoals een handschoen, kniebeschermer of masker wordt een <a href="#13.2">vrije push</a> gegeven indien dit buiten de cirkel gebeurt en een <a href="#13.3">strafcorner</a> wanneer dit binnen de cirkel gebeurt.</div>
+<div class="opmerking" id="9.17strafcorner" data-scrolltoid="9.17">Indien na een strafcorner de bal weggegooide uitrustingsstukken raakt zoals een handschoen, kniebeschermer of masker wordt een <a href="#13.2">vrije push</a> gegeven indien dit buiten de cirkel gebeurt en een <a href="#13.3">strafcorner</a> wanneer dit binnen de cirkel gebeurt.</div>
 </td></tr>
 
 <tr><th>9.18</th><td>
@@ -984,8 +1012,8 @@ Bepalingen voor het nemen van een vrije push, beginpush en voor hervatting van h
 </li><li>Spelers van de tegenpartij moeten op ten minste 3 meter afstand van de bal zijn.
 <div class="opmerking">Indien een speler binnen 3 meter afstand van de bal is, maar het spel niet beïnvloedt, behoeft het nemen van de vrije push niet te worden opgehouden.</div>
 </li><li>Bij een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt, moeten alle spelers, behalve de speler die de vrije push neemt, op ten minste 3 meter afstand van de bal zijn.
-</li><li id="13.2d">De bal moet worden <a href="#push">gepusht</a>.
-</li><li id="13.2e">Een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt mag niet de cirkel in worden gespeeld, voordat de bal minimaal drie meter is verplaatst of is geraakt door een speler van de verdedigende partij.
+</li><li id="13.2d" data-scrolltoid="13.2">De bal moet worden <a href="#push">gepusht</a>.
+</li><li id="13.2e" data-scrolltoid="13.2">Een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt mag niet de cirkel in worden gespeeld, voordat de bal minimaal drie meter is verplaatst of is geraakt door een speler van de verdedigende partij.
 <span id="vrijepushbalk" data-scrolltoid="13.2e">De bal mag ook <span class="nadruk">via de balk</span> de cirkel in worden gespeeld, mits de bal eerst drie meter heeft gerold voordat de balk wordt geraakt.</span>
 <div class="opmerking">Als de speler die de vrije push neemt ook degene is die verder speelt (speler van de verdedigende partij heeft de bal nog niet geraakt):
 <ul><li>mag deze speler de bal zo vaak raken als hij wil, maar
@@ -1005,7 +1033,7 @@ Bepalingen voor het nemen van een vrije push, beginpush en voor hervatting van h
 <tr id="13.3"><th>13.3</th><td>
 Bepalingen voor het nemen van een strafcorner:
 <ol><li>De bal moet op de achterlijn binnen de cirkel liggen op ten minste 6 meter van de doelpaal, aan de kant van het doel waar het aanvallende team de voorkeur aan geeft.
-</li><li id="13.3b">Een aanvaller <a href="#push">pusht</a> de bal vanaf die plaats, zonder hem met opzet omhoog te spelen.
+</li><li id="13.3b" data-scrolltoid="13.3">Een aanvaller <a href="#push">pusht</a> de bal vanaf die plaats, zonder hem met opzet omhoog te spelen.
 </li><li>De aanvaller die de strafcorner neemt, moet minstens één voet buiten het speelveld aan de grond hebben.
 </li><li>De overige aanvallers moeten binnen het speelveld maar buiten de cirkel zijn, zonder met stick, voeten of handen de grond binnen de cirkel aan te raken.
 </li><li>Geen andere speler dan de speler die de strafcorner neemt mag op minder dan 3 meter afstand van de bal zijn op het moment dat de bal gepusht wordt.
@@ -1046,22 +1074,22 @@ Om te bepalen wanneer gewisseld mag worden en voor het uitspelen van strafcorner
 <tr id="13.7"><th>13.7</th><td>
 Straffen voor een overtreding tijdens het nemen van een
 strafcorner:
-<ol><li id="13.7a">De aanvaller die een strafcorner neemt, heeft niet ten minste één voet buiten het veld aan de grond: de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
-</li><li id="13.7b">De aanvaller die de strafcorner neemt doet alsof hij de bal speelt: de aanvaller moet aan de andere kant van de middenlijn plaatsvinden en wordt vervangen door een andere aanvaller. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+<ol><li id="13.7a" data-scrolltoid="13.7">De aanvaller die een strafcorner neemt, heeft niet ten minste één voet buiten het veld aan de grond: de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+</li><li id="13.7b" data-scrolltoid="13.7">De aanvaller die de strafcorner neemt doet alsof hij de bal speelt: de aanvaller moet aan de andere kant van de middenlijn plaatsvinden en wordt vervangen door een andere aanvaller. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
 <div class="opmerking">De verdediger die door de schijnbeweging te vroeg over de achter-lijn is gekomen hoeft niet achter de middenlijn plaats te nemen.</div>
-</li><li id="13.7c">Een verdediger, niet zijnde de doelverdediger, komt over de achterlijn voordat de strafcorner is genomen: de verdediger moet aan de andere kant van de middenlijn plaatsnemen en mag niet worden vervangen door een andere verdediger. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+</li><li id="13.7c" data-scrolltoid="13.7">Een verdediger, niet zijnde de doelverdediger, komt over de achterlijn voordat de strafcorner is genomen: de verdediger moet aan de andere kant van de middenlijn plaatsnemen en mag niet worden vervangen door een andere verdediger. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
 <div class="opmerking">Indien een verdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt, dient deze verdediger ook achter de middenlijn plaats te nemen en mag niet worden vervangen.</div>
 <div class="opmerking">Een strafcorner wordt beschouwd als opnieuw genomen totdat aan een voorwaarde van regel <a href="#13.5">13.5</a> en <a href="13.6">13.6</a> is voldaan.</div>
 <div class="opmerking">Een nieuw toegekende strafcorner, in tegenstelling tot een opnieuw genomen strafcorner, mag weer met maximaal 6 verdedigers (inclusief doelverdediger of veldspeler met de rechten van een doelverdediger) worden verdedigd.</div>
-<div class="opmerking" id="13.7c2">Een verdediger komt over de middenlijn voordat de strafcorner is genomen : de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.</div>
-</li><li id="13.7d">Een <a href="#doelverdediger">doelverdediger</a> of <a href="#veldspelerdoelverdediger">veldspeler met rechten van een doelverdediger</a> komt over de achterlijn voordat de strafcorner is genomen : de verdedigende partij verdedigt de strafcorner met een speler minder. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+<div class="opmerking" id="13.7c2" data-scrolltoid="13.7">Een verdediger komt over de middenlijn voordat de strafcorner is genomen : de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.</div>
+</li><li id="13.7d" data-scrolltoid="13.7">Een <a href="#doelverdediger">doelverdediger</a> of <a href="#veldspelerdoelverdediger">veldspeler met rechten van een doelverdediger</a> komt over de achterlijn voordat de strafcorner is genomen : de verdedigende partij verdedigt de strafcorner met een speler minder. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
 <div class="opmerking">Het verdedigende team wijst een veldspeler aan die achter de middenlijn plaatsneemt. Deze verdediger mag niet worden vervangen.</div>
 <div class="opmerking">Indien een doelverdediger of veldspeler met rechten van een doelverdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt: het verdedigende team wijst een volgende veldspeler aan om achter de middenlijn plaats te nemen. De speler mag niet worden vervangen.</div>
 <div class="opmerking">Een strafcorner wordt beschouwd als opnieuw genomen totdat aan een voorwaarde van regel <a href="#13.5">13.5</a> en <a href="#13.6">13.6</a> is voldaan.</div>
 <div class="opmerking">Een nieuw toegekende strafcorner, in tegenstelling tot een opnieuw genomen strafcorner, mag weer met maximaal 6 verdedigers (inclusief doelverdediger of veldspeler met de rechten van een doelverdediger) worden verdedigd.</div>
-</li><li id="13.7e">Een aanvaller komt in de cirkel voordat de strafcorner is genomen: de aanvaller moet aan de andere kant van de middenlijn plaatsnemen. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+</li><li id="13.7e" data-scrolltoid="13.7">Een aanvaller komt in de cirkel voordat de strafcorner is genomen: de aanvaller moet aan de andere kant van de middenlijn plaatsnemen. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
 <div class="opmerking">Aanvallers die achter de middenlijn zijn gestuurd mogen niet terugkeren voor opnieuw genomen strafcorners, maar wel voor een nieuw gegeven strafcorner.</div>
-</li><li id="13.7f">Voor een andere overtreding door de aanvallende partij: een <a href="#13.2">vrije push</a> wordt toegekend aan het verdedigende team.
+</li><li id="13.7f" data-scrolltoid="13.7">Voor een andere overtreding door de aanvallende partij: een <a href="#13.2">vrije push</a> wordt toegekend aan het verdedigende team.
 <div class="opmerking">In andere dan bovenstaande gevallen wordt een <a href="#12.2">vrije push</a>, <a href="#12.3">strafcorner</a> of <a href="#12.4">strafbal</a> gegeven zoals in dit spelreglement staat beschreven.</div>
 </li></ol>
 </td></tr>
@@ -1078,8 +1106,8 @@ Bepalingen voor het nemen van een strafbal:
 </li><li>De aanvaller mag de bal niet spelen voordat het fluitsignaal is gegeven.
 <div class="opmerking">De speler die de strafbal neemt noch de doelverdediger mogen het nemen van de strafbal ophouden of vertragen.</div>
 </li><li>De aanvaller mag niet doen alsof hij de bal speelt.
-</li><li id="13.8j">De aanvaller mag de bal met een <a href="#push">push</a>, <a href="#flick">flick</a> of <a href="#scoop">scoop</a> en op iedere hoogte spelen.
-<div class="opmerking" id="strafbalslepen" data-scrolltoid="13.8j">Het is niet toegestaan de bal bij het nemen van een strafbal te slepen (dragging).</div>
+</li><li id="13.8j" data-scrolltoid="13.8">De aanvaller mag de bal met een <a href="#push">push</a>, <a href="#flick">flick</a> of <a href="#scoop">scoop</a> en op iedere hoogte spelen.
+<div class="opmerking" id="strafbalslepen" data-scrolltoid="13.8">Het is niet toegestaan de bal bij het nemen van een strafbal te slepen (dragging).</div>
 </li><li>De aanvaller mag de bal slechts één keer spelen en mag na het spelen van de bal de doelverdediger noch de bal benaderen.
 </li></ol>
 </td></tr>
