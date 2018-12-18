@@ -346,11 +346,11 @@ function navigatie(el) {
 		// Uitgevoerde controle: als afstand vanaf bovenkant scrollbestemming tot onderkant doelelement
 		// groter is dan de hoogte van het browserscherm minus header en 60 extra pixels (ivm menu),
 		// dan komt het doelelement dus niet meer helemaal in beeld.
-		if ((scrollnaar != doel) && (topOf(doel) + doel.offsetHeight - topOf(scrollnaar) > window.innerHeight - headerHoogte - 60)) {
+		if ((scrollnaar != doel) && (topOf(doel) + doel.offsetHeight - topOf(scrollnaar) > window.innerHeight - headerHoogte - 70)) {
 			scrollnaar = doel;
 			// Op dezelfde manier controleren of het doelelement wel in beeld blijft bij scrollen naar 
 			// de alternatieve scrollbestemming. Zo ja, dan hiernaar scrollen.
-			if ((scrollnaaralt != doel) && (topOf(doel) + doel.offsetHeight - topOf(scrollnaaralt) <= window.innerHeight - headerHoogte - 60)) {
+			if ((scrollnaaralt != doel) && (topOf(doel) + doel.offsetHeight - topOf(scrollnaaralt) <= window.innerHeight - headerHoogte - 70)) {
 				scrollnaar = scrollnaaralt;
 			}
 		}
