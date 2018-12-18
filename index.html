@@ -275,16 +275,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Tijdelijke verandering van achtergrondkleur
-// Alleen indien target niet het grootste deel van het scherm vult
-// Hoe kleiner de target, hoe langer deze gehighlight moet worden
+var knipperTimer;
 function knipper(x) {
+	// Eventuele actieve markering en timeout daarvan uitzetten.
+	clearTimeout(knipperTimer);
 	var elems = document.querySelectorAll(".knipper");
 	[].forEach.call(elems, function(el) {
 		el.classList.remove("knipper");
 	});
+	// Alleen markeren indien target niet het grootste deel van het scherm vult.
+	// Hoe kleiner de target, hoe langer deze gehighlight moet worden
 	if ((x.scrollHeight < window.innerHeight * 0.70) && (x.id != 'inhoud')) {
 		x.classList.add('knipper');
-		setTimeout(function() {
+		knipperTimer = setTimeout(function() {
 			x.classList.remove('knipper');
 		}, (0.85 - x.scrollHeight/window.innerHeight) * 15000);
 	}
@@ -931,16 +934,16 @@ Als het toekennen van een straf niet in het voordeel is van het team waartegen e
 <tr id="12.2"><th>12.2</th><td>
 Een <a href="#13.2">vrije push</a> wordt gegeven aan de tegenpartij voor:
 <ol><li>een overtreding van een aanvaller op de helft van de tegenpartij;
-</li><li id="12.2b">een onopzettelijke overtreding van een verdediger op zijn eigen helft, maar buiten zijn cirkel.
+</li><li id="12.2b" data-scrolltoid="12.2">een onopzettelijke overtreding van een verdediger op zijn eigen helft, maar buiten zijn cirkel.
 </li></ol>
 </td></tr>
 
 <tr id="12.3"><th>12.3</th><td>
 Een <a href="#13.3">strafcorner</a> wordt toegekend:
-<ol><li id="12.3a">voor een overtreding van een verdediger in zijn cirkel, waarbij niet het scoren van een doelpunt wordt voorkomen;
-</li><li id="12.3b">voor een opzettelijke overtreding van een verdediger in zijn cirkel tegen een tegenstander die geen balbezit heeft, noch een mogelijkheid heeft de bal te spelen;
-</li><li id="12.3c">voor een opzettelijke overtreding van een verdediger op zijn eigen helft, maar buiten de cirkel;
-</li><li>voor het opzettelijk over de achterlijn spelen van de bal door een verdediger;
+<ol><li id="12.3a" data-scrolltoid="12.3">voor een overtreding van een verdediger in zijn cirkel, waarbij niet het scoren van een doelpunt wordt voorkomen;
+</li><li id="12.3b" data-scrolltoid="12.3">voor een opzettelijke overtreding van een verdediger in zijn cirkel tegen een tegenstander die geen balbezit heeft, noch een mogelijkheid heeft de bal te spelen;
+</li><li id="12.3c" data-scrolltoid="12.3">voor een opzettelijke overtreding van een verdediger op zijn eigen helft, maar buiten de cirkel;
+</li><li>voor het opzettelijk over de achterlijn spelen van de bal door een verdediger;<br />
 Doelverdedigers en veldspelers met rechten van een doelverdediger mogen de bal van hun stick, hun beschermende uitrusting of enig deel van hun lichaam in iedere gewenste richting laten afkaatsen, ook over de achterlijn.
 </li><li id="12.3e" data-scrolltoid="12.3">tegen het team dat verkeerd gewisseld heeft;
 </li><li>wanneer de bal in de cirkel komt vast te zitten in de kleding of uitrusting van een (doel)verdediger.
@@ -949,8 +952,8 @@ Doelverdedigers en veldspelers met rechten van een doelverdediger mogen de bal v
 
 <tr id="12.4"><th>12.4</th><td>
 Een <a href="#13.8">strafbal</a> wordt toegekend:
-<ol><li id="12.4a">voor een overtreding van een verdediger in zijn cirkel, waardoor het waarschijnlijk scoren van een doelpunt wordt voorkomen;
-</li><li id="12.4b">voor een opzettelijke overtreding van een verdediger in zijn cirkel tegen een tegenstander die in balbezit is of een mogelijkheid heeft om de bal te spelen.
+<ol><li id="12.4a" data-scrolltoid="12.4">voor een overtreding van een verdediger in zijn cirkel, waardoor het waarschijnlijk scoren van een doelpunt wordt voorkomen;
+</li><li id="12.4b" data-scrolltoid="12.4">voor een opzettelijke overtreding van een verdediger in zijn cirkel tegen een tegenstander die in balbezit is of een mogelijkheid heeft om de bal te spelen.
 </li></ol>
 </td></tr>
 
@@ -965,7 +968,7 @@ Als er sprake is van een nieuwe overtreding of van wangedrag nog voor een opgele
 <table id="13" class="spelregels">
 <thead><tr><th>13</th><th>Uitvoering van straffen</th></tr></thead>
 
-<tr><th>13.1</th><td>
+<tr id="13.1"><th>13.1</th><td>
 Plaats van de vrije push.
 <ol><li>Een vrije push wordt genomen nabij de plaats waar de overtreding gebeurde.
 <div class="opmerking">‘Nabij’ betekent binnen speelafstand van de plaats van de overtreding en zonder daar een aanzienlijk voordeel uit te verkrijgen. De plaats waar een vrije push moet worden genomen moet dicht bij de cirkel wat strenger worden beoordeeld.</div>
@@ -1050,7 +1053,7 @@ strafcorner:
 <div class="opmerking">Indien een verdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt, dient deze verdediger ook achter de middenlijn plaats te nemen en mag niet worden vervangen.</div>
 <div class="opmerking">Een strafcorner wordt beschouwd als opnieuw genomen totdat aan een voorwaarde van regel <a href="#13.5">13.5</a> en <a href="13.6">13.6</a> is voldaan.</div>
 <div class="opmerking">Een nieuw toegekende strafcorner, in tegenstelling tot een opnieuw genomen strafcorner, mag weer met maximaal 6 verdedigers (inclusief doelverdediger of veldspeler met de rechten van een doelverdediger) worden verdedigd.</div>
-<div class="opmerking"><a id="13.7c2"></a>Een verdediger komt over de middenlijn voordat de strafcorner is genomen : de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.</div>
+<div class="opmerking" id="13.7c2">Een verdediger komt over de middenlijn voordat de strafcorner is genomen : de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.</div>
 </li><li id="13.7d">Een <a href="#doelverdediger">doelverdediger</a> of <a href="#veldspelerdoelverdediger">veldspeler met rechten van een doelverdediger</a> komt over de achterlijn voordat de strafcorner is genomen : de verdedigende partij verdedigt de strafcorner met een speler minder. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
 <div class="opmerking">Het verdedigende team wijst een veldspeler aan die achter de middenlijn plaatsneemt. Deze verdediger mag niet worden vervangen.</div>
 <div class="opmerking">Indien een doelverdediger of veldspeler met rechten van een doelverdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt: het verdedigende team wijst een volgende veldspeler aan om achter de middenlijn plaats te nemen. De speler mag niet worden vervangen.</div>
@@ -1076,7 +1079,7 @@ Bepalingen voor het nemen van een strafbal:
 <div class="opmerking">De speler die de strafbal neemt noch de doelverdediger mogen het nemen van de strafbal ophouden of vertragen.</div>
 </li><li>De aanvaller mag niet doen alsof hij de bal speelt.
 </li><li id="13.8j">De aanvaller mag de bal met een <a href="#push">push</a>, <a href="#flick">flick</a> of <a href="#scoop">scoop</a> en op iedere hoogte spelen.
-<div class="opmerking" id="strafbalslepen">Het is niet toegestaan de bal bij het nemen van een strafbal te slepen (dragging).</div>
+<div class="opmerking" id="strafbalslepen" data-scrolltoid="13.8j">Het is niet toegestaan de bal bij het nemen van een strafbal te slepen (dragging).</div>
 </li><li>De aanvaller mag de bal slechts één keer spelen en mag na het spelen van de bal de doelverdediger noch de bal benaderen.
 </li></ol>
 </td></tr>
@@ -1200,6 +1203,7 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 
 <div class="index-onderwerp"><a href="#12.2">vrije push</a></div>
 <div class="index-link-hoofd"><a href="#13.2">nemen</a></div>
+<div><a href="#13.1">plaats</a></div>
 <div><a href="#vrijepushbalk">via balk</a></div>
 
 <div class="index-onderwerp"><a href="#12.3">straf&shy;corner</a></div>
@@ -1268,10 +1272,6 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 </td><td>
 </td></tr>
 
-<tr><td>rest
-</td><td colspan="3" class="groen"><a href="#12.2a">vrije slag</a>
-</td><td>
-</td></tr>
 </table>
 
 <div class="rand"></div>
