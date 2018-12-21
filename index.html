@@ -417,24 +417,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 // script voor aanpassingen op kleine schermen (aanname dat dat mobiele telefoons zijn
-function changeStylesheetRule(stylesheet, selector, property, value) {
-    // Make the strings lowercase
-    selector = selector.toLowerCase();
-    property = property.toLowerCase();
-    value = value.toLowerCase();
-
-    // Change it if it exists
-    for(var i = 0; i < stylesheet.cssRules.length; i++) {
-        var rule = stylesheet.cssRules[i];
-        if(rule.selectorText === selector) {
-            rule.style[property] = value;
-            return;
-        }
-    }
-   // Add it if it does not
-    stylesheet.insertRule(selector + " { " + property + ": " + value + "; }", 0);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
 	var x = document.getElementById('menu').scrollWidth;
 
@@ -450,16 +432,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	// op klein scherm alle HOVER effecten uitzetten; op een mobiele telefoon zijn deze ongewenste zichtbaar
 	// als na het volgen van een link er met back van de browser teruggekeerd wordt.
 	if (screen.width <= 600) {
-		var s = document.styleSheets[0];
-		changeStylesheetRule(s, "A:hover", "color", "inherit");
-
-		changeStylesheetRule(s, "#menu A:hover", "background-color", "inherit");
-		changeStylesheetRule(s, "#menu A:hover", "color", "inherit");
-		changeStylesheetRule(s, "#menu A.actief:hover", "background-color", "white");
-		changeStylesheetRule(s, "#menu A.actief:hover", "color", "inherit");
-
-		changeStylesheetRule(s, "DIV.tegels DIV A:HOVER", "background-color", "inherit");
-		changeStylesheetRule(s, "DIV.tegels DIV A:HOVER", "color", "inherit");
+		var stylesheet = document.styleSheets[0];
+		for(var i = 0; i < stylesheet.cssRules.length; i++) {
+			var rule = stylesheet.cssRules[i];
+			var selector = rule.selectorText;
+			if (selector.match(":hover") != null)	{
+				stylesheet.deleteRule(i);
+				i--;
+			}
+		}
 	}
 });
 </script>
