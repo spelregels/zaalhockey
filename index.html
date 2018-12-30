@@ -29,7 +29,7 @@ THEAD TH {
 	color : #FFFFFF;
 }
 TH { 
-	padding : 10px;
+	padding : 7px 10px 7px 10px;
 	border : none; 
 	border-collapse	:collapse;
 }
@@ -142,15 +142,16 @@ DIV.per2018 {
 #menu A:first-child {
 	padding-left : 10px;
 }
-#menu A:hover {
-	background-color : black;
-}
-#menu A.actief:hover {
+#menu A:hover, #menu A.actief:hover, #menu A.zichtbaar:hover {
 	background-color : black;
 }
 #menu A.actief {
 	background-color : white;
 	border-bottom-color : #EF790C;
+}
+#menu A.zichtbaar {
+	background-color : rgba(255,255,255,.5);
+	border-bottom-color : rgba(239,121,12,.25);
 }
 
 /* STIJL VOOR WITRUIMTE TUSSEN HULPTABELLEN/INDEX ETC =================================== */
@@ -386,18 +387,29 @@ function navigatie(el) {
 // bij scrollen markering instellen
 window.onscroll = function() {markeren();};
 
-// voor alle tabellen in de 'viewport' de link daar naartoe vanuit het menu, voorzien van stijl 'actief'
+// Voor alle tabellen in de 'viewport': de link daar naartoe vanuit het menu, voorzien van stijl.
+// De eerste/bovenste zichtbare tabel krijgt stijl 'actief', de rest krijgt de stijl 'zichtbaar'.
 function markeren() {
 	var x = document.getElementsByTagName("TABLE");
+	var eerste = true;
 	var i;
 	for (i = 0; i < x.length; i++) {
 		var elcl = document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0];
 		if (typeof(elcl) != 'undefined') {
 			if (elementInViewport(x[i])) {
-				document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief')
+				if (eerste) {
+					eerste = false;
+					document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('zichtbaar')
+					document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('actief');
+				}
+				else {
+					document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief')
+					document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.add('zichtbaar');
+				}
 			}
 			else { 
 				document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('actief')
+				document.querySelectorAll('#menu a[href="#' + x[i].id + '"]')[0].classList.remove('zichtbaar')
 			}
 		}
 	}
