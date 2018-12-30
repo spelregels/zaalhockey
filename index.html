@@ -348,14 +348,14 @@ function navigatie(el) {
 				// Uitgevoerde controle: als afstand vanaf bovenkant artikel tot onderkant doelelement
 				// groter is dan de hoogte van het browserscherm minus header en 70 extra pixels (ivm menu),
 				// dan komt het doelelement dus niet meer helemaal in beeld.
-				if (topOf(doel) + doel.offsetHeight - topOf(artikel) <= window.innerHeight - headerHoogte - 70) {
+				if (topOf(doel) + doel.offsetHeight - topOf(artikel) <= window.innerHeight - headerHoogte - 75) {
 					scrollnaar = artikel;
 				}
 				// Als scrollen naar artikel niet mogelijk is omdat doelelement buiten beeld raakt, dan...
 				else if (artikellid != null) {
 					// ...op dezelfde manier controleren of het doelelement wel in beeld blijft bij scrollen naar 
 					// artikellid. Zo ja, dan hiernaar scrollen.
-					if (topOf(doel) + doel.offsetHeight - topOf(artikellid) <= window.innerHeight - headerHoogte - 70) {
+					if (topOf(doel) + doel.offsetHeight - topOf(artikellid) <= window.innerHeight - headerHoogte - 75) {
 						scrollnaar = artikellid;
 					}
 				}
