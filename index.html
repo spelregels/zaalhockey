@@ -103,6 +103,14 @@ TABLE.spelregels TH {
 	font-weight : bold;
 	background-color : #EF790C;
 }
+/* Eerste kolom rechts uitlijnen, en zo smal mogelijk maken ook wanneer de
+   tekst in de tweede kolom zo smal is dat de eerste kolom normaliter breder gemaakt
+   wordt dan nodig voor het artikelnummer.
+   Behalve wanneer de eerste kolom ook de laatste is (begrippenlijst) */
+TABLE.spelregels TR TH:first-child:not(:last-child) {
+	text-align : right;
+	width : 1px;
+}
 TABLE.spelregels TD {
 	padding : 10px;
 }
