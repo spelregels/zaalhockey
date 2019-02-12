@@ -71,9 +71,12 @@ LI {
 	transition : background-color 1s;
 	background-color : #fff099;
 }
-/* benadrukte tekst (.nadruk) wordt hierbij dikgedrukt gemaakt, waarbij de 
-   tekstkleur iets lichter gemaakt wordt om de nadruk niet te sterk te maken */	
-.knipper SPAN.nadruk, #begrippenlijst SPAN {
+/* Benadrukte tekst (.nadruk) wordt hierbij dikgedrukt gemaakt, waarbij de 
+   tekstkleur iets lichter gemaakt wordt om de nadruk niet te sterk te maken.
+   Nadruk alleen toepassen op een SPAN als die direct descendant van een 
+   gehighlight element is. Of een SPAN direct in een tabelrij met highlight.
+   Zodat nadruk niet gegeven wordt mn als een heel hoofdstuk gehighlight wordt. */
+.knipper > SPAN.nadruk, TR.knipper TD > SPAN.nadruk, #begrippenlijst SPAN {
 	font-weight : bold;
 	color : rgb(60,60,60);
 }
