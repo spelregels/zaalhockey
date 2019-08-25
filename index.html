@@ -13,6 +13,9 @@ BODY {
 	margin : 0 0 54px 0;
 	min-width : 370px;
 }
+P {
+	margin : 0;
+}
 TABLE { 
 	border : none; 
 	border-collapse	:collapse;
@@ -71,16 +74,20 @@ LI {
 	transition : background-color 1s;
 	background-color : #fff099;
 }
-/* Benadrukte tekst (.nadruk) wordt hierbij dikgedrukt gemaakt, waarbij de 
+/* Tekst met nadruk-stijl (.nadruk) wordt gewoonlijk niet benadrukt, maar tijdens 
+   het highlighten van de tekst wel. De tekst wordt dan dikgedrukt gemaakt, waarbij de 
    tekstkleur iets lichter gemaakt wordt om de nadruk niet te sterk te maken.
-   Nadruk alleen toepassen op een SPAN als die direct descendant van een 
-   gehighlight element is. Of een SPAN direct in een tabelrij met highlight.
-   Zodat nadruk niet gegeven wordt mn als een heel hoofdstuk gehighlight wordt. */
-.knipper > SPAN.nadruk, TR.knipper TD > SPAN.nadruk, #begrippenlijst SPAN {
+   Nadruk alleen toepassen op een SPAN:
+	- die direct descendant van een gehighlight element is
+	- direct in een tabelrij met highlight
+	- op enige plek onder een gehighlight listitem (hoeft niet *direct* onderonder te zijn)
+   Zodat nadruk niet gegeven wordt m.n. als een geheel hoofdstuk gehighlight wordt.
+*/
+.knipper > SPAN.nadruk, TR.knipper TD > SPAN.nadruk, LI.knipper SPAN.nadruk, #begrippenlijst SPAN {
 	font-weight : bold;
 	color : rgb(60,60,60);
 }
-.knipper.opmerking SPAN.nadruk {
+.knipper.opmerking SPAN.nadruk, .opmerking .knipper SPAN.nadruk {
 	color : rgb(130,130,130);
 }
 
@@ -123,10 +130,18 @@ TABLE.spelregels TD {
 	margin-top : 5px;
 	color : #777777;
 }
-DIV.per2018 {
+DIV.per2019 {
 	margin-left : -10px;
 	padding-left : 5px;
 	border-left : 5px solid black;
+}
+LI DIV.per2019 {
+	margin-left : -5px;
+	padding-left : 2px;
+	border-left : 3px solid black;
+}
+SPAN.per2019 {
+	border-bottom : dotted 1px rgb(90,90,90);
 }
 
 /* STIJLEN VOOR HET MENU ONDERIN DE PAGINA =================================== */
@@ -454,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var x = document.getElementById('menu').scrollWidth;
 
 	// als menu breder dan scherm, dan tekst in menu inkorten
-	if (screen.width <= x) {
+	if (screen.width < x) {
 		document.getElementById('menu-inhoud').innerHTML = '↑';
 		document.getElementById('menu-inhoud').style.paddingTop = '0px';
 		document.getElementById('menu-inhoud').style.paddingBottom = '0px';
