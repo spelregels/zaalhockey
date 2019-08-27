@@ -26,6 +26,7 @@ THEAD {
 	border-collapse	:collapse;
 }
 THEAD TH {
+	padding-top : 7px;
 	text-align : left; 
 	font-size : 1.5em; 
 	background-color : #EF790C;
@@ -328,7 +329,7 @@ function knipper(x) {
 		x.classList.add('knipper');
 		knipperTimer = setTimeout(function() {
 			x.classList.remove('knipper');
-		}, 1000 + (0.85 - x.scrollHeight/(window.innerHeight - 100)) * 14000);
+		}, 2000 + (0.85 - x.scrollHeight/(window.innerHeight - 100)) * 15000);
 	}
 }
 
