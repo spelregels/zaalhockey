@@ -372,7 +372,10 @@ function navigatie(el) {
 			var artikel = doel.closest("tr");
 
 			// Zoeken bovenliggend lijstitem uit geordende lijst = lid binnen artikel.
-			var artikellid = doel.closest("ol li");
+			var artikellid = doel.closest("td li");
+
+			// Zoeken bovenliggend div in lijstitem uit geordende lijst = paragraaf binnen lid binnen artikel.
+			var artikellidparagraaf = doel.closest("td li div");
 
 			// Indien bovenliggend artikel gevonden.
 			if (artikel != null) {
@@ -383,13 +386,24 @@ function navigatie(el) {
 				if (topOf(doel) + doel.offsetHeight - topOf(artikel) <= window.innerHeight - headerHoogte - 75) {
 					scrollnaar = artikel;
 				}
-				// Als scrollen naar artikel niet mogelijk is omdat doelelement buiten beeld raakt, dan...
+				// Als scrollen naar artikel niet mogelijk is omdat doelelement buiten beeld raakt, dan proberen te
+				// scrollen naar artikellid binnen artikel
 				else if (artikellid != null) {
 					// ...op dezelfde manier controleren of het doelelement wel in beeld blijft bij scrollen naar 
 					// artikellid. Zo ja, dan hiernaar scrollen.
 					if (topOf(doel) + doel.offsetHeight - topOf(artikellid) <= window.innerHeight - headerHoogte - 75) {
 						scrollnaar = artikellid;
 					}
+
+					// Als scrollen naar artikellid ook niet lukt, dan proberen te scrollen naar paragraaf binnen artikellid
+					else if (artikellidparagraaf != null) {
+						// ...op dezelfde manier controleren of het doelelement wel in beeld blijft bij scrollen naar 
+						// artikellid. Zo ja, dan hiernaar scrollen.
+						if (topOf(doel) + doel.offsetHeight - topOf(artikellidparagraaf) <= window.innerHeight - headerHoogte - 75) {
+							scrollnaar = artikellidparagraaf;
+						}
+					}
+
 				}
 			}
 		}
