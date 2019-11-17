@@ -124,7 +124,14 @@ LI DIV.per2019 {
 SPAN.per2019 {
 	border-bottom : dashed 2px rgb(100,150,255);
 }
-
+.verwijderd2019 {
+	text-decoration: line-through;
+	color : rgb(100,150,255);
+/*	display : none;*/
+}
+.verwijderd2019 * {
+	color : initial;
+}
 
 /* STIJLEN VOOR HIGHLIGHT VAN TEKST WAARNAAR VIA LINK NAAR GESPRONGEN WORDT */
 
@@ -547,7 +554,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <thead><tr><th>1</th><th>Speelveld</th></tr></thead>
 
 <tr><th></th><td>
-<div class="opmerking">Meer details betreffende speelveld en uitrusting zijn opgenomen in de Technische specificaties. Daar zijn tevens tekeningen opgenomen van het speelveld, het doel en de stick.</div>
+<div class="opmerking">
+De informatie hieronder is een versimpelde beschrijving van het speelveld.
+Meer details betreffende speelveld en uitrusting zijn opgenomen in de Technische specificaties. Daar zijn tevens tekeningen opgenomen van het speelveld, het doel en de stick.
+</div>
 
 <tr><th>1.1</th><td>
 Het speelveld is rechthoekig, tussen 36,00 en 44,00 meter lang en tussen 18,00 en 22,00 meter breed.
@@ -582,9 +592,22 @@ Alle lijnen zijn 50 mm breed en maken deel uit van het speelveld.
 <tr><th>1.8</th><td>
 Doelen staan buiten het speelveld in het midden van elke <a href="#achterlijn">achterlijn</a>, tegen de achterlijn. Er mogen geen uitrustingsstukken of andere dingen zoals maskers, handschoenen, handdoeken, flessen etc. in het doel
 liggen.
-<div class="opmerking">KNHB: bij het speelveld moeten twee teambanken staan, één voor elk van de teams, plaats biedende aan 10 personen. Voorts moet een wedstrijdtafel worden geplaatst met zitruimte voor de tijdopnemer en voor tijdelijk uit het veld gezonden spelers (strafbank). Wedstrijdtafel en teambanken moeten worden geplaatst aan één zijde van het speelveld, op minimaal 1 meter buiten de zijbalk en maximaal 10 meter terweerszijden van de middenlijn.</div>
-<div class="opmerking">Elk team moet gebruikmaken van de bank die het dichtst staat bij het doel dat het team verdedigt; in de pauze wisselen de teams dus van bank.</div>
-<div class="opmerking">Op of bij de wedstrijdtafel moet een duidelijk zichtbaar scorebord zijn geplaatst; het is wenselijk dat een wedstrijdklok vanaf de wedstrijdtafel kan worden bediend.</div>
+<div class="opmerking">
+Bij het speelveld moeten twee teambanken staan, één voor elk van
+de teams, met plaats voor tien personen. Voorts moet een
+wedstrijdtafel worden geplaatst met zitruimte voor de tijdopnemer en
+voor tijdelijk uit het veld gezonden spelers (strafbank). Wedstrijdtafel en
+teambanken moeten worden geplaatst aan één zijde van het speelveld,
+op minimaal 1 meter buiten de zijbalk en maximaal 10 meter ter weerszijden
+van de middenlijn.
+</div>
+<div class="opmerking per2019" id="bankwissel">
+Het eerstgenoemde team moet gedurende de hele wedstrijd plaatsnemen
+op de bank vanuit het speelveld gezien links van de wedstrijdtafel
+en het als tweede genoemde team neemt plaats op de bank aan de
+rechterkant van de wedstrijdtafel, tenzij anders wordt aangegeven door
+de scheidsrechters. Wisselspelers moeten op de bank van hun team
+zitten als ze niet in het veld staan.</div>
 </td></tr></table>
 
 <table id="2" class="spelregels">
@@ -592,48 +615,68 @@ liggen.
 
 <tr><th>2.1</th><td>
 Een wedstrijd wordt gespeeld tussen twee teams, elk met niet meer dan zes spelers tegelijk in het speelveld.
-<div class="opmerking">Als een team meer dan het toegestane aantal spelers in het veld heeft staan wordt de tijd stilgezet om dit te corrigeren. De aanvoerder van het betrokken team krijgt een <a href="#14">persoonlijke straf</a>. Beslissingen die genomen zijn voordat de tijd werd stilgezet kunnen niet teruggedraaid of veranderd worden. De wedstrijd wordt hervat met een <a href="#13.3">strafcorner</a> voor het team dat niet met te veel spelers speelde.</div>
+<div class="opmerking" id="teveelspelers">Als een team meer dan het toegestane aantal spelers in het veld heeft staan wordt de tijd stilgezet om dit te corrigeren. De aanvoerder van het betrokken team krijgt een <a href="#14">persoonlijke straf</a>. Beslissingen die genomen zijn voordat de tijd werd stilgezet kunnen niet teruggedraaid of veranderd worden. De wedstrijd wordt hervat met een <a href="#13.3">strafcorner</a> voor het team dat niet met te veel spelers speelde.</div>
 <div class="opmerking">KNHB: bij de aanvang van een bondswedstrijd moeten er per team ten minste vier speelgerechtigde spelers in het speelveld zijn. Als gedurende een wedstrijd een team uit minder dan vier spelers komt te bestaan wordt de wedstrijd voortgezet.</div>
-<div class="opmerking">KNHB: voor de aanvang van een bondswedstrijd moet een digitaal wedstrijdformulier, met daarop ingevuld de namen van de (ten hoogste twaalf) spelers van beide teams, worden overhandigd aan de scheids-rechters of aan de zaalleiding. Alleen op dat formulier vermelde spelers mogen in het speelveld komen en/of op de teambank plaatsnemen. Wisselspelers moeten op de teambank zitten. Tijdens de wedstrijd kunnen geen namen op het formulier worden gewijzigd, maar niet-standaardteams kunnen tot het maximale aantal van 12 spelers is bereikt, nieuwe spelers voor vermelding op het formulier aanmelden bij de scheidsrechters.</div>
-<div class="opmerking">KNHB: aan een team mogen in bondswedstrijden ten hoogste vier teambegeleiders (coaches, verzorgers) worden toegevoegd. Hun plaats is de teambank van hun partij.</div>
-<div class="opmerking">Deze teambegeleiders staan onder het gezag van de scheidsrechters en de bepalingen van de spelregels zijn op hen van toepassing. Door het aanvaarden van zo’n functie, dan wel het gevolg geven aan een aanwijzing als teambegeleider aanvaardt de betrokkene de verplichting tot het naleven van de bepalingen van de reglementen van de hockeybond.</div>
+<div class="opmerking">
+KNHB: voor de aanvang van een bondswedstrijd moet ieder team op
+het digitale wedstrijdformulier de namen en rugnummers van de (ten
+hoogste twaalf) spelers die aan de wedstrijd deel willen nemen invullen.
+Alleen op dat formulier vermelde spelers mogen in het speelveld komen
+en/of op de teambank plaatsnemen. Tijdens de wedstrijd kunnen geen
+namen op het formulier worden gewijzigd, maar niet- standaardteams
+kunnen tot het maximale aantal van twaalf spelers is bereikt, nieuwe
+spelers voor vermelding op het digitale wedstrijdformulier aanmelden
+bij de scheidsrechters.
+</div>
+<div class="opmerking" id="teambegeleiders">KNHB: aan een team mogen in bondswedstrijden ten hoogste vier teambegeleiders (coaches, verzorgers) worden toegevoegd. Hun plaats is de teambank van hun partij. Deze teambegeleiders staan onder het gezag van de scheidsrechters en de bepalingen van de spelregels zijn op hen van toepassing. Door het aanvaarden van zo’n functie, dan wel het gevolg geven aan een aanwijzing als teambegeleider aanvaardt de betrokkene de verplichting tot het naleven van de bepalingen van de reglementen van de hockeybond.</div>
 </td></tr>
 
 <tr><th>2.2</th><td>
-Elk team moet tijdens de wedstrijd steeds een <a href="#doelverdediger">doelverdediger</a> of een <a href="#veldspelerdoelverdediger">speler met de rechten van een doelverdediger</a> in het speelveld hebben.
-<ol><li>Een geblesseerde of verwijderde doelverdediger moet worden vervangen door een andere doelverdediger of door een veldspeler met de rechten van een doelverdediger.
-</li><li>Gedurende de tijd dat een doelverdediger is verwijderd, speelt het betreffende team met een veldspeler minder.
-<div class="opmerking">Op het moment dat een tijdelijke verwijdering van de doel- verdediger ten einde is, mag de aanvoerder van het team:
-<ul><li>de tijdelijk uit het veld gezonden doelverdediger weer terug in het veld brengen, of
-</li><li>het spel voortzetten met de vervangende doelverdediger, in welk geval een andere veldspeler in het veld mag komen.
-</li></ul>
+<div class="per2019">
+Elk team moet tijdens de wedstrijd steeds een <a href="#doelverdediger">doelverdediger</a> in het veld hebben, <span class="per2019" id="alleenveldspelers">of spelen met alleen veldspelers</span>.<br /><br />
+Elk team mag spelen met:
+<ul><li>Een doelverdediger die een afwijkend kleur shirt draagt en
+beschermende kleding draagt die ten minste bestaat uit
+hoofdbescherming, legguards en klompen; deze speler wordt in de
+regels doelverdediger genoemd; of
+</li><li>Alleen veldspelers; geen enkele speler draagt een shirt in een
+afwijkende kleur, geen enkele speler mag hoofdbescherming
+dragen, behalve een gezichtsmasker bij het verdedigen van een
+strafcorner of strafbal; alle teamspelers dragen hetzelfde shirt.
+</li></ul><br />
+Elke wijziging tussen deze opties moet plaatsvinden als een wissel.
 </div>
-</li></ol>
 </td></tr>
 
 <tr id="wisselen"><th>2.3</th><td>
-Elk team mag wisselen met de spelers die niet in het veld staan.
+Elk team mag wisselen uit een maximum van twaalf spelers:
 <ol><li id="2.3strafcorner">Wisselen van spelers mag op ieder gewenst moment, met uitzondering van de periode tussen het toekennen en het voltooien van een strafcorner; in die periode mag uitsluitend een geblesseerde of een uit het veld gezonden doelverdediger van de verdedigende partij worden vervangen.
-<div class="opmerking">Indien als gevolg van de strafcorner opnieuw een strafcorner wordt toegekend, geldt de regel ongewijzigd tot het einde van dergelijke direct opvolgende strafcorners.</div>
-<div class="opmerking">Een geblesseerde of uit het veld gestuurde <a href="#veldspelerdoelverdediger">veldspeler met de rechten van een doelverdediger</a>, mag tussen het toekennen en het voltooien van een strafcorner alleen vervangen worden door een andere veldspeler met de rechten van een doelverdediger.</div>
-</li><li>Er is geen beperking aan het aantal spelers dat op hetzelfde moment mag worden gewisseld, of aan het aantal malen dat een speler mag worden gewisseld, behalve dat een team maximaal tweemaal per wedstrijd een volledig uitgeruste doelverdediger die het veld verlaat mag vervangen door een vliegende keep.
-<div class="opmerking">Het wisselen van een volledig uitgeruste doelverdediger voor een andere volledig uitgeruste doelverdediger telt niet mee als wisselmoment. Datzelfde geldt voor het wisselen van de ene vliegende keep voor de andere.</div>
-<div class="opmerking">Indien een team het maximaal aantal wisselmomenten voor een doelverdediger reeds heeft gebruikt en de doelverdediger raakt geblesseerd en kan niet verder spelen dan kan deze alleen permanent worden vervangen door een andere volledig toegeruste doelverdediger. Deze wissel moet plaatsvinden conform regel <a href="#2.3g">2.3g</a>. Indien noodzakelijk zal het spel worden voortgezet met een tijdelijke vervangende vliegende keep, terwijl buiten het veld een andere keeper zijn volledige uitrusting aantrekt voordat hij het veld mag betreden om de vliegende keep te vervangen.</div>
+<div class="opmerking">Indien als gevolg van de strafcorner opnieuw een strafcorner wordt toegekend, geldt de regel ongewijzigd en mag er geen vervanging
+plaatsvinden voor een geblesseerde of geschorste verdedigende doelverdediger, totdat de nieuwe strafcorner is voltooid.</div>
+<div class="opmerking">Tijdens een strafcorner mag een verdedigende <a href="#doelverdediger">doelverdediger</a> (met volledige beschermende uitrusting) die geblesseerd of geschorst is, worden vervangen door een andere doelverdediger met volledige beschermende uitrusting.</div>
+<div class="opmerking per2019">Als een team speelt met alleen veldspelers is het niet toegestaan om te wisselen bij een strafcorner, totdat deze is voltooid.</div>
+<div class="opmerking">Als de doelverdediger uit het veld gestuurd wordt, speelt het
+overtredende team met een speler minder.</div>
+</li><li>Er is geen beperking aan het aantal spelers dat op hetzelfde moment mag worden gewisseld, of aan het aantal malen dat een speler mag worden gewisseld, behalve dat een team maximaal tweemaal per wedstrijd een volledig uitgeruste doelverdediger die het veld verlaat mag vervangen door een andere veldspeler.
+<div class="opmerking">Het wisselen van een volledig uitgeruste doelverdediger voor een andere volledig uitgeruste doelverdediger telt niet mee als wisselmoment. </div>
+<div class="opmerking">Indien een team het maximaal aantal wisselmomenten voor een doelverdediger reeds heeft gebruikt en de doelverdediger raakt geblesseerd en kan niet verder spelen dan kan deze alleen permanent worden vervangen door een andere volledig toegeruste doelverdediger. Deze wissel moet plaatsvinden conform regel <a href="#2.3g">2.3g</a>. Indien noodzakelijk zal het spel worden voortgezet met een tijdelijke vervanging van een veldspeler, terwijl buiten het veld een andere doelverdediger zijn volledige uitrusting aantrekt voordat hij het veld mag betreden.</div>
 <div class="opmerking">Wanneer een doelverdediger na een tijdelijke verwijdering weer terugkeert in het veld geldt dit niet als wisselmoment.</div>
-<div class="opmerking">Indien een team het maximaal aantal wisselmomenten voor een doelverdediger reeds heeft gebruikt en de doelverdediger wordt tijdelijk of definitief verwijderd, dan kan deze alleen permanent worden vervangen door een andere volledig uitgeruste doelverdediger. Deze wissel moet plaatsvinden conform regel <a href="#2.3g">2.3g</a>. Indien noodzakelijk zal het spel worden voortgezet met een tijdelijke vervangende vliegende keep terwijl buiten het veld een andere keeper zijn volledige uitrusting aantrekt, voordat hij het veld mag betreden om de vliegende keep te vervangen.</div>
+<div class="opmerking">Indien een team het maximaal aantal wisselmomenten voor een doelverdediger reeds heeft gebruikt en de doelverdediger wordt tijdelijk of definitief verwijderd, dan kan deze alleen permanent worden vervangen door een andere volledig uitgeruste doelverdediger. Deze wissel moet plaatsvinden conform regel <a href="#2.3g">2.3g</a>. Indien noodzakelijk zal het spel worden voortgezet met een tijdelijke vervanging van een veldspeler, terwijl buiten het veld een andere doelverdediger zijn volledige uitrusting aantrekt, voordat hij het veld mag betreden.</div>
 </li><li>Wisselen van een speler kan pas als de te wisselen speler het speelveld heeft verlaten.
 </li><li>Een wissel is niet toegestaan voor verwijderde spelers gedurende hun straftijd.
-<div class="opmerking">Gedurende de straftijd van de uit het veld gezonden speler speelt zijn team met een speler minder.</div>
+<div class="opmerking">Voor de duur van een tijdelijke schorsing speelt het overtredende team met één speler minder. Voor elke permanente schorsing
+speelt het overtredende team de rest van de wedstrijd met één speler minder.</div>
 </li><li>Als de duur van een verwijdering is verstreken mag de betrokken speler worden gewisseld zonder dat hij in het speelveld terug is geweest.
 </li><li>Spelers die wisselen, moeten het veld verlaten dan wel betreden binnen 3 meter van de middenlijn aan de zijde van het veld waar de teambanken staan of die vooraf is overeengekomen met de scheidsrechters.
 </li><li id="2.3g">De wedstrijdtijd wordt niet stilgezet bij wissels.
-<div id="2.3gdoelverdediger" class="opmerking">De tijd wordt niet stilgezet indien een doelverdediger deel uitmaakt van een wissel.</div> Indien bij een voorgenomen wissel de vervangende doelverdediger nog geen volledige, beschermende uitrusting draagt, wordt de tijd niet stilgezet om deze uitrusting aan te laten trekken. De wedstrijd dient hiervoor niet opgehouden te worden en moet indien noodzakelijk voortgezet worden met een veldspeler met de rechten van een doelverdediger.
+<div id="2.3gdoelverdediger" class="opmerking">Dit geldt ook voor het niet stoppen van de tijd bij het wisselen van een doelverdediger of voor het vervangen van de doelverdediger bij een schorsing.</div>
 </li></ol>
 </td></tr>
 
 <tr><th>2.4</th><td>
 Veldspelers die het veld verlaten voor de behandeling van een blessure, om te drinken, om uitrusting te wisselen of te veranderen, of om enige andere reden dan voor een wissel, mogen alleen binnen 3 meter van de <a href="#middenlijn">middenlijn</a> aan de zijde van het veld waar wordt gewisseld, weer het veld in komen.
-Het verlaten en betreden van het veld als onderdeel van het spel (bijv. wanneer een verdediger bij een strafcorner een masker opzet) vindt plaats op elke geschikte plek van het veld.
+<div class="opmerking">
+Het verlaten en betreden van het veld als onderdeel van het spel (bijv. wanneer een verdediger bij een strafcorner een masker opzet) vindt plaats op elke geschikte plek van het veld.</div>
 </td></tr>
 
 <tr><th>2.5</th><td>
@@ -653,7 +696,9 @@ Een speler die geblesseerd is of bloedt moet het veld verlaten, tenzij medische 
 KNHB: bij een ongeluk of ander bijzonder voorval kunnen de scheidsrechters de wedstrijd onderbreken. Bij een onderbreking in een bondswedstrijd gelden de volgende bepalingen:
 <div class="opmerking">
 <ol><li>de wedstrijd wordt na een onderbreking zo spoedig mogelijk hervat met een <a href="#bully">bully</a>, met de passende straf of spelhervatting, of met een <a href="#beginpush">beginpush</a> als een doelpunt was gemaakt;
-</li><li>als de onderbreking langer duurt dan dertig minuten wordt de wedstrijd gestaakt;
+</li><li><div class="per2019">als de onderbreking langer duurt dan dertig minuten wordt de wedstrijd gestaakt, tenzij in het competitiereglement andere
+afspraken zijn gemaakt, bijvoorbeeld in verband met beperkte
+zaalcapaciteit;</div>
 </li><li>de scheidsrechters vermelden de redenen voor staken van de wedstrijd op het wedstrijdformulier; aangetekend worden dan ook de bereikte stand, het tijdstip van staken en of op dat moment een strafbal of strafcorner werd toegekend.
 </li></ol></div>
 </td></tr></table>
@@ -675,10 +720,10 @@ Aanvoerders zijn verplicht een onderscheidende armband of een ander onderscheide
 
 <tr><th>3.4</th><td>
 Aanvoerders zijn tevens verantwoordelijk voor het gedrag van alle spelers van hun team en moeten er voor zorgen dat wissels van hun team correct worden uitgevoerd.
-<div class="opmerking">KNHB: aanvoerders zijn tevens verantwoordelijk voor het gedrag van alle teambegeleiders van hun team tijdens een wedstrijd.</div>
 <div class="opmerking">Als een team verkeerd wisselt, wordt een <a href="#13.3">strafcorner</a> toegekend.</div>
-<div class="opmerking">Een <a href="#14">persoonlijke straf</a> wordt toegekend tegen een aanvoerder die zijn verantwoordelijkheden niet nakomt.</div>
-<div class="opmerking">KNHB: aanvoerders dragen namens hun vereniging ook verantwoordelijkheid voor de correcte invulling en afhandeling van het wedstrijdformulier.</div>
+<div class="opmerking">Een <a href="#14">persoonlijke straf</a> kan worden gegeven in overeenstemming met <a href="#teveelspelers">2.1</a> hierboven, of als een aanvoerder zijn verantwoordelijkheden niet nakomt.</div>
+<div class="opmerking">KNHB: aanvoerders zijn tevens verantwoordelijk voor het gedrag van alle <a href="#teambegeleiders">teambegeleiders</a> van hun team tijdens een wedstrijd.</div>
+<div class="opmerking">KNHB: aanvoerders dragen namens hun vereniging ook verantwoordelijkheid voor de correcte invulling en afhandeling van het digitale wedstrijdformulier.</div>
 </td></tr></table>
 
 <table id="4" class="spelregels">
@@ -692,40 +737,62 @@ Aanvoerders zijn tevens verantwoordelijk voor het gedrag van alle spelers van hu
 <tr><th>4.1</th><td>
 Veldspelers van een team moeten een uniform tenue dragen.
 <div class="opmerking">KNHB: in bondswedstrijden is spelen in het standaardtenue van de vereniging verplicht, maar als verwarring is te verwachten, dienen de spelers van het bezoekende team hun tenue aan te passen.</div>
-<div class="opmerking">KNHB: spelers uitkomende in wedstrijden in de standaardklassen, de interdistrictcompetities en de hoogste competitieklassen A/B-jeugd, dienen een duidelijk rugnummer te dragen. In een team mag niet tweemaal hetzelfde rugnummer worden gebruikt.</div>
+<div class="opmerking">KNHB: spelers uitkomende in de competities voor 1e ( standaard) teams en de hoogste competitieklassen A/B-jeugd en bij deelname aan
+districts- en of Nederlands Kampioenschappen dienen een duidelijk rugnummer te dragen. In een team mag niet tweemaal hetzelfde rugnummer worden gebruikt.</div>
 </td></tr>
 
 <tr id="4.2"><th>4.2</th><td>
 Spelers mogen niets dragen dat gevaarlijk kan zijn voor andere spelers.
-<div class="opmerking">Het is veldspelers toegestaan beschermende handschoenen te dragen, mits deze de natuurlijke grootte van de hand niet aanmerkelijk vergroten. Handschoenen die worden gebruikt tijdens het normale spel en/of tijdens het verdedigen van de strafcorner mogen een maximale afmeting hebben van lengte 290 mm x breedte 180 mm x hoogte 110 mm.</div>
-<div class="opmerking">Veldspelers en doelverdedigers die zonder beenbeschermers (legguards) spelen dienen scheen- en enkelbeschermers te gebruiken; veldspelers dienen een mondbeschermer te gebruiken.</div>
-<div class="opmerking">KNHB: spelers kunnen uitsluitend om medische redenen ontheffing aanvragen bij de KNHB. Spelers dienen op verzoek van de scheidsrechters de schriftelijke ontheffing van de KNHB te tonen.</div>
-<div class="opmerking" id="4.2strafcorner">Het is veldspelers toegestaan om bij het verdedigen van een strafcorner een glad masker te dragen dat transparant, wit, of enkel van kleur is en dat aansluit bij de vormen van het gezicht, <span class="nadruk">zolang de strafcorner duurt en zolang de verdediger zich in zijn eigen cirkel bevindt</span>.</div>
-<div class="opmerking">Het is veldspelers toegestaan om tijdens het verdedigen van een strafcorner kniebescherming te dragen, mits deze onder de sokken wordt gedragen of dezelfde kleur heeft als de sokken.</div>
-<div class="opmerking">KNHB-experiment: het is veldspelers toegestaan om, alleen om medische redenen die door de KNHB zijn goedgekeurd, een glad en bij voorkeur transparant, wit of egaal donker masker te dragen dat aansluit op de vormen van het gezicht, of zachte hoofdbescherming of oogbescherming in de vorm van een beschermende bril (met zacht materiaal over het frame). Spelers dienen op verzoek van de scheids- rechters de schriftelijke toestemming van de KNHB voor het dragen van dit masker te tonen.</div>
-<div class="opmerking">Het is veldspelers niet toegestaan om in andere omstandigheden hoofdbescherming (masker, helm of andere bescherming) te dragen.</div>
+<div class="opmerking">
+Veldspelers:
+<ul><li>mogen beschermende handschoenen dragen, mits deze de natuurlijke grootte van de hand niet aanmerkelijk vergroten. Handschoenen die worden gebruikt tijdens het normale spel en/of tijdens het verdedigen van de strafcorner mogen een maximale afmeting hebben van lengte 290 mm x breedte 180 mm x hoogte 110 mm;
+</li><li>dienen scheen-, enkel- en mondbeschermers te gebruiken;
+<div>KNHB: spelers kunnen uitsluitend om medische redenen ontheffing aanvragen bij de KNHB. Spelers dienen op verzoek van de scheidsrechters de schriftelijke ontheffing van de KNHB te tonen.</div>
+</li><li>mogen elke vorm van lichaamsbescherming (inclusief
+beenbescherming of kniebeschermers, bij het verdedigen
+van een strafcorner) onder normale wedstrijdkleding dragen;
+kniebeschermers die voor dit doel worden gebruikt, mogen buiten
+de sokken worden gedragen op voorwaarde dat de kleur ervan
+exact hetzelfde is als de kleur van de sokken;
+</li><li>mogen, alleen om medische redenen die door de KNHB zijn
+goedgekeurd, tijdens een wedstrijd een glad, bij voorkeur
+transparant of wit maar verder eenkleurig gezichtsmasker
+dragen dat nauw aansluit op het gezicht, zachte beschermende
+hoofdbedekking of oogbescherming in de vorm van een plastic
+bril (met zacht materiaal over het frame en plastic glazen); de
+betrokken speler moet de mogelijke consequenties van het spelen
+met de medische aandoening begrijpen; spelers moeten op verzoek
+van de scheidsrechters de schriftelijke toestemming van de KNHB
+voor het dragen van dit masker tonen;
+</li><li>
+<div id="4.2strafcorner">mogen bij het verdedigen van een strafcorner of strafbal een glad masker dragen dat transparant, wit, of enkel van kleur is en dat aansluit bij de vormen van het gezicht, <span class="nadruk">zolang de strafcorner of strafbal duurt en zolang de verdediger zich in zijn eigen cirkel bevindt</span>; het primaire doel van het dragen van het gezichtsmasker
+om een strafcorner of strafbal te verdedigen is veiligheid;
+gezichtsmaskers die in de lijn van deze gedachte worden gedragen,
+moeten worden toegestaan;</div>
+</li><li>mogen zich bij het dragen van gezichtsmaskers niet gedragen op
+een manier die gevaarlijk is voor andere spelers door misbruik te
+maken van de beschermende uitrusting die ze dragen;
+</li><li>mogen in andere omstandigheden geen hoofdbescherming
+(gezichtsmasker of andere hoofdbescherming) dragen.
+</li></ul>
 </td></tr>
 
 <tr><th>4.3</th><td>
-Doelverdedigers en veldspelers die de rechten hebben van een doelverdediger (de ‘vliegende keep’) moeten een shirt of kledingstuk dragen dat in kleur duidelijk afwijkt van beide teams.
-<div class="opmerking">Doelverdedigers (die spelen met beschermende uitrusting) moeten dit shirt of kledingstuk over de bescherming van hun bovenlichaam dragen. Elleboogbescherming hoeft niet onder een kledingstuk te worden gedragen.</div>
+Doelverdedigers moeten een shirt of kledingstuk dragen dat in kleur duidelijk afwijkt van beide teams.
+<div class="opmerking">Doelverdedigers moeten dit shirt of kledingstuk over de bescherming van hun bovenlichaam dragen. Elleboogbescherming hoeft niet onder het shirt of kledingstuk te worden gedragen.</div>
 </td></tr>
 
 <tr><th>4.4</th><td>
 <a href="#doelverdediger">Doelverdedigers</a> zijn verplicht om tijdens wedstrijden gebruik te maken van beschermende uitrusting bestaande uit minimaal hoofdbescherming, beenbeschermers (legguards) en klompen. De hoofdbescherming en de eventuele handbeschermers mogen worden afgedaan als de doelverdediger zelf een strafbal gaat nemen.
-<div class="opmerking">Als hoofdbescherming wordt een complete helm, die het gehele hoofd omvat, met een vast masker voor het gehele gezicht en bescherming van de keel, aanbevolen.</div>
-<div class="opmerking">De volgende uitrustingsstukken mogen uitsluitend gebruikt worden door doelverdedigers die gekozen hebben voor de optie om volledig beschermende uitrusting te dragen: bescherming voor lichaam, bovenarm, elleboog, onderarm, hand en dijbeen, beenbeschermers (legguards) en klompen.</div>
+<div class="opmerking">De volgende uitrustingsstukken mogen uitsluitend gebruikt worden door doelverdedigers die spelen met volledig beschermende uitrusting: bescherming voor bovenlijf, bovenarm, elleboog, onderarm, dijbeen, beenbeschermers (legguards) en klompen.</div>
+<div class="opmerking">KNHB: Als hoofdbescherming wordt een complete helm, die het gehele hoofd omvat, met een vast masker voor het gehele gezicht en bescherming van de keel, aanbevolen.</div>
 </td></tr>
 
 <tr><th>4.5</th><td>
-Een <a href="#veldspelerdoelverdediger">veldspeler met de rechten van een doelverdediger</a> mag hoofdbescherming dragen op de helft waar zijn team verdedigt. Het dragen van hoofdbescherming is verplicht bij de verdediging van een strafcorner of strafbal.
+Kleding en beschermende uitrusting die de natuurlijke omvang van het lichaam van de doelverdediger of de te beschermen delen van zijn lichaam aanzienlijk vergroten of verbreden, zijn niet toegestaan.
 </td></tr>
 
 <tr><th>4.6</th><td>
-Kleding en beschermende uitrusting die de natuurlijke omvang van het lichaam van de doelverdediger of de te beschermen delen van zijn lichaam aanzienlijk vergroten of verbreden, zijn niet toegestaan (zie ook hoofdstuk Technische specificaties, artikel 4 op pagina 68).
-</td></tr>
-
-<tr><th>4.7</th><td>
 De stick heeft een traditionele vorm, met een steel en een gebogen haak, die aan de linkerzijde plat is:
 <ol><li>de stick moet glad zijn, zonder ruwe en scherpe uitstekende delen;
 </li><li>inclusief aangebrachte omwikkelingen moet de stick door een ring met een binnendiameter van 51 mm kunnen;
@@ -734,9 +801,9 @@ De stick heeft een traditionele vorm, met een steel en een gebogen haak, die aan
 </li></ol>
 </td></tr>
 
-<tr><th>4.8</th><td>
-De bal is hard, wit (of een andere overeengekomen kleur die afwijkt van de speelvloer) en rond.
-<div class="opmerking">Precieze bepalingen betreffende de stick en de bal zijn opgenomen in de Technische specificaties.</div>
+<tr><th>4.7</th><td>
+De bal is rond, hard en wit (of een andere overeengekomen kleur die afwijkt van de speelvloer).
+<div class="opmerking">Gedetailleerde specificaties van de stick, de bal en de uitrusting van de doelverdediger zijn opgenomen in de Technische specificaties aan het einde van dit reglement.</div>
 </td></tr></table>
 
 <table id="5" class="spelregels">
@@ -750,22 +817,22 @@ Een wedstrijd bestaat uit twee helften van 20 minuten en een pauze van maximaal 
 </td></tr>
 
 <tr id="5.2"><th>5.2</th><td>
-Een time-out:
-<div class="opmerking">KNHB: een time-out is alleen van toepassing in competities die daarvoor speciaal door de KNHB zijn aangewezen.</div>
+KNHB: Een time-out:
+<div class="opmerking">Een time-out is alleen van toepassing in de Hoofdklasse.</div>
 <ol><li id="5.2a">Mag worden aangevraagd, direct nadat het spel stilligt voor het
 nemen van een vrije push, beginpush of bully, of nadat de bal buiten het veld is gegaan.
 </li><li>Mag niet worden aangevraagd tussen het toekennen en volledig uitvoeren van een strafcorner of strafbal.
-</li><li>Kan maximaal 1 keer per speelhelft aan een team worden toegekend.
+</li><li>Kan maximaal één keer per speelhelft aan een team worden toegekend.
 <div class="opmerking">Time-outs die in de eerste helft niet zijn gebruikt, kunnen niet worden opgenomen in de tweede helft.</div>
-</li><li>Duurt maximaal 1 minuut.
-<div class="opmerking">De duur van de time-out wordt gecontroleerd door de scheidsrechter; na precies 1 minuut moet de wedstrijd worden vervolgd.</div>
+</li><li>Duurt maximaal één minuut.
+<div class="opmerking">De duur van de time-out wordt gecontroleerd door de scheidsrechter; na precies één minuut moet de wedstrijd worden vervolgd.</div>
 </li><li id="5.2e">Het spel wordt hervat met de uitvoering van de <a href="#13.2">vrije push</a>, <a href="#beginpush">beginpush</a>, <a href="#bully">bully</a>, inpush of uitpush die voor de time-out was toegekend.
 </li></ol>
 </td></tr>
 
 <tr><th>5.3</th><td>
 Het team dat de meeste doelpunten heeft gescoord, is de winnaar van de wedstrijd; als er geen doelpunten zijn gescoord of als de teams een gelijk aantal doelpunten hebben gemaakt, is de wedstrijd in een gelijkspel geëindigd.
-<div class="opmerking">KNHB: bepalingen over een shootoutserie als manier om tot een beslissing te komen in een wedstrijd die in een gelijkspel is geëindigd, staan in het bondsreglement.</div>
+<div class="opmerking">KNHB: bepalingen over een shootoutserie als manier om tot een beslissing te komen in een wedstrijd die in een gelijkspel is geëindigd, staan in het shoot-outreglement verderop in dit reglement.</div>
 </td></tr></table>
 
 <table id="6" class="spelregels">
@@ -804,7 +871,7 @@ toepassing.
 <tr id="bully"><th>6.5</th><td>
 Een bully wordt genomen om het spel te hervatten wanneer de wedstrijd is onderbroken wegens een blessure of enig andere reden, waarbij geen straf wordt opgelegd:
 <ol><li>Een bully wordt genomen nabij de plaats waar de bal was toen het spel werd onderbroken, maar niet binnen 9 meter van de achterlijn en niet binnen 3 meter van de cirkelrand.
-</li><li>De bal ligt tussen twee spelers, één van elk team, die met hun gezichten naar elkaar toe staan, ieder met het doel dat hij verdedigt aan zijn rechterzijde.
+</li><li>De bal ligt tussen een speler van elk team, die met hun gezichten naar elkaar toe staan, ieder met het doel dat hij verdedigt aan zijn rechterzijde.
 </li><li>De twee spelers beginnen de bully met hun stick op de grond
 rechts van de bal en tikken dan éénmaal boven de bal met de platte kant van hun stick tegen de stick van hun tegenstander, waarna beide spelers de bal mogen spelen.
 </li><li>Alle andere spelers moeten op minimaal 3 meter afstand van de bal zijn.
@@ -828,8 +895,8 @@ Een speler van het team dat niet als laatste de bal aanraakte voordat deze buite
 
 <tr id="7.3"><th>7.3</th><td>
 Wanneer de bal over een zijbalk gaat:
-<ol><li>Wordt het spel hervat vanaf een plaats binnen het veld op niet meer dan een meter van de plek waar de bal over die balk ging.
-<div class="opmerking">Wanneer dit zou leiden tot een spelhervatting binnen de cirkel voor het verdedigende team, dan wordt het spel hervat één meter buiten de cirkel en één meter vanaf de zijbalk. Wanneer dit zou leiden tot een spelhervatting binnen de cirkel voor het aanvallende team, dan wordt het spel hervat net buiten de cirkel, maximaal één meter uit de zijbalk.</div>
+<ol><li>Wordt het spel hervat vanaf een plaats binnen het veld op niet meer dan een meter van de plek waar de bal over die zijbalk ging.
+<div class="opmerking per2019" id="inslaanbijcirkel">Wanneer dit zou leiden tot een spelhervatting binnen de cirkel, dan wordt het spel hervat één meter buiten de cirkel en één meter vanaf de zijbalk.</div>
 </li><li>De bepalingen voor het nemen van een <a href="#13.2">vrije push</a> zijn van toepassing.
 </li></ol>
 </td></tr>
@@ -839,7 +906,7 @@ Wanneer een bal over de achterlijn wordt gespeeld en er geen doelpunt is gescoor
 <ol><li>Als de bal is gespeeld door een aanvaller wordt het spel hervat met een bal niet verder dan 9.10 meter van de achterlijn recht tegenover het punt waar de bal over de achterlijn is gegaan.
 </li><li>Als een verdediger de bal onopzettelijk heeft gespeeld of de bal is afgekaatst van de doelverdediger, wordt het spel hervat met een lange corner, genomen <a href="#13.2e">op de middenlijn</a> recht tegenover het punt waar de bal over de achterlijn is gegaan.
 </li><li>De bepalingen voor het nemen van een <a href="#13.2">vrije push</a> zijn van toepassing.
-</li><li>Als een verdediger de bal met kennelijke opzet over zijn achterlijn heeft gespeeld en er geen sprake is van afkaatsen van de doelverdediger, wordt het spel hervat met een <a href="#13.3">strafcorner</a>.
+</li><li>Als een verdediger de bal opzettelijk over zijn achterlijn heeft gespeeld en er geen sprake is van afkaatsen van de doelverdediger, wordt het spel hervat met een <a href="#13.3">strafcorner</a>.
 </li></ol>
 </td></tr></table>
 
@@ -848,30 +915,30 @@ Wanneer een bal over de achterlijn wordt gespeeld en er geen doelpunt is gescoor
 
 <tr id="8.1"><th>8.1</th><td>
 Een doelpunt wordt gescoord wanneer de bal, nadat hij binnen de cirkel door een aanvaller is gespeeld en daarna niet meer buiten de cirkel is gekomen, in zijn geheel over de doellijn en onder de doellat gaat.
-<div class="opmerking">Spelen van de bal door een verdediger voor of nadat die door een aanvaller in de cirkel is geraakt, is hierop niet van invloed.</div>
 </td></tr></table>
 
 <table id="9" class="spelregels">
 <thead><tr><th>9</th><th>Spelregels: alle spelers</th></tr></thead>
 
 <tr><th></th><td>
-Spelers worden geacht zich steeds beheerst en sportief te gedragen.
+Spelers worden geacht zich steeds verantwoordelijk en sportief te gedragen.
 </td></tr>
 
 <tr><th>9.1</th><td>
-Een wedstrijd wordt gespeeld tussen twee teams, elk met niet meer dan 6 spelers tegelijk in het speelveld.
+Een wedstrijd wordt gespeeld tussen twee teams, elk met niet meer dan zes spelers tegelijk in het speelveld.
 </td></tr>
 
 <tr><th>9.2</th><td>
 Spelers die in het veld zijn moeten hun stick in de hand hebben; zij mogen hun stick in het spel niet op een gevaarlijke, bedreigende of intimiderende manier gebruiken.
+<div class="opmerking per2019">Spelers mogen hun stick niet over de hoofden van andere spelers tillen.</div>
 </td></tr>
 
 <tr><th>9.3</th><td>
-Spelers mogen tegenspelers niet hinderen of in hun spel belemmeren door hen of hun sticks of kleding vast te pakken of aan te raken.
+Spelers mogen tegenstanders niet hinderen of in hun spel belemmeren door hen of hun sticks of kleding vast te pakken of aan te raken.
 </td></tr>
 
 <tr><th>9.4</th><td>
-Spelers mogen een andere speler niet intimideren of het spelen verhinderen.
+Spelers mogen een tegenstander niet intimideren of het spelen verhinderen.
 </td></tr>
 
 <tr id="9.5"><th>9.5</th><td>
@@ -884,51 +951,67 @@ Spelers mogen de bal niet met de achterkant van hun stick (de bolle kant) spelen
 
 <tr id="9.7"><th>9.7</th><td>
 Spelers mogen de bal met geen enkel deel van de stick spelen wanneer de bal boven schouderhoogte is, maar verdedigers mogen een <a href="#schotopdoel">schot op doel</a> met hun stick op elke gewenste hoogte stoppen of laten afkaatsen.
-<div class="opmerking">Een verdediger die een schot op doel tegenhoudt moet niet bestraft worden indien hij zijn stick niet geheel stil houdt of deze naar de bal beweegt in een poging de bal te stoppen of te laten afkaatsen. Alleen wanneer hij de bal daadwerkelijk wegslaat en hiermee een doelpunt voorkomt, moet een <a href="#13.8">strafbal</a> worden toegekend. Een poging van een verdediger om een hoog schot op doel te stoppen of van richting te veranderen, terwijl dit in werkelijkheid kennelijk “naast of over” zal gaan, moet worden bestraft met een <a href="#13.3">strafcorner</a> en niet met een strafbal. Bij gevaarlijk spel voortkomend uit een geoorloofde stoppoging moet ook een <a href="#13.3">strafcorner</a> worden toegekend.</div>
+<div class="opmerking">Een verdediger die een schot op doel tegenhoudt moet niet bestraft worden indien hij zijn stick niet geheel stil houdt of deze naar de bal beweegt in een poging de bal te stoppen of te laten afkaatsen. Alleen wanneer hij de bal daadwerkelijk wegslaat en hiermee een doelpunt voorkomt, moet een <a href="#13.7">strafbal</a> worden toegekend.</div>
+<div class="opmerking">Een poging van een verdediger om een hoog schot op doel te stoppen of van richting te veranderen, terwijl dit in werkelijkheid kennelijk “naast of over” zal gaan, moet worden bestraft met een <a href="#13.3">strafcorner</a> en niet met een strafbal.</div>
+<div class="opmerking">Bij gevaarlijk spel voortkomend uit een geoorloofde stoppoging of afkaatsing moet een <a href="#13.3">strafcorner</a> worden toegekend.</div>
 </td></tr>
 
 <tr><th>9.8</th><td>
 Spelers mogen de bal niet spelen op een wijze die gevaarlijk, bedreigend of intimiderend is of tot gevaarlijk spel kan leiden.
 <div class="opmerking">Een bal wordt in ieder geval als gevaarlijk beschouwd wanneer deze leidt tot een terecht ontwijkende reactie van andere spelers.</div>
 <div class="opmerking">De straf wordt opgelegd op de plaats waar het gevaarlijk spel ontstond.</div>
-<div class="opmerking" id="9.8inblokspelen">Het opzettelijk én hard spelen van de bal richting de stick, voeten of handen van een tegenstander die klaar staat om de bal te stoppen is gevaarlijk en kan leiden tot blessures. Ook de actie om de bal aan te nemen, vervolgens te draaien en trachten de bal door een dichtbij staande verdediger die probeert de bal te spelen is gevaarlijk. Beide acties dienen te worden bestraft. Daarbij kan een <a href="#14">persoonlijke straf</a> tegen de overtreder op zijn plaats zijn.</div>
+<div class="opmerking" id="9.8inblokspelen">De bal opzettelijk én hard in de stick, voeten of handen van een tegenstander spelen met bijbehorend risico op blessures wanneer een speler klaar staat om de bal te stoppen; en spelers die de bal aannemen, vervolgens draaien en opzettelijk proberen de bal te spelen door een verdediger die dichtbij de speler in balbezit is of die probeert de bal te spelen zijn allebei gevaarlijke acties en moeten volgens deze regel worden behandeld. Aan de overtredende speler mag een <a href="#14">persoonlijke straf</a> toegekend worden.</div>
 </td></tr>
 
 <tr id="9.9"><th>9.9</th><td>
 Spelers mogen de bal niet van de grond omhoog spelen, behalve bij een <a href="#schotopdoel">schot op doel</a>.
-<div class="opmerking">Het is geen overtreding als de bal zonder opzet minder dan 100 mm van de grond komt, tenzij de tegenstander hierdoor de bal niet rechtmatig kan spelen of een actie kan inzetten (<a href="#tackle">tackle</a>).</div>
+<div class="opmerking">Het is geen overtreding als de bal zonder opzet minder dan 100 mm van de grond komt, <span class="per2019">tenzij een tegenstander binnen speelafstand staat</span>.</div>
 </td></tr>
 
 <tr id="9.10"><th>9.10</th><td>
 Spelers mogen de bal niet spelen wanneer deze in de lucht is, maar spelers van het team dat de bal niet omhoog bracht, mogen de bal wel stoppen.
-<div class="opmerking">Indien de bal na een hoog schot op doel afstuit van de doelverdediger, de doelpaal of de doellat mag ook een verdediger de bal stoppen.</div>
+<div class="opmerking per2019" id="hoogaannemen">Als na een toegestaan schot op doel de bal in de lucht is door afkaatsen van de doelverdediger, de doelpaal of de doellat mag de bal gestopt
+worden door een speler <span class="per2019">van beide teams</span>.</div>
 </td></tr>
 
 <tr><th>9.11</th><td>
-Veldspelers mogen de bal niet stoppen, schoppen, oppakken, met zich meedragen, gooien of voortbewegen met welk deel van het lichaam dan ook.
-<div class="opmerking">Het is niet altijd een overtreding wanneer de bal tegen de voet, hand of het lichaam van een veldspeler aankomt. De speler begaat alleen een overtreding als zijn team voordeel haalt uit het feit dat de bal met de hand, voet of het lichaam wordt gespeeld.</div>
+Veldspelers mogen de bal met geen enkel lichaamsdeel stoppen,
+schoppen, oppakken, voortstuwen, gooien of met zich meedragen.
+<div class="opmerking">Het is niet altijd een overtreding wanneer de bal tegen de voet, hand of het lichaam van een veldspeler aankomt. De speler begaat alleen een overtreding als hij er voordeel uit haalt of zich zo positioneert met de
+bedoeling om de bal op deze manier te stoppen.</div>
 <div class="opmerking">Er is geen sprake van een overtreding wanneer de bal de hand raakt die de stick vasthoudt als hij anders de stick geraakt zou hebben.</div>
 </td></tr>
 
 <tr id="9.12"><th>9.12</th><td>
-Spelers mogen de bal niet spelen als zij liggen of met een knie, arm of hand (anders dan de hand die de stick vasthoudt) de grond aanraken.
+Spelers mogen de bal niet spelen als zij op de grond liggen of met een
+knie, arm of hand (anders dan de hand die de stick vasthoudt) de grond
+aanraken.
 </td></tr>
 
 <tr><th>9.13</th><td>
-Spelers mogen een tegenstander die probeert de bal te spelen, niet blokkeren of het pad naar de bal versperren (afhouden).
+Spelers mogen een tegenstander die probeert de bal te spelen niet blokkeren of het pad naar de bal versperren (afhouden).
 <div class="opmerking">Spelers houden af wanneer zij:
 <ul><li>hun lichaam gebruiken om zich daarmee ruimte te verschaffen;
 </li><li>lichaam of stick van een tegenstander hinderen;
 </li><li>de bal met hun stick of met enig deel van hun lichaam afschermen tegen een geoorloofde <a href="#tackle">tackle</a>.
 </li></ul></div>
-<div class="opmerking">Een stilstaande speler die de bal ontvangt, mag daarbij opgesteld staan op iedere manier die hij wenst.</div>
+<div class="opmerking">Een stilstaande speler die de bal ontvangt, mag daarbij gericht staan naar elke kant die hij wenst.</div>
 <div class="opmerking">Een speler die balbezit heeft, mag zich met de bal in alle richtingen verplaatsen, mits hij niet tegen een tegenstander oploopt of zich plaatst tussen de bal en de tegenstander als deze én binnen speelafstand van de bal is én probeert om de bal te spelen.</div>
-<div class="opmerking">Een speler die voor een tegenstander langs loopt of hem blokkeert en hem daardoor belemmert om de bal te (gaan) spelen, houdt af (indirect afhouden of shadow obstruction). Dit geldt ook als bij een strafcorner een aanvaller voor verdedigers (inclusief de doelverdediger) langs loopt of hen blokkeert of hindert.</div>
+<div class="opmerking">Een speler die voor een tegenstander langs loopt of hem blokkeert en hem daardoor belemmert om de bal te (gaan) spelen, houdt af (indirect afhouden of “shadow obstruction”). Dit geldt ook als bij een strafcorner een aanvaller voor verdedigers (inclusief de doelverdediger) langs loopt of hen blokkeert of hindert.</div>
+<div class="opmerking per2019" id="tijdrekken">Scheidsrechters moeten nadruk leggen op het beperken van de tijd
+dat de bal wordt opgesloten in de hoeken van het veld of dichtbij de
+balken (vooral tegen het einde van wedstrijden) wanneer de speler in
+balbezit de bal afschermt, zodat een tegenstander wordt gehinderd om
+hem te spelen. Vroeg ingrijpen door de scheidsrechters zal de teams
+ervan bewust maken dat dit soort spel of tactiek hen niet ten goede zal
+komen.</div>
 </td></tr>
 
 <tr><th>9.14</th><td>
 Spelers mogen niet proberen een tegenstander de bal te ontnemen (<a href="#tackle">tackle</a>) als zij de bal niet kunnen spelen zonder lichaamscontact.
-<div class="opmerking">Sliding tackles en andere fysieke acties van veldspelers, waarbij een tegenstander wordt gevloerd en waarbij het gevaar op blessures bestaat dienen met de juiste spelstraf en persoonlijke straf te worden bestraft.</div>
+<div class="opmerking">Roekeloos spel, zoals sliding tackles en andere fysieke acties van veldspelers, waarbij een tegenstander wordt gevloerd en waarbij
+het gevaar op blessures bestaat, horen met de juiste spelstraf en
+<a href="#14">persoonlijke straf</a> te worden bestraft.</div>
 </td></tr>
 
 <tr><th>9.15</th><td>
@@ -941,7 +1024,7 @@ Spelers mogen hun stick niet ruilen tussen toekennen en voltooien van een strafc
 
 <tr id="9.17"><th>9.17</th><td>
 Spelers mogen geen voorwerpen of uitrustingsstukken op het veld, naar de bal of naar een speler, scheidsrechter of andere persoon gooien.
-<div class="opmerking" id="9.17strafcorner">Indien na een strafcorner de bal weggegooide uitrustingsstukken raakt zoals een handschoen, kniebeschermer of masker wordt een <a href="#13.2">vrije push</a> gegeven indien dit buiten de cirkel gebeurt en een <a href="#13.3">strafcorner</a> wanneer dit binnen de cirkel gebeurt.</div>
+<div class="opmerking" id="9.17strafcorner">Indien na een strafcorner de bal weggegooide uitrustingsstukken raakt zoals een handschoen, kniebeschermer of gezichtsmasker wordt een <a href="#13.2">vrije push</a> gegeven indien dit buiten de cirkel gebeurt, een <a href="#13.3">strafcorner</a> wanneer dit binnen de cirkel gebeurt en <span class="per2019">een <a href="#13.7">strafbal</a> indien hierdoor een doelpunt wordt voorkomen</span>.</div>
 </td></tr>
 
 <tr><th>9.18</th><td>
@@ -949,45 +1032,41 @@ Spelers mogen het spel niet vertragen om daardoor voordeel te behalen (tijdrekke
 </td></tr>
 
 <tr id="9.19"><th>9.19</th><td>
-Spelers mogen de bal niet opzettelijk tegen de balk duwen of klemmen. Een speler die in balbezit is mag niet opgesloten worden in de hoek van het veld of aan de zijbalk door tegenstanders met hun stick plat op de grond. Tegenstanders moeten een opening laten waardoor de bal kan worden gespeeld.
-<div class="opmerking">Scheidsrechters onderbreken het spel voor een <a href="#bully">bully</a> indien de bal geklemd zit tussen de sticks van spelers of onopzettelijk tegen de balk wordt geklemd. Opzettelijk klemmen van de bal tegen de balk moet worden gezien als opzettelijke overtreding en ook zodanig worden bestraft. Tevens dienen spelers die opzettelijk de bal proberen te klemmen tegen de stick van een tegenstander te worden bestraft en niet te worden ‘beloond’ met een bully.</div>
+Spelers mogen de bal niet opzettelijk tegen de zijbalk duwen of klemmen. Een speler die in balbezit is mag niet opgesloten worden in de hoek van het veld of aan de zijbalk door tegenstanders met hun stick plat op de grond. Tegenstanders moeten een opening laten waardoor de bal kan worden gespeeld.
+<div class="opmerking">Scheidsrechters moeten het spel herkennen en onderbreken en met een <a href="#bully">bully</a> herstarten, indien de bal geklemd zit tussen de sticks van spelers of onopzettelijk tegen de zijbalk wordt geklemd.</div>
+<div class="opmerking per2019">Als spelers <span class="per2019" id="klemmen">herhaaldelijk</span> de bal tegen de zijbalk duwen of klemmen, moet dit worden gezien als opzettelijke overtreding en ook zodanig
+worden bestraft.</div>
+<div class="opmerking">Tevens dienen spelers te worden bestraft die opzettelijk de bal proberen te klemmen tegen de stick van een tegenstander en niet worden
+‘beloond’ met een bully.</div>
 </td></tr></table>
 
 <table id="10" class="spelregels">
-<thead><tr><th>10</th><th>Spelregels: doelverdedigers en veldspelers met rechten van een doelverdediger</th></tr></thead>
+<thead><tr><th>10</th><th>Spelregels: doelverdedigers</th></tr></thead>
 
 <tr><th>10.1</th><td>
-<a href="#doelverdediger">Doelverdedigers</a> die beschermende uitrusting dragen die minimaal bestaat uit hoofdbescherming, beenbeschermers (legguards) en klompen, mogen tijdens de wedstrijd niet buiten hun eigen speelhelft aan het spel deelnemen, behalve om zelf een strafbal te nemen.
-<div class="opmerking">Deze doelverdediger moet hoofdbescherming dragen en mag deze alleen afzetten als hij een strafbal gaat nemen.</div>
+<a href="#doelverdediger">Doelverdedigers</a> mogen tijdens de wedstrijd niet buiten hun eigen speelhelft aan het spel deelnemen, behalve om zelf een strafbal te nemen.
+<div class="opmerking">Doelverdedigers moeten altijd hoofdbescherming dragen en mogen deze alleen afzetten als zij een strafbal gaan nemen.</div>
 </td></tr>
 
 <tr><th>10.2</th><td>
-<a href="#veldspelerdoelverdediger">Veldspelers met de rechten van een doelverdediger</a> mogen met hoofdbescherming op tijdens de wedstrijd niet buiten hun eigen speelhelft aan het spel deelnemen, maar mogen zonder hoofdbescherming over het gehele veld spelen.
-<div class="opmerking">Een veldspeler met de rechten van een doelverdediger moet
-hoofdbescherming dragen wanneer hij een strafcorner of strafbal verdedigt.</div>
-</td></tr>
-
-<tr><th>10.3</th><td>
 Wanneer de bal binnen hun cirkel is en zij hun stick in de hand hebben:
-<ol><li>Is het <a href="#doelverdediger">doelverdedigers</a> die beschermende uitrusting dragen toegestaan de bal met hun stick, voeten, benen of legguards weg te duwen en de bal met hun stick, voeten, benen, beschermende uitrusting of enig deel van hun lichaam van richting te veranderen (in elke richting, ook over de achterlijn) of te stoppen.
+<ol><li>is het doelverdedigers die volledig beschermende uitrusting dragen toegestaan de bal met hun stick, voeten, benen of legguards weg te duwen en de bal met hun stick, voeten, benen, beschermende uitrusting of enig deel van hun lichaam van richting te veranderen (in elke richting, ook over de achterlijn) of te stoppen.
 <div class="opmerking">Het is doelverdedigers niet toegestaan zich te gedragen op een manier die gevaarlijk is voor andere spelers door voordeel te halen uit de beschermende uitrusting die ze dragen.</div>
-</li><li>Is het <a href="#veldspelerdoelverdediger">veldspelers met de rechten van een doelverdediger</a> toegestaan hun stick, voeten of benen te gebruiken om de bal te spelen en om hun stick, voeten, benen of enig ander deel van hun lichaam te gebruiken om de bal van richting te veranderen (in elke richting, ook over de achterlijn) of te stoppen.
-</li><li>Is het doelverdedigers die beschermende uitrusting dragen en veldspelers met de rechten van een doelverdediger toegestaan hun armen, handen of enig ander deel van het lichaam te gebruiken om de bal weg te duwen.
-<div class="opmerking">De actie genoemd in regel c is alleen toegestaan om een doel-poging of mogelijke doelpoging te verdedigen. De doelverdediger of veldspeler met de rechten van een doelverdediger mag zijn armen, handen of lichaam niet gebruiken om daarmee een pass over lange afstand te geven.</div>
+</li><li>is het doelverdedigers die volledig beschermende uitrusting dragen toegestaan hun armen, handen of enig ander deel van het lichaam te gebruiken om de bal weg te duwen.
+<div class="opmerking">De actie genoemd in regel b is alleen toegestaan om een doel-poging of mogelijke doelpoging te verdedigen. De doelverdediger mag zijn armen, handen of lichaam niet gebruiken om daarmee een pass over lange afstand te geven.</div>
 </li></ol>
 </td></tr>
 
+<tr><th>10.3</th><td>
+Doelverdedigers mogen niet op de bal liggen.
+</td></tr>
+
 <tr><th>10.4</th><td>
-Doelverdedigers en veldspelers met de rechten van een doelverdediger mogen niet op de bal liggen.
+Wanneer de bal buiten hun cirkel is, mogen doelverdedigers de bal alleen met hun stick spelen.
 </td></tr>
 
-<tr><th>10.5</th><td>
-Wanneer de bal buiten hun cirkel is, mogen doelverdedigers en veldspelers met de rechten van een doelverdediger de bal alleen met hun stick spelen.
-<div class="opmerking">Een veldspeler met de rechten van een doelverdediger wordt als veldspeler beschouwd als hij buiten zijn cirkel is.</div>
-</td></tr>
-
-<tr id="10.6"><th>10.6</th><td>
-Een doelverdediger en een veldspeler met de rechten van een doelverdediger mogen in hun eigen cirkel liggend de bal spelen, <span class="nadruk">wanneer deze in de cirkel is en zijzelf zich eveneens volledig in de cirkel bevinden</span>.
+<tr id="10.5"><th>10.5</th><td>
+Doelverdedigers mogen in hun eigen cirkel liggend de bal spelen, <span class="nadruk">wanneer deze in de cirkel is en zijzelf zich eveneens volledig in de cirkel bevinden</span>.
 </td></tr></table>
 
 <table id="11" class="spelregels">
@@ -1007,8 +1086,10 @@ verantwoordelijk voor beslissingen over vrije pushes in de cirkel, strafcorners,
 </td></tr>
 
 <tr><th>11.4</th><td>
-Scheidsrechters noteren gescoorde doelpunten, alsmede waar- schuwingen en voor verwijderingen gegeven kaarten.
-<div class="opmerking">KNHB: scheidsrechters moeten na de wedstrijd de uitslag, eventueel gegeven gele en rode kaarten, hun naam en het nummer van hun scheidsrechterskaart invullen op het wedstrijdformulier en eventueel op het formulier van de zaalleiding en dit ondertekenen.</div>
+Scheidsrechters zijn verantwoordelijk voor het bijhouden van
+gescoorde doelpunten en voor gegeven kaarten.
+<div class="opmerking">KNHB: scheidsrechters moeten na de wedstrijd de uitslag en eventueel gegeven gele en rode kaarten invullen op het digitale wedstrijdformulier
+en dit digitaal ondertekenen.</div>
 </td></tr>
 
 <tr><th>11.5</th><td>
@@ -1018,22 +1099,20 @@ wanneer een aan het einde van een wedstrijdhelft nog uit te spelen strafcorner i
 
 <tr><th>11.6</th><td>
 Scheidsrechters fluiten om:
-<ol><li>het <a href="#beginpush">begin</a> en het <a href="#5.1">einde</a> van een wedstrijdhelft aan te geven;
-</li><li>een <a href="#bully">bully</a> te laten beginnen;
+<ol><li>het <a href="#beginpush">begin</a> en het <a href="#5.1">einde</a> van een wedstrijdhelft aan te geven of om een <a href="#bully">bully</a> te laten beginnen;
 </li><li>een <a href="#12">straf</a> op te leggen;
-</li><li>het <a href="#13.8g">begin</a> en het <a href="#13.9">einde van een strafbal</a> aan te geven ;
+</li><li>het <a href="#13.7g">begin</a> en het <a href="#13.8">einde van een strafbal</a> aan te geven ;
 </li><li>een <a href="#8.1">doelpunt</a> aan te geven;
-</li><li>het spel te <a href="#6.3">hervatten nadat een doelpunt</a> is gescoord;
+</li><li>de wedstrijd te <a href="#6.3">hervatten nadat een doelpunt</a> is gescoord;
 </li><li>de wedstrijd te <a href="#6.6">hervatten na het nemen van een strafbal</a> als er geen doelpunt is gescoord;
-</li><li>de wedstrijd te <a href="#5.2a">onderbreken</a> en te <a href="#5.2e">hervatten</a> voor een <a href="#5.2">time-out</a>;
 </li><li>de wedstrijd om enige andere reden te onderbreken en daarna weer te hervatten;
 </li><li>indien nodig aan te geven dat de bal in zijn geheel <a href="#7">buiten het speelveld</a> is geraakt.
-<div class="opmerking">KNHB: een bij een wedstrijd aangestelde tijdopnemer kan enkele onderdelen van de taken van de scheidsrechters overnemen:
+<div class="opmerking">KNHB: bij een wedstrijd aangestelde officials kunnen enkele onderdelen van de taken van de scheidsrechters overnemen:
 <ol><li>noteren van gemaakte doelpunten en bedienen scorebord;
 </li><li>bijhouden van de wedstrijdtijd en bedienen van de wedstrijdklok;
 </li><li>toezien op het gedrag van tijdelijk uit het veld gestuurde spelers op de strafbank.
 </li></ol></div>
-<div class="opmerking">De scheidsrechters dienen vóór de wedstrijd met de tijdopnemer af te spreken wie het signaal voor het einde van een wedstrijdhelft geeft.</div>
+<div class="opmerking">De scheidsrechters dienen vóór de wedstrijd met de aangestelde officials af te spreken wie het signaal voor het einde van een wedstrijdhelft geeft.</div>
 </li></ol>
 </td></tr>
 
@@ -1042,7 +1121,7 @@ Scheidsrechters mogen tijdens de wedstrijd niet coachen.
 </td></tr>
 
 <tr><th>11.8</th><td>
-Wanneer de bal een scheidsrechter, een niet-bevoegd persoon of enig los voorwerp op het veld raakt, wordt doorgespeeld.
+Wanneer de bal een scheidsrechter, een niet-bevoegd persoon of enig los voorwerp op het veld raakt, behalve zoals beschreven bij regel <a href="#9.17strafcorner">9.17</a>, wordt doorgespeeld.
 </td></tr></table>
 
 <table id="12" class="spelregels">
@@ -1050,7 +1129,6 @@ Wanneer de bal een scheidsrechter, een niet-bevoegd persoon of enig los voorwerp
 
 <tr><th>12.1</th><td>
 Voordeel: er wordt alleen een straf opgelegd wanneer een speler of een team nadeel ondervindt van een overtreding van een tegenstander.
-Als het toekennen van een straf niet in het voordeel is van het team waartegen een overtreding is begaan, moet doorgespeeld worden.
 </td></tr>
 
 <tr id="12.2"><th>12.2</th><td>
@@ -1065,15 +1143,15 @@ Een <a href="#13.3">strafcorner</a> wordt toegekend:
 <ol><li id="12.3a">voor een overtreding van een verdediger in zijn cirkel, waarbij niet het scoren van een doelpunt wordt voorkomen;
 </li><li id="12.3b">voor een opzettelijke overtreding van een verdediger in zijn cirkel tegen een tegenstander die geen balbezit heeft, noch een mogelijkheid heeft de bal te spelen;
 </li><li id="12.3c">voor een opzettelijke overtreding van een verdediger op zijn eigen helft, maar buiten de cirkel;
-</li><li>voor het opzettelijk over de achterlijn spelen van de bal door een verdediger;<br />
-Doelverdedigers en veldspelers met rechten van een doelverdediger mogen de bal van hun stick, hun beschermende uitrusting of enig deel van hun lichaam in iedere gewenste richting laten afkaatsen, ook over de achterlijn.
+</li><li>voor het opzettelijk over de achterlijn spelen van de bal door een verdediger;
+<div class="opmerking">Doelverdedigers mogen de bal van hun stick, hun beschermende uitrusting of enig deel van hun lichaam in iedere gewenste richting laten afkaatsen, ook over de achterlijn.</div>
 </li><li id="12.3e">tegen het team dat verkeerd gewisseld heeft;
 </li><li>wanneer de bal in de cirkel komt vast te zitten in de kleding of uitrusting van een (doel)verdediger.
 </li></ol>
 </td></tr>
 
 <tr id="12.4"><th>12.4</th><td>
-Een <a href="#13.8">strafbal</a> wordt toegekend:
+Een <a href="#13.7">strafbal</a> wordt toegekend:
 <ol><li id="12.4a">voor een overtreding van een verdediger in zijn cirkel, waardoor het waarschijnlijk scoren van een doelpunt wordt voorkomen;
 </li><li id="12.4b">voor een opzettelijke overtreding van een verdediger in zijn cirkel tegen een tegenstander die in balbezit is of een mogelijkheid heeft om de bal te spelen.
 </li></ol>
@@ -1093,7 +1171,7 @@ Als er sprake is van een nieuwe overtreding of van wangedrag nog voor een opgele
 <tr id="13.1"><th>13.1</th><td>
 Plaats van de vrije push.
 <ol><li>Een vrije push wordt genomen nabij de plaats waar de overtreding gebeurde.
-<div class="opmerking">‘Nabij’ betekent binnen speelafstand van de plaats van de overtreding en zonder daar een aanzienlijk voordeel uit te verkrijgen. De plaats waar een vrije push moet worden genomen moet dicht bij de cirkel wat strenger worden beoordeeld.</div>
+<div class="opmerking">‘Nabij’ betekent binnen speelafstand van de plaats van de overtreding en zonder daar een aanzienlijk voordeel uit te verkrijgen. De plaats waar een vrije push moet worden genomen moet dicht bij de cirkel strenger worden beoordeeld.</div>
 </li><li>Een vrije push voor de verdediging buiten de cirkel maar binnen 9,10 meter van de achterlijn, mag evenwijdig aan de zijbalk worden verplaatst tot ten hoogste 9,10 meter van de achterlijn, recht tegenover de plaats van de overtreding.
 </li><li>Een vrije push voor de verdediging binnen de cirkel mag worden genomen op een willekeurig punt in die cirkel of evenwijdig aan de zijbalk tot buiten de cirkel worden verplaatst tot ten hoogste 9,10 meter van de achterlijn, recht tegenover de plaats van de overtreding.
 </li></ol>
@@ -1107,33 +1185,44 @@ Bepalingen voor het nemen van een vrije push, beginpush en voor hervatting van h
 <div class="opmerking">Indien een speler binnen 3 meter afstand van de bal is, maar het spel niet beïnvloedt, behoeft het nemen van de vrije push niet te worden opgehouden.</div>
 </li><li>Bij een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt, moeten alle spelers, behalve de speler die de vrije push neemt, op ten minste 3 meter afstand van de bal zijn.
 </li><li id="13.2d">De bal moet worden <a href="#push">gepusht</a>.
-</li><li id="13.2e">Een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt mag niet de cirkel in worden gespeeld, voordat de bal minimaal drie meter is verplaatst of is geraakt door een speler van de verdedigende partij.
-<span id="vrijepushbalk">De bal mag ook <span class="nadruk">via de balk</span> de cirkel in worden gespeeld, mits de bal eerst drie meter heeft gerold voordat de balk wordt geraakt.</span>
+</li><li id="13.2e">Een vrije push voor het aanvallende team op de speelhelft waar dat team aanvalt mag niet de cirkel in worden gespeeld, voordat de bal minimaal 3 meter is verplaatst of is geraakt door een speler van de verdedigende partij.
+<span id="vrijepushbalk">De bal mag ook <span class="nadruk">via de zijbalk</span> de cirkel in worden gespeeld, mits de bal eerst 3 meter heeft gerold voordat de zijbalk wordt geraakt.</span>
 <div class="opmerking">Als de speler die de vrije push neemt ook degene is die verder speelt (speler van de verdedigende partij heeft de bal nog niet geraakt):
 <ul><li>mag deze speler de bal zo vaak raken als hij wil, maar
-</li><li>de bal moet minimaal drie meter verplaatst worden, voordat
-</li><li>deze speler de bal in cirkel in mag spelen door de bal met een push opnieuw te spelen.
+</li><li>de bal moet minimaal 3 meter verplaatst worden, voordat
+</li><li>deze speler de bal in cirkel in mag spelen door de bal met een push te spelen.
 </li></ul></div>
 <div class="opmerking">Alternatief:
 <ul><li>nadat de bal is geraakt door een speler van de verdedigende partij, mag de bal de cirkel in worden gespeeld door elke andere speler, inclusief de speler die de vrije slag genomen heeft.
 </li></ul></div>
-<div class="opmerking">Bij een vrije push voor het aanvallende team binnen drie meter van de cirkelrand mag de bal niet de cirkel in gespeeld worden, voordat deze minimaal drie meter is verplaatst of is geraakt door een speler van de verdedigende partij. In deze situatie mogen verdedigers die in hun cirkel binnen drie meter staan van de plaats waar de vrije push wordt genomen binnen de cirkel de speler die de vrije push met een selfpass neemt volgen zolang ze niet de bal spelen, een poging doen de bal te spelen of op een andere manier het spel beïnvloeden, totdat de bal minimaal drie meter is verplaatst of geraakt is door een speler van de verdedigende partij die legaal de bal kan spelen; of wanneer de bal na drie meter te hebben gerold de balk heeft geraakt.</div>
-<div class="opmerking">Spelers binnen of buiten de cirkel die op minimaal drie meter afstand staan van de plaats waar de vrije push is toegekend mogen zich niet bewegen naar en vervolgens blijven staan op een positie binnen drie meter van de plaats waar de vrije push wordt genomen.</div>
-<div class="opmerking">In alle andere gevallen dan hierboven beschreven geldt dat elke poging om de bal te spelen, daadwerkelijk de bal spelen, of op een andere wijze het spel beïnvloeden door een verdediger of aanvaller die binnen drie meter afstand van de bal stond bestraft moet worden.</div>
-<div class="opmerking">Als na het toekennen van een vrije push voor het aanvallende team op de aanvallende speelhelft de tijd wordt stilgezet moeten na het hervatten van de wedstrijd alle spelers, behalve de speler die de vrije push neemt, op minimaal drie meter afstand van de bal staan.</div>
+<div class="opmerking per2019">Bij een vrije push voor het aanvallende team binnen 3 meter van de cirkelrand mag de bal niet de cirkel in gespeeld worden, voordat deze minimaal 3 meter is verplaatst of is geraakt door een speler van de verdedigende partij, <span class="per2019">of minstens 3 meter heeft gerold voordat deze wordt gespeeld via de zijbalk</span>. Als
+de vrije push direct wordt genomen, mogen verdedigers die in hun cirkel binnen 3 meter staan van de plaats waar de vrije push wordt genomen binnen de cirkel de speler die de vrije push met een selfpass neemt volgen zolang ze niet de bal spelen, een poging doen de bal te spelen of op een andere manier het spel beïnvloeden, totdat de bal minimaal 3 meter is verplaatst of geraakt is door een speler van de verdedigende partij die legaal de bal kan spelen; of wanneer de bal na 3 meter te hebben gerold de zijbalk heeft geraakt. <span class="per2019" id="vrijeslagbijcirkel">Als de aanvaller ervoor kiest om de vrije push niet direct te nemen, moeten alle andere spelers op minstens 3 meter van de bal staan, voordat de vrije push wordt genomen.</span></div>
+<div class="opmerking">In alle andere gevallen dan hierboven beschreven geldt dat elke poging om de bal te spelen, daadwerkelijk de bal spelen, of op een andere wijze het spel beïnvloeden door een verdediger of aanvaller die binnen 3 meter afstand van de bal stond bestraft moet worden.</div>
+<div class="opmerking">Spelers binnen of buiten de cirkel die op minimaal 3 meter
+afstand staan van de plaats waar de vrije push is toegekend
+mogen zich niet bewegen naar en vervolgens blijven staan op
+een positie binnen 3 meter van de plaats waar de vrije push
+wordt genomen.</div>
+<div class="opmerking">Als na het toekennen van een vrije push voor het aanvallende team op de aanvallende speelhelft de tijd wordt stilgezet moeten na het hervatten van de wedstrijd alle spelers, behalve de speler die de vrije push neemt, op minimaal 3 meter afstand van de bal staan.</div>
 </li></ol>
 </td></tr>
 
 <tr id="13.3"><th>13.3</th><td>
 Bepalingen voor het nemen van een strafcorner:
-<ol><li>De bal moet op de achterlijn binnen de cirkel liggen op ten minste 6 meter van de doelpaal, aan de kant van het doel waar het aanvallende team de voorkeur aan geeft.
-</li><li id="13.3b">Een aanvaller <a href="#push">pusht</a> de bal vanaf die plaats, zonder hem met opzet omhoog te spelen.
-</li><li>De aanvaller die de strafcorner neemt, moet minstens één voet buiten het speelveld aan de grond hebben.
-</li><li>De overige aanvallers moeten binnen het speelveld maar buiten de cirkel zijn, zonder met stick, voeten of handen de grond binnen de cirkel aan te raken.
-</li><li>Geen andere speler dan de speler die de strafcorner neemt mag op minder dan 3 meter afstand van de bal zijn op het moment dat de bal gepusht wordt.
-</li><li id="13.3f">De doelverdediger of de veldspeler met de rechten van een doelverdediger van de verdedigende partij moet in het doel staan, <span class="nadruk">maximaal 5 andere veldspelers van dat team mogen achter hun achterlijn zijn aan de andere kant van het doel dan waar de strafcorner wordt genomen</span>, zonder met hun stick, handen of voeten de grond binnen het speelveld aan te raken.
-</li><li>Elke verdediger die ervoor kiest niet achter de achterlijn te gaan staan moet achter de middenlijn staan.
-</li><li>Tot de bal bij de strafcorner is gespeeld, mag geen andere aanvaller dan degene die de strafcorner neemt, in de cirkel komen en mag geen enkele verdediger over de achterlijn komen.
+<ol><li>KNHB: De tijd wordt niet stilgezet na het toekennen van een
+strafcorner. Teams moeten de minimale tijd nemen om hun positie in
+te nemen en beschermende uitrusting aan te trekken. De strafcorner
+wordt genomen zodra de scheidsrechter de strafcorner vrijgeeft.
+</li><li id="13.3b">De bal moet op de achterlijn binnen de cirkel liggen op ten minste 6 meter van de doelpaal, aan de kant van het doel waar het aanvallende team de voorkeur aan geeft. Een aanvaller <a href="#push">pusht</a> de bal vanaf die plaats, zonder hem met opzet omhoog te spelen.
+</li><li>De aanvaller die de strafcorner vanaf de achterlijn neemt, moet minstens één voet buiten het speelveld aan de grond hebben.
+</li><li>De overige aanvallers moeten binnen het speelveld, maar buiten de cirkel zijn, zonder met stick, voeten of handen de grond binnen de cirkel aan te raken.
+</li><li>Geen andere speler dan de speler die de strafcorner neemt vanaf de achterlijn mag op minder dan 3 meter afstand van de bal zijn op het moment dat de bal gepusht wordt.
+</li><li id="13.3f">De doelverdediger van de verdedigende partij moet in het doel staan, <span class="nadruk">maximaal vijf andere veldspelers van dat team mogen achter hun achterlijn zijn aan de andere kant van het doel dan waar de strafcorner wordt genomen</span>, zonder met hun stick, handen of voeten de grond binnen het speelveld aan te raken.
+<div class="opmerking">Als het team dat een strafcorner verdedigt ervoor heeft gekozen om met alleen veldspelers te spelen, mogen maximaal zes spelers
+achter hun achterlijn aan de andere kant van het doel dan waar de strafcorner wordt genomen staan.</div>
+</li><li><div class="per2019">Elke verdediger die ervoor kiest niet achter de achterlijn te gaan staan moet <span class="per2019" id="opstellingsc">op de andere speelhelft binnen 9,10 meter vanaf de achterlijn</span> gaan staan.</div>
+</li><li>Tot de bal bij de strafcorner is gespeeld, mag geen andere aanvaller dan degene die de strafcorner neemt, in de cirkel komen en mag geen enkele verdediger over de achterlijn komen of van de andere
+speelhelft binnen 9,10 meter vanaf de achterlijn komen.
 </li><li>Na het nemen van de strafcorner mag de aanvaller die de strafcorner heeft genomen de bal niet meer aanraken of binnen speelafstand benaderen, totdat deze door een andere speler is gespeeld.
 </li><li>Er kan niet gescoord worden voordat de bal buiten de cirkel
 is geweest.
@@ -1144,84 +1233,109 @@ is geweest.
 </td></tr>
 
 <tr><th>13.4</th><td>
-De wedstrijdtijd wordt voor de pauze en voor het einde van de wedstrijd verlengd om een dan toegekende strafcorner en eventueel een daaruit voortkomende strafcorner of strafbal, te kunnen uitspelen.
+De wedstrijdtijd wordt voor de rust en voor het einde van de wedstrijd verlengd om een dan toegekende strafcorner en eventueel een daaruit voortkomende strafcorner of strafbal, te kunnen uitspelen.
 </td></tr>
 
 <tr id="13.5"><th>13.5</th><td>
 Een strafcorner is ten einde als:
 <ol><li>een <a href="#8.1">doelpunt</a> is gemaakt;
-</li><li>een aanvaller een overtreding begaat;
+</li><li>een <a href="#12.2">vrije push</a> wordt toegekend aan de verdediging;
 </li><li>de bal meer dan 3 meter buiten de cirkel komt;
 </li><li>de bal <a href="#7.4">over de achterlijn</a> is gespeeld en geen strafcorner wordt toegekend;
 </li><li>de bal <a href="#7.3">over de zijbalk</a> gaat en geen strafcorner wordt toegekend;
-</li><li>de aanval een <a href="#12.2">vrije slag</a> toegekend krijgt;
+</li><li>een verdediger een overtreding begaat en geen strafcorner wordt toegekend;
 </li><li>een <a href="#12.4">strafbal</a> wordt toegekend;
 </li><li>een <a href="#bully">bully</a> wordt toegekend.
 </li></ol>
 <div class="opmerking">Indien het spel gedurende een strafcorner aan het einde van een speelhelft onderbroken wordt zonder dat een spelstraf wordt opgelegd en anders een bully zou zijn gegeven, moet de strafcorner opnieuw worden genomen.</div>
 </td></tr>
 
-<tr id="13.6"><th>13.6</th><td>
+<tr id="13.6" class="verwijderd2019"><th>13.6</th><td>
 Om te bepalen wanneer gewisseld mag worden en voor het uitspelen van strafcorners die aan het einde van een speelhelft zijn gegeven, geldt dat een strafcorner tevens ten einde is als de bal voor de tweede keer buiten de cirkel komt.
 </td></tr>
 
-<tr id="13.7"><th>13.7</th><td>
+<tr id="13.6"><th>13.6</th><td>
 Straffen voor een overtreding tijdens het nemen van een
 strafcorner:
-<ol><li id="13.7a">De aanvaller die een strafcorner neemt, heeft niet ten minste één voet buiten het veld aan de grond: de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
-</li><li id="13.7b">De aanvaller die de strafcorner neemt doet alsof hij de bal speelt: de aanvaller moet aan de andere kant van de middenlijn plaatsvinden en wordt vervangen door een andere aanvaller. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
-<div class="opmerking">De verdediger die door de schijnbeweging te vroeg over de achter-lijn is gekomen hoeft niet achter de middenlijn plaats te nemen.</div>
-</li><li id="13.7c">Een verdediger, niet zijnde de doelverdediger, komt over de achterlijn voordat de strafcorner is genomen: de verdediger moet aan de andere kant van de middenlijn plaatsnemen en mag niet worden vervangen door een andere verdediger. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
-<div class="opmerking">Indien een verdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt, dient deze verdediger ook achter de middenlijn plaats te nemen en mag niet worden vervangen.</div>
-<div class="opmerking">Een strafcorner wordt beschouwd als opnieuw genomen totdat aan een voorwaarde van regel <a href="#13.5">13.5</a> en <a href="13.6">13.6</a> is voldaan.</div>
-<div class="opmerking">Een nieuw toegekende strafcorner, in tegenstelling tot een opnieuw genomen strafcorner, mag weer met maximaal 6 verdedigers (inclusief doelverdediger of veldspeler met de rechten van een doelverdediger) worden verdedigd.</div>
-<div class="opmerking" id="13.7c2">Een verdediger komt over de middenlijn voordat de strafcorner is genomen : de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.</div>
-</li><li id="13.7d">Een <a href="#doelverdediger">doelverdediger</a> of <a href="#veldspelerdoelverdediger">veldspeler met rechten van een doelverdediger</a> komt over de achterlijn voordat de strafcorner is genomen : de verdedigende partij verdedigt de strafcorner met een speler minder. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
-<div class="opmerking">Het verdedigende team wijst een veldspeler aan die achter de middenlijn plaatsneemt. Deze verdediger mag niet worden vervangen.</div>
-<div class="opmerking">Indien een doelverdediger of veldspeler met rechten van een doelverdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt: het verdedigende team wijst een volgende veldspeler aan om achter de middenlijn plaats te nemen. De speler mag niet worden vervangen.</div>
-<div class="opmerking">Een strafcorner wordt beschouwd als opnieuw genomen totdat aan een voorwaarde van regel <a href="#13.5">13.5</a> en <a href="#13.6">13.6</a> is voldaan.</div>
-<div class="opmerking">Een nieuw toegekende strafcorner, in tegenstelling tot een opnieuw genomen strafcorner, mag weer met maximaal 6 verdedigers (inclusief doelverdediger of veldspeler met de rechten van een doelverdediger) worden verdedigd.</div>
-</li><li id="13.7e">Een aanvaller komt in de cirkel voordat de strafcorner is genomen: de aanvaller moet aan de andere kant van de middenlijn plaatsnemen. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
-<div class="opmerking">Aanvallers die achter de middenlijn zijn gestuurd mogen niet terugkeren voor opnieuw genomen strafcorners, maar wel voor een nieuw gegeven strafcorner.</div>
-</li><li id="13.7f">Voor een andere overtreding door de aanvallende partij: een <a href="#13.2">vrije push</a> wordt toegekend aan het verdedigende team.
+<ol><li id="13.6a">De aanvaller die een strafcorner neemt, heeft niet ten minste één voet buiten het veld aan de grond: de <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+</li><li id="13.6b">De aanvaller die de strafcorner neemt doet alsof hij de bal speelt: de aanvaller moet op de andere speelhelft binnen 9,10 meter vanaf
+de achterlijn gaan staan en wordt vervangen door een andere aanvaller. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+<div class="opmerking">De verdediger die door de schijnbeweging te vroeg over de achter-lijn is gekomen hoeft niet op de andere speelhelft binnen 9,10
+meter vanaf de achterlijn plaats te nemen.</div>
+</li><li id="13.6c">Een verdediger, niet zijnde de doelverdediger, komt over de achterlijn voordat de strafcorner is genomen: de verdediger moet op de andere speelhelft binnen 9,10 meter vanaf de achterlijn plaatsnemen en mag niet worden vervangen door een andere verdediger. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+<div class="opmerking">Indien een verdediger bij deze of elke opnieuw genomen
+strafcorner te vroeg over de achterlijn komt, dient deze verdediger
+ook op de kop van de andere cirkel dan de cirkel waar de
+strafcorner wordt genomen plaatsnemen en mag niet worden vervangen.</div>
+<div class="opmerking" id="13.6c2">Als de verdediger de andere speelhelft binnen 9,10 meter vanaf de achterlijn voordat de strafcorner is genomen, wordt de <a href="#13.3">strafcorner</a> opnieuw genomen.</div>
+</li><li id="13.6d">Een <a href="#doelverdediger">doelverdediger</a> komt over de achterlijn voordat de strafcorner is genomen : de verdedigende partij verdedigt de strafcorner met een speler minder. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+<div class="opmerking">Het verdedigende team wijst een veldspeler aan die op de andere speelhelft binnen 9,10 meter vanaf de achterlijn plaatsneemt. Deze verdediger mag niet worden vervangen.</div>
+<div class="opmerking">Indien een doelverdediger bij deze of elke opnieuw genomen strafcorner te vroeg over de achterlijn komt: het verdedigende team wijst een volgende veldspeler aan om op de andere speelhelft
+binnen 9,10 meter vanaf de achterlijn plaats te nemen. De speler mag niet worden vervangen.</div>
+<div class="opmerking">Een nieuw toegekende strafcorner, in tegenstelling tot een opnieuw genomen strafcorner, mag weer met maximaal zes verdedigers.</div>
+</li><li id="13.6e">Een aanvaller komt in de cirkel voordat de strafcorner is genomen: de aanvaller moet op de andere speelhelft binnen 9,10 meter
+vanaf de achterlijn plaatsnemen. De <a href="#13.3">strafcorner</a> wordt opnieuw genomen.
+<div class="opmerking">Aanvallers die naar de kop van de andere cirkel dan de cirkel waar de strafcorner wordt genomen zijn gestuurd mogen niet terugkeren
+voor opnieuw genomen strafcorners, maar wel voor een nieuw gegeven strafcorner.</div>
+</li><li id="13.6f">Voor een andere overtreding door de aanvallende partij: een <a href="#13.2">vrije push</a> wordt toegekend aan het verdedigende team.
 <div class="opmerking">In andere dan bovenstaande gevallen wordt een <a href="#12.2">vrije push</a>, <a href="#12.3">strafcorner</a> of <a href="#12.4">strafbal</a> gegeven zoals in dit spelreglement staat beschreven.</div>
 </li></ol>
 </td></tr>
 
-<tr id="13.8"><th>13.8</th><td>
+<tr id="13.7"><th>13.7</th><td>
 Bepalingen voor het nemen van een strafbal:
 <ol><li>Het spel wordt onderbroken en de tijd wordt stilgezet wanneer een strafbal wordt toegekend.
 </li><li>Tijdens het nemen van de strafbal moeten alle spelers op het veld, behalve de aanvaller die de strafbal neemt en de doelverdediger van de verdedigende partij, zich op de speelhelft bevinden waar de strafbal niet wordt genomen; zij mogen geen enkele invloed uitoefenen op het nemen van de strafbal.
 </li><li>De bal moet op de strafbalstip liggen.
 </li><li>De aanvaller die de strafbal neemt moet achter de bal en binnen speelafstand van de bal staan, voor hij de bal gaat spelen.
-</li><li>De verdedigende doelverdediger moet met beide voeten op de doellijn staan en mag niet van de doellijn komen of een van zijn voeten verplaatsen voordat de bal is gespeeld.
-</li><li>De doelverdediger is verplicht hoofdbescherming te dragen ook als dit een veldspeler is met de rechten van een doelverdediger.
-</li><li id="13.8g">Wanneer de aanvaller en de doelverdediger klaar staan, geeft de scheidsrechter een fluitsignaal.
+</li><li>De speler die de strafbal verdedigt moet met beide voeten op de
+doellijn staan en mag nadat de scheidsrechter heeft gefloten, niet
+van de doellijn komen of een van zijn voeten verplaatsen voordat
+de bal is gespeeld.
+</li><li>Als de speler die de strafbal verdedigt een doelverdediger is, is
+deze verplicht hoofdbescherming te dragen; als deze buiten het
+verdedigen van de strafbal als veldspeler aan het spel deelneemt,
+mag hij alleen een gezichtsmasker dragen als beschermende
+uitrusting.
+<div class="opmerking per2019">Als het team dat de strafbal verdedigt ervoor heeft gekozen
+om alleen met veldspelers te spelen en geen vervangende
+doelverdediger te gebruiken om de strafbal te verdedigen, mag de
+verdediger alleen zijn stick gebruiken om een redding te maken.</div>
+</li><li id="13.7g">Wanneer de speler die de strafbal neemt en de speler die de
+strafbal verdedigt klaar staan, geeft de scheidsrechter een
+fluitsignaal.
 </li><li>De aanvaller mag de bal niet spelen voordat het fluitsignaal is gegeven.
 <div class="opmerking">De speler die de strafbal neemt noch de doelverdediger mogen het nemen van de strafbal ophouden of vertragen.</div>
 </li><li>De aanvaller mag niet doen alsof hij de bal speelt.
-</li><li id="13.8j">De aanvaller mag de bal met een <a href="#push">push</a>, <a href="#flick">flick</a> of <a href="#scoop">scoop</a> en op iedere hoogte spelen.
+</li><li id="13.7j">De aanvaller mag de bal met een <a href="#push">push</a>, <a href="#flick">flick</a> of <a href="#scoop">scoop</a> en op iedere hoogte spelen.
 <div class="opmerking" id="strafbalslepen">Het is niet toegestaan de bal bij het nemen van een strafbal te slepen (dragging).</div>
-</li><li>De aanvaller mag de bal slechts één keer spelen en mag na het spelen van de bal de doelverdediger noch de bal benaderen.
+</li><li>De aanvaller mag de bal slechts één keer spelen en mag na het
+spelen van de bal niet de speler die de strafbal verdedigt of de bal
+benaderen.
 </li></ol>
 </td></tr>
 
-<tr id="13.9"><th>13.9</th><td>
+<tr id="13.8"><th>13.8</th><td>
 Een strafbal is ten einde:
 <ol><li>als een doelpunt is gemaakt;
 </li><li>als de bal in de cirkel tot stilstand komt, of komt vast te zitten in de uitrusting van de doelverdediger, of door de doelverdediger wordt gevangen, of buiten de cirkel komt.
 </li></ol>
 </td></tr>
 
-<tr id="13.10"><th>13.10</th><td>
+<tr id="13.9"><th>13.9</th><td>
 Straffen voor een overtreding tijdens het nemen van een strafbal:
-<ol><li>De strafbal wordt genomen voordat het fluitsignaal is gegeven en er wordt een doelpunt gescoord: de <a href="#13.8">strafbal</a> wordt opnieuw genomen.
+<ol><li>De strafbal wordt genomen voordat het fluitsignaal is gegeven en er wordt een doelpunt gescoord: de <a href="#13.7">strafbal</a> wordt opnieuw genomen.
 </li><li>De strafbal wordt genomen voordat het fluitsignaal is gegeven en er wordt geen doelpunt gescoord: een <a href="#13.2">vrije push</a> wordt toegekend aan het verdedigende team.
 </li><li>Voor een andere overtreding van de aanvaller die de strafbal neemt: een <a href="#13.2">vrije push</a> wordt toegekend aan het verdedigende team.
-</li><li>Voor een overtreding van de doelverdediger inclusief het verplaatsen van één van zijn voeten voordat de bal is gespeeld: de <a href="#13.8">strafbal</a> wordt opnieuw genomen.
-Indien er een doelpunt wordt gescoord ondanks een overtreding van de doelverdediger, telt het doelpunt.
-</li><li>Voor een overtreding door de verdedigende partij en er wordt geen doelpunt gescoord: de <a href="#13.8">strafbal</a> wordt opnieuw genomen.
-</li><li>Voor een overtreding door een andere aanvaller dan de speler die de strafbal neemt en er wordt een doelpunt gescoord: de <a href="#13.8">strafbal</a> wordt opnieuw genomen.
+</li><li>Voor een overtreding van de speler die de strafbal verdedigt
+inclusief het verplaatsen van één van zijn voeten voordat de bal is
+gespeeld: de <a href="#13.7">strafbal</a> wordt opnieuw genomen.
+<div class="opmerking per2019">Als de speler die de strafbal verdedigt voorkomt dat een doelpunt wordt gescoord, maar een van beide voeten beweegt voordat de
+bal is gespeeld, kan deze speler gewaarschuwd worden en moet iedere volgende overtreding bestraft worden (groene kaart en voor volgende overtredingen met een gele kaart).</div>
+<div class="opmerking">Indien er een doelpunt wordt gescoord ondanks een overtreding van de doelverdediger, telt het doelpunt.</div>
+</li><li>Voor een overtreding door de verdedigende partij en er wordt geen doelpunt gescoord: de <a href="#13.7">strafbal</a> wordt opnieuw genomen.
+</li><li>Voor een overtreding door een andere aanvaller dan de speler die
+de strafbal neemt en er wordt een doelpunt gescoord: de <a href="#13.7">strafbal</a> wordt opnieuw genomen.
 </li></ol>
 </td></tr></table>
 
@@ -1233,10 +1347,11 @@ Voor elke overtreding kan de speler die de overtreding begaat tevens:
 <ol><li>worden vermaand (verbaal);
 </li><li>worden gewaarschuwd (aangegeven met een groene kaart) en tijdelijk uit het veld worden gestuurd voor 1 speelminuut;
 </li><li>tijdelijk uit het veld worden gestuurd, en wel voor minimaal 2 speelminuten (aangegeven met een gele kaart);
+<div class="opmerking">Voor de duur van iedere tijdsstraf voor een groene of een gele kaart, speelt het overtredende team met één speler minder;</div>
 </li><li>permanent uit het veld worden gestuurd voor de resterende duur van de wedstrijd (aangegeven met een rode kaart).
+<div class="opmerking">Voor elke permanente schorsing speelt het overtredende team de rest van de wedstrijd met één speler minder.</div>
 </li></ol>
 <div class="opmerking">Een persoonlijke straf kan apart of samen met de passende spelstraf worden opgelegd.</div>
-<div class="opmerking">Gedurende de straftijd van een speler, speelt zijn team met een speler minder.</div>
 </td></tr>
 
 <tr><th>14.2</th><td>
@@ -1311,6 +1426,16 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <thead><tr><th>INDEX</th></tr></thead>
 <tr><td>
 <div class="tegels">
+<div class="index-onderwerp"><span>per 2019</span></div>
+<div><a href="#opstellingsc">opstelling straf&shy;corner</a></div>
+<div><a href="#inslaanbijcirkel">inslaan bij cirkel</a></div>
+<div><a href="#hoogaannemen">hoge bal aannemen</a></div>
+<div><a href="#klemmen">bal klemmen</a></div>
+<div><a href="#vrijeslagbijcirkel">vrije slag bij cirkel</a></div>
+<div><a href="#bankwissel">geen bankwissel</a></div>
+<div><a href="#alleenveldspelers">doel&shy;verdediging</a></div>
+<div><a href="#tijdrekken">tijdrekken</a></div>
+
 <div class="index-onderwerp"><span>zaal specifiek</span></div>
 <div><a href="#9.5">slaan</a></div>
 <div><a href="#9.9">omhoog spelen</a></div>
@@ -1320,7 +1445,7 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <div><a href="#12.3e">verkeerde wissel</a></div>
 <div><a href="#13.3f">op&shy;stelling strafcorner</a></div>
 <div><a href="#9.12">liggend spelen</a></div>
-<div><a href="#10.6">liggend spelen keeper</a></div>
+<div><a href="#10.5">liggend spelen keeper</a></div>
 <div><a href="#5.2">time-out</a></div>
 <div><a href="#2.3gdoelverdediger">wissel doel&shy;verdediger</a></div>
 
@@ -1331,7 +1456,7 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 
 <div class="index-onderwerp"><a href="#12.3">straf&shy;corner</a></div>
 <div class="index-link-hoofd"><a href="#13.3">nemen</a></div>
-<div class="index-link-hoofd"><a href="#13.7">over&shy;treding bij nemen</a></div>
+<div class="index-link-hoofd"><a href="#13.6">over&shy;treding bij nemen</a></div>
 <div><a href="#strafcornertabel">over&shy;treding hulptabel</a></div>
 <div><a href="#2.3strafcorner">niet wisselen</a></div>
 <div><a href="#13.6">wel wisselen</a></div>
@@ -1342,10 +1467,10 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <div><a href="#13.6">einde uitspeel&shy;straf&shy;corner</a></div>
 
 <div class="index-onderwerp"><a href="#12.4">straf&shy;bal</a></div>
-<div class="index-link-hoofd"><a href="#13.8">nemen</a></div>
-<div class="index-link-hoofd"><a href="#13.10">over&shy;treding bij nemen</a></div>
+<div class="index-link-hoofd"><a href="#13.7">nemen</a></div>
+<div class="index-link-hoofd"><a href="#13.9">over&shy;treding bij nemen</a></div>
 <div><a href="#9.16">stick wisselen</a></div>
-<div><a href="#13.9">einde</a></div>
+<div><a href="#13.8">einde</a></div>
 <div><a href="#6.6">hervatten</a></div>
 
 <div class="index-onderwerp"><span>hoge bal</span></div>
@@ -1353,12 +1478,12 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <div><a href="#9.7">stoppen schot op doel</a></div>
 <div><a href="#9.9">omhoog spelen</a></div>
 <div><a href="#13.3b">bij nemen straf&shy;corner</a></div>
-<div><a href="#13.8j">bij strafbal</a></div>
+<div><a href="#13.7j">bij strafbal</a></div>
 
 <div class="index-onderwerp"><a href="#slagentoegestaan">slagen toe&shy;gestaan</a></div>
 <div><a href="#13.2d">bij vrije slag</a></div>
 <div><a href="#13.3b">bij nemen straf&shy;corner</a></div>
-<div><a href="#13.8j">bij straf&shy;bal</a></div>
+<div><a href="#13.7j">bij straf&shy;bal</a></div>
 
 <div class="index-onderwerp"><a href="#wisselen">wissel&shy;en</a></div>
 <div><a href="#2.3strafcorner">tijdens straf&shy;corner</a></div>
@@ -1404,22 +1529,22 @@ naar de tribune gaan en mag zijn team niet coachen gedurende de straftijd.
 <tr><td>
 opnieuw nemen
 </td><td class="normaal">
-<ul><li><a href="#13.7a">aangever niet met één voet buiten het veld</a>
-</li><li><a href="#13.7c2">verdediger te vroeg over middenlijn</a>
+<ul><li><a href="#13.6a">aangever niet met één voet buiten het veld</a>
+</li><li><a href="#13.6c2">verdediger te vroeg over middenlijn</a>
 </li></ul>
 </td>
 <tr><td>
 speler achter middenlijn +<br />
 opnieuw nemen
 </td><td class="normaal">
-<ul><li><a href="#13.7b">schijnbeweging aangever</a>
-</li><li>te vroeg in cirkel: <a href="#13.7c">verdediger</a>, <a href="#13.7d">doelverdediger</a> of <a href="#13.7e">aanvaller</a>
+<ul><li><a href="#13.6b">schijnbeweging aangever</a>
+</li><li>te vroeg in cirkel: <a href="#13.6c">verdediger</a>, <a href="#13.6d">doelverdediger</a> of <a href="#13.6e">aanvaller</a>
 </li></ul>
 </td></tr>
 <tr><td>
 vrije push verdediging
 </td><td class="normaal">
-<a href="#13.7f">andere overtreding</a> aanvaller
+<a href="#13.6f">andere overtreding</a> aanvaller
 </td></tr>
 </table>
 
@@ -1451,7 +1576,7 @@ vrije push verdediging
 </td><td>?
 </td></tr>
 
-<tr><td><a href="#13.8j">straf&shy;bal</a>
+<tr><td><a href="#13.7j">straf&shy;bal</a>
 </td><td class="groen">ja
 </td><td class="rood"><a href="#9.5">nee</a>
 </td><td class="groen">ja
