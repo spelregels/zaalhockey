@@ -360,7 +360,15 @@ TABLE.index THEAD TH, TABLE.hulptabel THEAD TH {
 	.knipper.opmerking SPAN.nadruk, .opmerking .knipper SPAN.nadruk { color : inherit; }
 	#menu A.zichtbaar {	background-color : rgba(0,0,0,.4); color : rgb(180,180,180); }
 	#menu A.actief { background-color : black; color : rgb(200,200,200); }
-	#menu A:hover, #menu A.actief:hover, #menu A.zichtbaar:hover { background-color : rgb(210,210,210); color : #EF790C; }
+	}
+}
+/* Met javascript worden de hover effecten voor touchscreens weggehaald, maar dat heeft  
+geen effect op het @media gedeelte. Daarom worden de hover effecten conditioneel toegepast.
+Wat eigenlijk in zijn algemeenheid zou moeten gebeuren, zodat het javascript weg kan. */
+
+@media (hover: hover) and (prefers-color-scheme: dark) {
+  #menu A:hover, #menu A.actief:hover, #menu A.zichtbaar:hover { background-color : rgb(210,210,210); color : #EF790C; }
+
 }
 </style>
 <script>
@@ -598,6 +606,13 @@ function scrollHorizontal(el) {
 </script>
 <script>
 // script voor aanpassingen op kleine schermen (aanname dat dat mobiele telefoons zijn
+// script voor aanpassingen op touch schermen en kleine schermen (mobiele telefoons)
+function hasTouch() {
+  return 'ontouchstart' in document.documentElement
+         || navigator.maxTouchPoints > 0
+         || navigator.msMaxTouchPoints > 0;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 	var x = document.getElementById('menu').scrollWidth;
 
@@ -614,14 +629,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	// op klein scherm alle HOVER effecten uitzetten; op een mobiele telefoon zijn deze ongewenst zichtbaar
 	// als na het volgen van een link er met back van de browser teruggekeerd wordt.
-	if (screen.width <= 600) {
+	if (hasTouch()) {
 		var stylesheet = document.styleSheets[0];
 		for(var i = 0; i < stylesheet.cssRules.length; i++) {
 			var rule = stylesheet.cssRules[i];
 			var selector = rule.selectorText;
-			if (selector.match(":hover") != null)	{
-				stylesheet.deleteRule(i);
-				i--;
+			if ( typeof(selector) != 'undefined' ) {
+				if (selector.match(":hover") != null)	{
+					stylesheet.deleteRule(i);
+					i--;
+				}
 			}
 		}
 	}
